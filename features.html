@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tính năng HyperMods ROM</title>
+    <meta
+      name="description"
+      content="Khám phá các tính năng nổi bật của HyperMods ROM - Tối ưu hiệu năng, pin, bảo mật và nhiều hơn nữa."
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!-- Header / Navbar -->
+    <header class="header">
+      <div class="container header-inner">
+        <a href="index.html" class="logo">
+          <span class="logo-icon">H</span>
+          <span class="logo-text">HyperMods</span>
+        </a>
+
+        <nav class="nav">
+          <a href="index.html" class="nav-link" data-i18n="nav.home">Trang chủ</a>
+          <a href="features.html" class="nav-link active" data-i18n="nav.features">Tính năng</a>
+          <a href="downloads.html" class="nav-link" data-i18n="nav.download">Tải ROM</a>
+          <a href="donate.html" class="nav-link" data-i18n="nav.donate">Donate</a>
+        </nav>
+
+        <div class="nav-actions">
+          <button class="btn btn-outline btn-lang" id="btn-lang-toggle" title="Switch Language">
+            <span class="lang-icon">🌐</span>
+            <span class="lang-text">VI</span>
+          </button>
+          <button class="btn btn-outline" id="btn-theme-toggle">
+            <span class="theme-icon">🌙</span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Features Hero -->
+    <section class="features-hero">
+      <div class="container">
+        <div class="features-hero-content">
+          <span class="features-hero-icon">⚡</span>
+          <h1>Tính năng nổi bật</h1>
+          <p class="features-hero-subtitle">
+            HyperMods không chỉ là một bản ROM, mà là hệ sinh thái tối ưu cho mọi nhu cầu: 
+            chơi game, làm việc, học tập và giải trí.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features Categories -->
+    <section class="section">
+      <div class="container">
+        <!-- New Features -->
+        <div class="feature-category">
+          <div class="feature-category-header">
+            <span class="feature-category-icon">✨</span>
+            <div>
+              <h2>Tính năng mới</h2>
+              <p>Các tính năng được thêm vào HyperMods ROM</p>
+            </div>
+          </div>
+          <div class="feature-items-grid" id="features-added">
+            <!-- Rendered by JS -->
+          </div>
+        </div>
+
+        <!-- Improved -->
+        <div class="feature-category">
+          <div class="feature-category-header">
+            <span class="feature-category-icon">🚀</span>
+            <div>
+              <h2>Cải thiện</h2>
+              <p>Các cải tiến và tối ưu hóa</p>
+            </div>
+          </div>
+          <div class="feature-items-grid" id="features-improved">
+            <!-- Rendered by JS -->
+          </div>
+        </div>
+
+        <!-- Fixed -->
+        <div class="feature-category">
+          <div class="feature-category-header">
+            <span class="feature-category-icon">🔧</span>
+            <div>
+              <h2>Đã sửa lỗi</h2>
+              <p>Các lỗi đã được khắc phục</p>
+            </div>
+          </div>
+          <div class="feature-items-grid" id="features-fixed">
+            <!-- Rendered by JS -->
+          </div>
+        </div>
+
+        <!-- Modded Apps -->
+        <div class="feature-category">
+          <div class="feature-category-header">
+            <span class="feature-category-icon">📱</span>
+            <div>
+              <h2>Ứng dụng được mod</h2>
+              <p>16 ứng dụng hệ thống đã được tối ưu</p>
+            </div>
+          </div>
+          <div class="modded-apps-grid" id="modded-apps">
+            <!-- Rendered by JS -->
+          </div>
+        </div>
+
+        <!-- Highlight Cards -->
+        <div class="features-highlights">
+          <div class="highlight-card">
+            <div class="highlight-icon">🎮</div>
+            <h3>Gaming Mode</h3>
+            <p>Tối ưu cho PUBG, Free Fire, COD với hiệu năng cao nhất, giảm lag, ổn định FPS.</p>
+          </div>
+          <div class="highlight-card">
+            <div class="highlight-icon">🔋</div>
+            <h3>Battery Optimization</h3>
+            <p>Quản lý pin thông minh, giảm app chạy nền, kéo dài thời gian sử dụng.</p>
+          </div>
+          <div class="highlight-card">
+            <div class="highlight-icon">🛡️</div>
+            <h3>Security Enhanced</h3>
+            <p>Bảo mật tăng cường, chặn quảng cáo hệ thống, bảo vệ quyền riêng tư.</p>
+          </div>
+          <div class="highlight-card">
+            <div class="highlight-icon">📸</div>
+            <h3>Google Photos Unlimited</h3>
+            <p>Sao lưu ảnh và video không giới hạn lên Google Photos miễn phí.</p>
+          </div>
+        </div>
+
+        <!-- CTA -->
+        <div class="features-cta">
+          <h3>Sẵn sàng trải nghiệm?</h3>
+          <p>Tải HyperMods ROM ngay để nâng cấp thiết bị của bạn!</p>
+          <a href="downloads.html" class="btn btn-primary btn-lg">
+            <span>⬇️</span> Tải HyperMods ROM
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container footer-inner">
+        <p>© <span id="year"></span> HyperMods ROM. Phiên bản demo trang giới thiệu.</p>
+        <div class="footer-links">
+          <a href="index.html">Trang chủ</a>
+          <a href="downloads.html">Tải ROM</a>
+          <a href="donate.html">Donate</a>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Modal đăng ký serial -->
+    <div class="modal-overlay" id="modal-serial">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2>Đăng ký serial</h2>
+          <button class="modal-close" id="modal-close">&times;</button>
+        </div>
+        <div class="modal-body">
+          <form id="serial-form">
+            <div class="form-group">
+              <label for="serial-input">Nhập serial key:</label>
+              <input
+                type="text"
+                id="serial-input"
+                class="form-input"
+                placeholder="VD: 1a2b3c4d"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="email-input">Email của bạn:</label>
+              <input
+                type="email"
+                id="email-input"
+                class="form-input"
+                placeholder="email@example.com"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="device-input">Thiết bị:</label>
+              <input
+                type="text"
+                id="device-input"
+                class="form-input"
+                placeholder="VD: Redmi k60 pro - socrates"
+                required
+              />
+            </div>
+            <div class="form-actions">
+              <button type="submit" class="btn btn-primary">Đăng ký</button>
+              <button type="button" class="btn btn-outline" id="modal-cancel">Hủy</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <script src="devices.js"></script>
+    <script src="i18n.js"></script>
+    <script src="features.js"></script>
+  </body>
+</html>
+

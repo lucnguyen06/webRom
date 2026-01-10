@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>HyperMods ROM - Hyper Mods Hub</title>
+    <meta
+      name="description"
+      content="HyperMods ROM - Nền tảng ROM mod tối ưu hiệu năng, pin, độ ổn định cho Android. Hỗ trợ Snapdragon & Dimensity, nhiều tuỳ biến cao cấp."
+    />
+    <link
+      rel="stylesheet"
+      href="styles.css"
+    />
+  </head>
+  <body>
+    <!-- Header / Navbar -->
+    <header class="header">
+      <div class="container header-inner">
+        <div class="logo">
+          <span class="logo-icon">H</span>
+          <span class="logo-text">HyperMods</span>
+        </div>
+
+        <nav class="nav">
+          <a href="#home" class="nav-link active" data-i18n="nav.home">Trang chủ</a>
+          <a href="features.html" class="nav-link" data-i18n="nav.features">Tính năng</a>
+          <a href="downloads.html" class="nav-link" data-i18n="nav.download">Tải ROM</a>
+          <a href="donate.html" class="nav-link" data-i18n="nav.donate">Donate</a>
+        </nav>
+
+        <div class="nav-actions">
+          <button class="btn btn-outline btn-lang" id="btn-lang-toggle" title="Switch Language">
+            <span class="lang-icon">🌐</span>
+            <span class="lang-text">VI</span>
+          </button>
+          <button class="btn btn-outline" id="btn-theme-toggle">
+            <span class="theme-icon">🌙</span>
+          </button>
+          <button class="btn btn-primary" id="btn-register-serial" data-i18n="nav.register">Đăng ký serial</button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Hero section -->
+    <section id="home" class="hero">
+      <div class="container hero-inner">
+        <div class="hero-text">
+          <p class="badge">
+            <span class="badge-dot"></span>
+            <span data-i18n="hero.badge">HyperMods ROM • Bản mod tối ưu toàn diện</span>
+          </p>
+          <h1 data-i18n="hero.title">HyperMods ROM</h1>
+          <p class="hero-subtitle" data-i18n="hero.subtitle">
+            Nâng cấp trải nghiệm Android của bạn với ROM mod được tối ưu sâu
+            về hiệu năng, pin, độ ổn định và bảo mật – vẫn giữ giao diện thân
+            thiện, dễ dùng.
+          </p>
+
+          <div class="hero-actions">
+            <a href="downloads.html" class="btn btn-primary btn-lg" data-i18n="hero.btn.download">
+              Tải HyperMods
+            </a>
+            <a href="https://drive.google.com/drive/folders/1ppAB_Bn3yfAbqUgOk_7_frzUgIfGjJsr?usp=drive_link" 
+               class="btn btn-tool-mini" 
+               target="_blank" 
+               rel="noopener noreferrer"
+               title="Hyper Mods Tool">
+              🛠️ Tải Tool
+            </a>
+            <a href="features.html" class="btn btn-outline btn-lg" data-i18n="hero.btn.features">
+              Xem tính năng
+            </a>
+          </div>
+
+          <ul class="hero-list">
+            <li data-i18n="hero.list.1">⚡ Tối ưu hiệu năng cho game & đa nhiệm</li>
+            <li data-i18n="hero.list.2">🔋 Quản lý pin thông minh, giảm app chạy nền</li>
+            <li data-i18n="hero.list.3">🛡️ Bảo mật tăng cường, chặn quảng cáo hệ thống</li>
+          </ul>
+        </div>
+
+        <div class="hero-card">
+          <div class="hero-card-header">
+            <span class="dot red"></span>
+            <span class="dot yellow"></span>
+            <span class="dot green"></span>
+          </div>
+          <div class="hero-card-body">
+            <h2 data-i18n="version.title">Phiên bản hiện tại</h2>
+            <p class="version-name" data-i18n="version.name">HyperMods Hybrid 1.0</p>
+            <ul class="version-list">
+              <li><strong data-i18n="version.android">Android:</strong> 14, 15, 16 (HyperOS 1, 2, 3)</li>
+              <li><strong data-i18n="version.chip">Chip:</strong> Snapdragon, Dimensity</li>
+              <li><strong data-i18n="version.base">Base:</strong> CN, EU, Global</li>
+              <li><strong data-i18n="version.security">Security:</strong> <span data-i18n="version.security.value">Patch mới nhất</span></li>
+            </ul>
+            <a href="downloads.html" class="btn btn-primary btn-full" data-i18n="version.btn">
+              Tải bản mới nhất
+            </a>
+            <p class="version-note" data-i18n="version.note">
+              * Vui lòng đọc kỹ hướng dẫn cài đặt trước khi flash ROM.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Quick Features Section -->
+    <section class="section home-features">
+      <div class="container">
+        <div class="section-header">
+          <h2 data-i18n="home.features.title">Tại sao chọn HyperMods?</h2>
+          <p data-i18n="home.features.subtitle">Những điểm nổi bật làm nên sự khác biệt của HyperMods ROM</p>
+        </div>
+
+        <div class="home-features-grid">
+          <div class="home-feature-card">
+            <div class="home-feature-icon">🚀</div>
+            <h3 data-i18n="home.features.performance">Hiệu năng vượt trội</h3>
+            <p data-i18n="home.features.performance.desc">Tinh chỉnh hệ thống sâu để tăng tốc độ xử lý, giảm độ trễ và tối ưu RAM/CPU.</p>
+          </div>
+
+          <div class="home-feature-card">
+            <div class="home-feature-icon">🎮</div>
+            <h3 data-i18n="home.features.gaming">Chế độ Gaming tối ưu</h3>
+            <p data-i18n="home.features.gaming.desc">Hạn chế giật lag, giảm nhiệt và tăng FPS ổn định khi chơi game.</p>
+          </div>
+
+          <div class="home-feature-card">
+            <div class="home-feature-icon">🎨</div>
+            <h3 data-i18n="home.features.customize">Tùy biến linh hoạt</h3>
+            <p data-i18n="home.features.customize.desc">Giao diện, hiệu ứng, icon, banner… có thể được cá nhân hóa theo phong cách riêng.</p>
+          </div>
+
+          <div class="home-feature-card">
+            <div class="home-feature-icon">🔒</div>
+            <h3 data-i18n="home.features.security">An toàn & ổn định</h3>
+            <p data-i18n="home.features.security.desc">Giữ lại tính tương thích và bảo mật của ROM gốc, đồng thời loại bỏ bloatware thừa.</p>
+          </div>
+
+          <div class="home-feature-card">
+            <div class="home-feature-icon">🔧</div>
+            <h3 data-i18n="home.features.support">Hỗ trợ mở rộng</h3>
+            <p data-i18n="home.features.support.desc">Dễ dàng kết hợp với các công cụ flash, patch và mod khác từ cộng đồng.</p>
+          </div>
+        </div>
+
+        <div class="home-features-cta">
+          <a href="features.html" class="btn btn-outline btn-lg" data-i18n="home.features.cta">
+            Xem tất cả tính năng →
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ROM Gallery Section -->
+    <section class="section rom-gallery">
+      <div class="container">
+        <div class="section-header">
+          <h2 data-i18n="gallery.title">📸 Hình ảnh ROM</h2>
+          <p data-i18n="gallery.subtitle">Khám phá giao diện HyperMods ROM trên các phiên bản HyperOS</p>
+        </div>
+
+        <!-- Gallery Tabs -->
+        <div class="gallery-tabs">
+          <button class="gallery-tab active" data-gallery="os2">
+            <span class="gallery-tab-icon">🌙</span>
+            <span data-i18n="gallery.tab.os2">HyperOS 2</span>
+          </button>
+          <button class="gallery-tab" data-gallery="os3">
+            <span class="gallery-tab-icon">✨</span>
+            <span data-i18n="gallery.tab.os3">HyperOS 3</span>
+          </button>
+        </div>
+
+        <!-- Gallery Container -->
+        <div class="gallery-container">
+          <button class="gallery-nav gallery-nav-prev" id="gallery-prev">
+            <span>‹</span>
+          </button>
+          
+          <div class="gallery-wrapper">
+            <div class="gallery-track" id="gallery-track">
+              <!-- Images will be loaded dynamically -->
+            </div>
+          </div>
+
+          <button class="gallery-nav gallery-nav-next" id="gallery-next">
+            <span>›</span>
+          </button>
+        </div>
+
+        <!-- Gallery Dots -->
+        <div class="gallery-dots" id="gallery-dots"></div>
+
+        <!-- Lightbox -->
+        <div class="gallery-lightbox" id="gallery-lightbox">
+          <button class="lightbox-close" id="lightbox-close">&times;</button>
+          <button class="lightbox-nav lightbox-prev" id="lightbox-prev">‹</button>
+          <img src="" alt="ROM Screenshot" id="lightbox-img">
+          <button class="lightbox-nav lightbox-next" id="lightbox-next">›</button>
+          <div class="lightbox-counter" id="lightbox-counter"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container footer-inner">
+        <p>© <span id="year"></span> <span data-i18n="footer.copyright">HyperMods ROM. Phiên bản demo trang giới thiệu.</span></p>
+        <div class="footer-links">
+          <a href="index.html" data-i18n="nav.home">Trang chủ</a>
+          <a href="features.html" data-i18n="nav.features">Tính năng</a>
+          <a href="downloads.html" data-i18n="nav.download">Tải ROM</a>
+          <a href="donate.html" data-i18n="nav.donate">Donate</a>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Modal đăng ký serial -->
+    <div class="modal-overlay" id="modal-serial">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 data-i18n="modal.title">Serial Key</h2>
+          <button class="modal-close" id="modal-close">&times;</button>
+        </div>
+        <div class="modal-body">
+          <!-- Tabs -->
+          <div class="modal-tabs">
+            <button class="modal-tab active" data-tab="register" data-i18n="modal.tab.register">📝 Đăng ký</button>
+            <button class="modal-tab" data-tab="lookup" data-i18n="modal.tab.lookup">🔍 Tra cứu</button>
+          </div>
+
+          <!-- Register Form -->
+          <div class="tab-content" id="tab-register">
+            <form id="serial-form">
+              <div class="form-group">
+                <label for="serial-input" data-i18n="modal.serial.label">Nhập serial key:</label>
+                <input
+                  type="text"
+                  id="serial-input"
+                  class="form-input"
+                  placeholder="VD: 1a2b3c4d"
+                  data-i18n-placeholder="modal.serial.placeholder"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label for="email-input" data-i18n="modal.email.label">Email của bạn:</label>
+                <input
+                  type="email"
+                  id="email-input"
+                  class="form-input"
+                  placeholder="email@example.com"
+                  data-i18n-placeholder="modal.email.placeholder"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label for="device-input" data-i18n="modal.device.label">Thiết bị:</label>
+                <div class="autocomplete-wrapper">
+                  <input
+                    type="text"
+                    id="device-input"
+                    class="form-input"
+                    placeholder="Nhập tên thiết bị để tìm kiếm..."
+                    data-i18n-placeholder="modal.device.placeholder"
+                    autocomplete="off"
+                    required
+                  />
+                  <div class="autocomplete-dropdown hidden" id="device-dropdown"></div>
+                </div>
+              </div>
+              <div class="form-actions">
+                <button type="submit" class="btn btn-primary" data-i18n="modal.btn.register">Đăng ký</button>
+                <button type="button" class="btn btn-outline" id="modal-cancel" data-i18n="modal.btn.cancel">Hủy</button>
+              </div>
+            </form>
+          </div>
+
+          <!-- Lookup Form -->
+          <div class="tab-content hidden" id="tab-lookup">
+            <form id="lookup-form">
+              <div class="form-group">
+                <label for="lookup-input" data-i18n="modal.lookup.label">Serial hoặc Email:</label>
+                <input
+                  type="text"
+                  id="lookup-input"
+                  class="form-input"
+                  placeholder="Nhập serial hoặc email để tra cứu..."
+                  data-i18n-placeholder="modal.lookup.placeholder"
+                  required
+                />
+              </div>
+              <div class="form-actions">
+                <button type="submit" class="btn btn-primary" data-i18n="modal.btn.lookup">🔍 Tra cứu</button>
+                <button type="button" class="btn btn-outline" id="modal-cancel-lookup" data-i18n="modal.btn.cancel">Hủy</button>
+              </div>
+            </form>
+
+            <!-- Lookup Result -->
+            <div class="lookup-result hidden" id="lookup-result">
+              <div class="lookup-result-header">
+                <span class="lookup-result-icon">✅</span>
+                <h4 data-i18n="modal.result.title">Kết quả tra cứu</h4>
+              </div>
+              <div class="lookup-result-content">
+                <div class="lookup-result-item">
+                  <span class="lookup-label" data-i18n="modal.result.serial">Serial:</span>
+                  <span class="lookup-value" id="result-serial">-</span>
+                </div>
+                <div class="lookup-result-item">
+                  <span class="lookup-label" data-i18n="modal.result.email">Email:</span>
+                  <span class="lookup-value" id="result-email">-</span>
+                </div>
+                <div class="lookup-result-item">
+                  <span class="lookup-label" data-i18n="modal.result.device">Thiết bị:</span>
+                  <span class="lookup-value" id="result-device">-</span>
+                </div>
+                <div class="lookup-result-item">
+                  <span class="lookup-label" data-i18n="modal.result.date">Ngày đăng ký:</span>
+                  <span class="lookup-value" id="result-date">-</span>
+                </div>
+                <div class="lookup-result-item">
+                  <span class="lookup-label" data-i18n="modal.result.status">Trạng thái:</span>
+                  <span class="lookup-value lookup-status" id="result-status">-</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Not Found -->
+            <div class="lookup-not-found hidden" id="lookup-not-found">
+              <span class="lookup-not-found-icon">❌</span>
+              <p data-i18n="modal.notfound">Không tìm thấy thông tin đăng ký.</p>
+              <p class="lookup-not-found-hint" data-i18n="modal.notfound.hint">Vui lòng kiểm tra lại serial hoặc email của bạn.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="devices.js"></script>
+    <script src="i18n.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
+

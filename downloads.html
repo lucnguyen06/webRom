@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>Tải HyperMods ROM - Hyper Mods Hub</title>
+    <meta
+      name="description"
+      content="Tải HyperMods ROM cho các dòng máy Xiaomi, Redmi. Hỗ trợ Snapdragon & Dimensity, nhiều tuỳ biến cao cấp."
+    />
+    <link
+      rel="stylesheet"
+      href="styles.css"
+    />
+  </head>
+  <body>
+    <!-- Header / Navbar -->
+    <header class="header">
+      <div class="container header-inner">
+        <a href="index.html" class="logo">
+          <span class="logo-icon">H</span>
+          <span class="logo-text">HyperMods</span>
+        </a>
+
+        <nav class="nav">
+          <a href="index.html" class="nav-link" data-i18n="nav.home">Trang chủ</a>
+          <a href="features.html" class="nav-link" data-i18n="nav.features">Tính năng</a>
+          <a href="downloads.html" class="nav-link active" data-i18n="nav.download">Tải ROM</a>
+          <a href="donate.html" class="nav-link" data-i18n="nav.donate">Donate</a>
+        </nav>
+
+        <div class="nav-actions">
+          <button class="btn btn-outline btn-lang" id="btn-lang-toggle" title="Switch Language">
+            <span class="lang-icon">🌐</span>
+            <span class="lang-text">VI</span>
+          </button>
+          <button class="btn btn-outline" id="btn-theme-toggle">
+            <span class="theme-icon">🌙</span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Downloads Hero -->
+    <section class="downloads-hero">
+      <div class="container">
+        <div class="downloads-hero-content">
+          <h1>Tải HyperMods ROM</h1>
+          <p class="downloads-hero-subtitle">
+            Chọn đúng dòng máy và base ROM hiện tại để đảm bảo quá trình flash an toàn.
+            Mỗi bản ROM được tối ưu riêng cho từng thiết bị.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tool Download Section -->
+    <section class="section">
+      <div class="container">
+        <div class="tool-download-card">
+          <div class="tool-download-icon">🛠️</div>
+          <div class="tool-download-info">
+            <h3>Hyper Mods Tool</h3>
+            <p>Công cụ hỗ trợ flash ROM, backup, restore và nhiều tính năng tiện ích khác.</p>
+          </div>
+          <a href="https://drive.google.com/drive/folders/1ppAB_Bn3yfAbqUgOk_7_frzUgIfGjJsr?usp=drive_link" 
+             target="_blank" 
+             rel="noopener noreferrer" 
+             class="btn btn-primary btn-tool-download">
+            <span>⬇️</span> Tải Tool
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Search & Filter -->
+    <section class="section">
+      <div class="container">
+        <div class="search-filter-bar">
+          <div class="search-box">
+            <span class="search-icon">🔍</span>
+            <input 
+              type="text" 
+              id="device-search" 
+              class="search-input" 
+              placeholder="Tìm kiếm thiết bị hoặc codename..."
+            />
+          </div>
+          <div class="filter-info">
+            <span id="device-count">0 thiết bị</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Device Slider Section -->
+    <section class="section section-alt">
+      <div class="container">
+        <div class="slider-header">
+          <h2>📱 Danh sách ROM theo thiết bị</h2>
+          <div class="category-tabs" id="category-tabs">
+            <button class="category-tab active" data-category="all">Tất cả</button>
+            <button class="category-tab" data-category="xiaomi">Xiaomi</button>
+            <button class="category-tab" data-category="pad">Pad</button>
+            <button class="category-tab" data-category="mix">MIX</button>
+            <button class="category-tab" data-category="civi">Civi</button>
+            <button class="category-tab" data-category="redmi">Redmi</button>
+            <button class="category-tab" data-category="redmi-note">Note</button>
+            <button class="category-tab" data-category="redmi-k">K Series</button>
+            <button class="category-tab" data-category="poco">POCO</button>
+          </div>
+        </div>
+
+        <!-- Device Slider -->
+        <div class="device-slider-wrapper">
+          <button class="slider-arrow slider-arrow-left" id="slider-prev">
+            <span>‹</span>
+          </button>
+          
+          <div class="device-slider" id="device-slider">
+            <!-- Device cards will be rendered by JavaScript -->
+          </div>
+          
+          <button class="slider-arrow slider-arrow-right" id="slider-next">
+            <span>›</span>
+          </button>
+        </div>
+
+        <div id="no-results" class="no-results" style="display: none;">
+          <p>😕 Không tìm thấy thiết bị nào phù hợp.</p>
+        </div>
+
+        <!-- Info Cards Row -->
+        <div class="info-cards-row">
+          <div class="card guide-card">
+            <h3>📋 Hướng dẫn cài đặt nhanh</h3>
+            <ol class="guide-list">
+              <li>Sao lưu toàn bộ dữ liệu quan trọng.</li>
+              <li>Mở khoá bootloader & cài custom recovery (TWRP / OFRP).</li>
+              <li>Wipe data, cache, system theo hướng dẫn từng dòng máy.</li>
+              <li>Flash bản HyperMods ROM tương ứng.</li>
+              <li>Reboot & chờ máy khởi động lại lần đầu.</li>
+            </ol>
+            <p class="guide-warning">
+              ⚠️ Việc can thiệp hệ thống luôn tiềm ẩn rủi ro. Bạn tự chịu trách nhiệm với thiết bị của mình.
+            </p>
+          </div>
+
+          <div class="card info-card">
+            <h3>ℹ️ Thông tin phiên bản</h3>
+            <ul class="info-list">
+              <li><strong>HyperOS:</strong> 1.0, 2.0, 3.0</li>
+              <li><strong>Android:</strong> 14, 15, 16</li>
+              <li><strong>Chip:</strong> Snapdragon, Dimensity</li>
+              <li><strong>Base:</strong> CN, EU, Global</li>
+            </ul>
+          </div>
+
+          <div class="card support-card">
+            <h3>💬 Cần hỗ trợ?</h3>
+            <p>Liên hệ team qua Telegram để được hỗ trợ cài đặt và fix lỗi.</p>
+            <div class="support-actions">
+              <a class="btn-contact" href="https://t.me/Usagi79" target="_blank" rel="noopener noreferrer">
+                @Usagi79
+              </a>
+              <a class="btn-contact btn-contact-secondary" href="https://t.me/lcnguy06" target="_blank" rel="noopener noreferrer">
+                @lcnguy06
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container footer-inner">
+        <p>© <span id="year"></span> HyperMods ROM. Phiên bản demo trang giới thiệu.</p>
+        <div class="footer-links">
+          <a href="index.html">Trang chủ</a>
+          <a href="features.html">Tính năng</a>
+          <a href="downloads.html">Tải ROM</a>
+          <a href="donate.html">Donate</a>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Modal đăng ký serial -->
+    <div class="modal-overlay" id="modal-serial">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2>Đăng ký serial</h2>
+          <button class="modal-close" id="modal-close">&times;</button>
+        </div>
+        <div class="modal-body">
+          <form id="serial-form">
+            <div class="form-group">
+              <label for="serial-input">Nhập serial key:</label>
+              <input
+                type="text"
+                id="serial-input"
+                class="form-input"
+                placeholder="VD: 1a2b3c4d"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="email-input">Email của bạn:</label>
+              <input
+                type="email"
+                id="email-input"
+                class="form-input"
+                placeholder="email@example.com"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="device-input">Thiết bị:</label>
+              <input
+                type="text"
+                id="device-input"
+                class="form-input"
+                placeholder="VD: Redmi k60 pro - socrates"
+                required
+              />
+            </div>
+            <div class="form-actions">
+              <button type="submit" class="btn btn-primary">Đăng ký</button>
+              <button type="button" class="btn btn-outline" id="modal-cancel">Hủy</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <script src="devices.js"></script>
+    <script src="i18n.js"></script>
+    <script src="downloads.js"></script>
+  </body>
+</html>
+
