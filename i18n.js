@@ -9,10 +9,10 @@ const translations = {
     'nav.register': 'Đăng ký serial',
 
     // Hero Section
-    'hero.badge': 'HyperMods ROM • Bản mod tối ưu toàn diện',
-    'hero.title': 'HyperMods ROM',
+    'hero.badge': 'HyperUR • Bản mod tối ưu toàn diện',
+    'hero.title': 'HyperUR',
     'hero.subtitle': 'Nâng cấp trải nghiệm Android của bạn với ROM mod được tối ưu sâu về hiệu năng, pin, độ ổn định và bảo mật – vẫn giữ giao diện thân thiện, dễ dùng.',
-    'hero.btn.download': 'Tải HyperMods',
+    'hero.btn.download': 'Tải HyperUR',
     'hero.btn.features': 'Xem tính năng',
     'hero.list.1': '⚡ Tối ưu hiệu năng cho game & đa nhiệm',
     'hero.list.2': '🔋 Quản lý pin thông minh, giảm app chạy nền',
@@ -20,7 +20,7 @@ const translations = {
 
     // Version Card
     'version.title': 'Phiên bản hiện tại',
-    'version.name': 'HyperMods Hybrid 1.0',
+    'version.name': 'HyperUR Hybrid 1.0',
     'version.android': 'Android:',
     'version.chip': 'Chip:',
     'version.base': 'Base:',
@@ -30,8 +30,8 @@ const translations = {
     'version.note': '* Vui lòng đọc kỹ hướng dẫn cài đặt trước khi flash ROM.',
 
     // Home Features
-    'home.features.title': 'Tại sao chọn HyperMods?',
-    'home.features.subtitle': 'Những điểm nổi bật làm nên sự khác biệt của HyperMods ROM',
+    'home.features.title': 'Tại sao chọn HyperUR?',
+    'home.features.subtitle': 'Những điểm nổi bật làm nên sự khác biệt của HyperUR',
     'home.features.performance': 'Hiệu năng vượt trội',
     'home.features.performance.desc': 'Tinh chỉnh hệ thống sâu để tăng tốc độ xử lý, giảm độ trễ và tối ưu RAM/CPU.',
     'home.features.gaming': 'Chế độ Gaming tối ưu',
@@ -46,12 +46,12 @@ const translations = {
 
     // Gallery
     'gallery.title': '📸 Hình ảnh ROM',
-    'gallery.subtitle': 'Khám phá giao diện HyperMods ROM trên các phiên bản HyperOS',
+    'gallery.subtitle': 'Khám phá giao diện HyperUR trên các phiên bản HyperOS',
     'gallery.tab.os2': 'HyperOS 2',
     'gallery.tab.os3': 'HyperOS 3',
 
     // Footer
-    'footer.copyright': 'HyperMods ROM. Phiên bản demo trang giới thiệu.',
+    'footer.copyright': 'HyperUR. Phiên bản demo trang giới thiệu.',
 
     // Modal - Serial Registration
     'modal.title': 'Serial Key',
@@ -78,7 +78,7 @@ const translations = {
     'modal.notfound.hint': 'Vui lòng kiểm tra lại serial hoặc email của bạn.',
 
     // Downloads Page
-    'downloads.title': 'Tải HyperMods ROM',
+    'downloads.title': 'Tải HyperUR',
     'downloads.subtitle': 'Chọn đúng dòng máy và base ROM hiện tại để đảm bảo quá trình flash an toàn. Mỗi bản ROM được tối ưu riêng cho từng thiết bị.',
     'downloads.search.placeholder': 'Tìm kiếm thiết bị...',
     'downloads.devices': 'thiết bị',
@@ -108,7 +108,7 @@ const translations = {
 
     // Features Page
     'features.title': 'Tính năng nổi bật',
-    'features.subtitle': 'HyperMods không chỉ là một bản ROM, mà là hệ sinh thái tối ưu cho mọi nhu cầu: chơi game, làm việc, học tập và giải trí.',
+    'features.subtitle': 'HyperUR không chỉ là một bản ROM, mà là hệ sinh thái tối ưu cho mọi nhu cầu: chơi game, làm việc, học tập và giải trí.',
     'features.new': 'Tính năng mới',
     'features.new.desc': 'Những tính năng độc quyền được bổ sung',
     'features.improved': 'Cải thiện',
@@ -118,14 +118,14 @@ const translations = {
     'features.apps': 'Ứng dụng đã mod',
     'features.apps.desc': 'Các app hệ thống được tối ưu',
     'features.cta.title': 'Sẵn sàng trải nghiệm?',
-    'features.cta.desc': 'Tải ngay HyperMods ROM để khám phá tất cả tính năng tuyệt vời này!',
+    'features.cta.desc': 'Tải ngay HyperUR để khám phá tất cả tính năng tuyệt vời này!',
     'features.cta.btn': '⬇️ Tải ngay',
 
     // Donate Page
-    'donate.title': 'Ủng hộ dự án HyperMods',
-    'donate.subtitle': 'Nếu bạn thấy HyperMods hữu ích, có thể ủng hộ team thông qua các phương thức bên dưới để duy trì server, thiết bị test và thời gian phát triển.',
+    'donate.title': 'Ủng hộ dự án HyperUR',
+    'donate.subtitle': 'Nếu bạn thấy HyperUR hữu ích, có thể ủng hộ team thông qua các phương thức bên dưới để duy trì server, thiết bị test và thời gian phát triển.',
     'donate.thanks.title': 'Cảm ơn bạn!',
-    'donate.thanks.desc': 'Mọi đóng góp dù lớn hay nhỏ đều giúp dự án HyperMods phát triển bền vững. Chúng tôi trân trọng sự ủng hộ của bạn!',
+    'donate.thanks.desc': 'Mọi đóng góp dù lớn hay nhỏ đều giúp dự án HyperUR phát triển bền vững. Chúng tôi trân trọng sự ủng hộ của bạn!',
 
     // Common
     'common.stable': 'Stable',
@@ -141,10 +141,10 @@ const translations = {
     'nav.register': 'Register Serial',
 
     // Hero Section
-    'hero.badge': 'HyperMods ROM • Fully Optimized Mod',
-    'hero.title': 'HyperMods ROM',
+    'hero.badge': 'HyperUR • Fully Optimized Mod',
+    'hero.title': 'HyperUR',
     'hero.subtitle': 'Upgrade your Android experience with a ROM optimized for performance, battery, stability and security – while keeping a friendly, easy-to-use interface.',
-    'hero.btn.download': 'Download HyperMods',
+    'hero.btn.download': 'Download HyperUR',
     'hero.btn.features': 'View Features',
     'hero.list.1': '⚡ Optimized performance for gaming & multitasking',
     'hero.list.2': '🔋 Smart battery management, reduce background apps',
@@ -152,7 +152,7 @@ const translations = {
 
     // Version Card
     'version.title': 'Current Version',
-    'version.name': 'HyperMods Hybrid 1.0',
+    'version.name': 'HyperUR Hybrid 1.0',
     'version.android': 'Android:',
     'version.chip': 'Chip:',
     'version.base': 'Base:',
@@ -162,8 +162,8 @@ const translations = {
     'version.note': '* Please read the installation guide carefully before flashing ROM.',
 
     // Home Features
-    'home.features.title': 'Why Choose HyperMods?',
-    'home.features.subtitle': 'Key highlights that make HyperMods ROM different',
+    'home.features.title': 'Why Choose HyperUR?',
+    'home.features.subtitle': 'Key highlights that make HyperUR different',
     'home.features.performance': 'Superior Performance',
     'home.features.performance.desc': 'Deep system optimization to increase processing speed, reduce latency and optimize RAM/CPU.',
     'home.features.gaming': 'Optimized Gaming Mode',
@@ -178,12 +178,12 @@ const translations = {
 
     // Gallery
     'gallery.title': '📸 ROM Screenshots',
-    'gallery.subtitle': 'Explore HyperMods ROM interface on HyperOS versions',
+    'gallery.subtitle': 'Explore HyperUR interface on HyperOS versions',
     'gallery.tab.os2': 'HyperOS 2',
     'gallery.tab.os3': 'HyperOS 3',
 
     // Footer
-    'footer.copyright': 'HyperMods ROM. Demo version.',
+    'footer.copyright': 'HyperUR. Demo version.',
 
     // Modal - Serial Registration
     'modal.title': 'Serial Key',
@@ -210,7 +210,7 @@ const translations = {
     'modal.notfound.hint': 'Please check your serial or email again.',
 
     // Downloads Page
-    'downloads.title': 'Download HyperMods ROM',
+    'downloads.title': 'Download HyperUR',
     'downloads.subtitle': 'Select the correct device and current base ROM to ensure safe flashing. Each ROM is optimized for specific devices.',
     'downloads.search.placeholder': 'Search devices...',
     'downloads.devices': 'devices',
@@ -240,7 +240,7 @@ const translations = {
 
     // Features Page
     'features.title': 'Key Features',
-    'features.subtitle': 'HyperMods is not just a ROM, but an optimized ecosystem for all needs: gaming, work, study and entertainment.',
+    'features.subtitle': 'HyperUR is not just a ROM, but an optimized ecosystem for all needs: gaming, work, study and entertainment.',
     'features.new': 'New Features',
     'features.new.desc': 'Exclusive features added',
     'features.improved': 'Improvements',
@@ -250,14 +250,14 @@ const translations = {
     'features.apps': 'Modded Apps',
     'features.apps.desc': 'Optimized system apps',
     'features.cta.title': 'Ready to Experience?',
-    'features.cta.desc': 'Download HyperMods ROM now to explore all these amazing features!',
+    'features.cta.desc': 'Download HyperUR now to explore all these amazing features!',
     'features.cta.btn': '⬇️ Download Now',
 
     // Donate Page
-    'donate.title': 'Support HyperMods Project',
-    'donate.subtitle': 'If you find HyperMods useful, you can support the team through the methods below to maintain servers, test devices and development time.',
+    'donate.title': 'Support HyperUR Project',
+    'donate.subtitle': 'If you find HyperUR useful, you can support the team through the methods below to maintain servers, test devices and development time.',
     'donate.thanks.title': 'Thank You!',
-    'donate.thanks.desc': 'Every contribution, big or small, helps HyperMods project grow sustainably. We appreciate your support!',
+    'donate.thanks.desc': 'Every contribution, big or small, helps HyperUR project grow sustainably. We appreciate your support!',
 
     // Common
     'common.stable': 'Stable',

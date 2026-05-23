@@ -59,9 +59,9 @@ const THEME_KEY = 'hypermods-theme';
 
 function applyTheme(theme) {
   if (theme === 'dark') {
-    body.classList.add('dark');
+    body.classList.add('dark-mode');
   } else {
-    body.classList.remove('dark');
+    body.classList.remove('dark-mode');
   }
   if (themeToggleBtn) {
     const icon = theme === 'dark' ? '☀️' : '🌙';
@@ -79,7 +79,7 @@ if (savedTheme === 'light' || savedTheme === 'dark') {
 
 if (themeToggleBtn) {
   themeToggleBtn.addEventListener('click', () => {
-    const isDark = body.classList.contains('dark');
+    const isDark = body.classList.contains('dark-mode');
     const nextTheme = isDark ? 'light' : 'dark';
     applyTheme(nextTheme);
     window.localStorage.setItem(THEME_KEY, nextTheme);
@@ -492,7 +492,7 @@ function renderGallery() {
   
   galleryTrack.innerHTML = images.map((src, index) => `
     <div class="gallery-item" data-index="${index}">
-      <img src="${src}" alt="HyperMods ROM Screenshot ${index + 1}" loading="lazy">
+      <img src="${src}" alt="HyperUR Screenshot ${index + 1}" loading="lazy">
     </div>
   `).join('');
 
