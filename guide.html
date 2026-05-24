@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>Hướng dẫn Flash ROM - HyperUR</title>
+    <meta
+      name="description"
+      content="Hướng dẫn chi tiết cách flash ROM HyperUR an toàn trên thiết bị Xiaomi, Redmi, POCO."
+    />
+    <link
+      rel="stylesheet"
+      href="styles.css"
+    />
+  </head>
+  <body>
+    <!-- Blur Background -->
+    <div class="blur-bg blur-bg-1"></div>
+    <div class="blur-bg blur-bg-2"></div>
+    <div class="blur-bg blur-bg-3"></div>
+    <div class="blur-bg blur-bg-4"></div>
+    <div class="blur-bg blur-bg-5"></div>
+
+    <!-- Gradient Orbs -->
+    <div class="gradient-orb gradient-orb-1"></div>
+    <div class="gradient-orb gradient-orb-2"></div>
+    <div class="gradient-orb gradient-orb-3"></div>
+
+    <!-- Header / Navbar -->
+    <header class="header">
+      <div class="container header-inner">
+        <a href="index.html" class="logo">
+          <span class="logo-text"><span class="logo-hyper">Hyper</span><span class="logo-ur">UR</span></span>
+        </a>
+
+        <nav class="nav">
+          <a href="index.html" class="nav-link">Trang chủ</a>
+          <a href="features.html" class="nav-link">Tính năng</a>
+          <a href="downloads.html" class="nav-link">Tải ROM</a>
+          <a href="guide.html" class="nav-link active">Hướng dẫn</a>
+          <a href="donate.html" class="nav-link">Donate</a>
+        </nav>
+
+        <div class="nav-actions">
+          <button class="btn btn-outline btn-lang" id="btn-lang-toggle" title="Switch Language">
+            <span class="lang-icon">🌐</span>
+            <span class="lang-text">VI</span>
+          </button>
+          <button class="btn btn-outline" id="btn-theme-toggle">
+            <span class="theme-icon">🌙</span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Guide Hero -->
+    <section class="guide-hero">
+      <div class="container">
+        <div class="guide-hero-content">
+          <h1>📖 Hướng dẫn Flash ROM</h1>
+          <p>Hướng dẫn chi tiết cách flash ROM HyperUR an toàn trên thiết bị Xiaomi, Redmi, POCO. Vui lòng đọc kỹ trước khi thực hiện.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Guide Content -->
+    <section class="section">
+      <div class="container">
+        <!-- Table of Contents -->
+        <div class="guide-toc card">
+          <h2>📋 Mục lục</h2>
+          <ol class="toc-list">
+            <li><a href="#chuabien">Chuẩn bị</a></li>
+            <li><a href="#mokhoa-bl">Mở khóa Bootloader</a></li>
+            <li><a href="#cairecovery">Cài Recovery</a></li>
+            <li><a href="#flashrom">Flash ROM qua Recovery</a></li>
+            <li><a href="#flashrom-fastboot">Flash ROM qua Fastboot</a></li>
+            <li><a href="#caidata">Wipe Data & Restore</a></li>
+            <li><a href="#loinhan">Lỗi thường gặp</a></li>
+            <li><a href="#cauhoithuong">Câu hỏi thường gặp</a></li>
+          </ol>
+        </div>
+
+        <!-- Section 1: Chuẩn bị -->
+        <div class="guide-section card" id="chuabien">
+          <div class="guide-section-header">
+            <span class="guide-section-icon">📦</span>
+            <div>
+              <h2>1. Chuẩn bị trước khi flash</h2>
+              <p>Những thứ bạn cần có trước khi bắt đầu</p>
+            </div>
+          </div>
+
+          <div class="guide-section-content">
+            <h3>📱 Thiết bị & Yêu cầu</h3>
+            <ul class="guide-list">
+              <li>Thiết bị Xiaomi/Redmi/POCO đã được hỗ trợ</li>
+              <li>Dung lượng pin trên 50% (khuyến nghị trên 80%)</li>
+              <li>Sạc đầy pin trước khi flash để tránh brick máy</li>
+            </ul>
+
+            <h3>💻 Thiết bị máy tính</h3>
+            <ul class="guide-list">
+              <li>Máy tính Windows (Windows 10/11 khuyến nghị)</li>
+              <li>Cáp USB chất lượng tốt</li>
+              <li>Cổng USB trực tiếp trên mainboard (tránh USB hub)</li>
+            </ul>
+
+            <h3>📥 Các file cần tải</h3>
+            <ul class="guide-list">
+              <li><strong>ROM HyperUR</strong> - Tải từ trang <a href="downloads.html">Tải ROM</a></li>
+              <li><strong>MiFlash</strong> - Công cụ flash ROM gốc Xiaomi</li>
+              <li><strong>ADB & Fastboot</strong> - Tải từ Android SDK Platform Tools</li>
+              <li><strong>TWRP/OFRP</strong> - Recovery phù hợp với thiết bị</li>
+            </ul>
+
+            <div class="guide-warning">
+              ⚠️ <strong>Lưu ý quan trọng:</strong> Sao lưu toàn bộ dữ liệu trước khi flash. Mọi dữ liệu sẽ bị xóa khi Wipe Data.
+            </div>
+          </div>
+        </div>
+
+        <!-- Section 2: Mở khóa Bootloader -->
+        <div class="guide-section card" id="mokhoa-bl">
+          <div class="guide-section-header">
+            <span class="guide-section-icon">🔓</span>
+            <div>
+              <h2>2. Mở khóa Bootloader</h2>
+              <p>Bootloader là khóa bảo mật của thiết bị, cần mở để flash ROM tùy chỉnh</p>
+            </div>
+          </div>
+
+          <div class="guide-section-content">
+            <h3>Bước 1: Bật tùy chọn nhà phát triển</h3>
+            <ol class="guide-list">
+              <li>Vào <strong>Cài đặt → Giới thiệu về điện thoại</strong></li>
+              <li>Nhấn 7 lần vào <strong>Phiên bản MIUI</strong></li>
+              <li>Vào <strong>Cài đặt → Tùy chọn nhà phát triển</strong></li>
+              <li>Bật <strong>Gỡ lỗi USB</strong> và <strong>OEM Unlocking</strong></li>
+            </ol>
+
+            <h3>Bước 2: Yêu cầu mở khóa</h3>
+            <ol class="guide-list">
+              <li>Vào trang <a href="http://en.miui.com/unlock" target="_blank">Mi Unlock</a></li>
+              <li>Đăng nhập tài khoản Xiaomi</li>
+              <li>Tải công cụ Mi Unlock</li>
+              <li>Yêu cầu quyền mở khóa (có thể chờ 1-7 ngày)</li>
+            </ol>
+
+            <h3>Bước 3: Mở khóa Bootloader</h3>
+            <ol class="guide-list">
+              <li>Tắt nguồn điện thoại</li>
+              <li>Nhấn giữ <strong>Phím nguồn + Volume Down</strong> để vào Fastboot</li>
+              <li>Kết nối điện thoại với máy tính qua USB</li>
+              <li>Chạy công cụ Mi Unlock và nhấn <strong>Unlock</strong></li>
+              <li>Đợi quá trình hoàn tất (khoảng 10-30 giây)</li>
+            </ol>
+
+            <div class="guide-warning">
+              ⚠️ Sau khi mở khóa Bootloader, thiết bị sẽ reset và mất toàn bộ dữ liệu.
+            </div>
+          </div>
+        </div>
+
+        <!-- Section 3: Cài Recovery -->
+        <div class="guide-section card" id="cairecovery">
+          <div class="guide-section-header">
+            <span class="guide-section-icon">🔧</span>
+            <div>
+              <h2>3. Cài Recovery (TWRP/OFRP)</h2>
+              <p>Recovery là môi trường để flash ROM và thực hiện các thao tác nâng cao</p>
+            </div>
+          </div>
+
+          <div class="guide-section-content">
+            <h3>Cách cài TWRP Recovery</h3>
+            <ol class="guide-list">
+              <li>Tải file <strong>TWRP img</strong> phù hợp với thiết bị</li>
+              <li>Đổi tên file thành <code>twrp.img</code> và lưu vào thư mục ADB</li>
+              <li>Vào chế độ Fastboot (tắt máy → Power + Volume Down)</li>
+              <li>Kết nối USB với máy tính</li>
+              <li>Mở CMD/Terminal trong thư mục ADB, chạy lệnh:</li>
+            </ol>
+            <div class="guide-code">
+              <code>fastboot flash recovery twrp.img</code>
+            </div>
+            <ol class="guide-list" start="6">
+              <li>Sau khi flash xong, khởi động vào TWRP:</li>
+            </ol>
+            <div class="guide-code">
+              <code>fastboot boot twrp.img</code>
+            </div>
+
+            <h3>Cài OFRP Recovery</h3>
+            <ol class="guide-list">
+              <li>Tải OFRP từ trang chính thức phù hợp với thiết bị</li>
+              <li>Đặt file .zip vào bộ nhớ trong hoặc thẻ SD</li>
+              <li>Vào Recovery (TWRP) đã cài ở trên</li>
+              <li>Chọn <strong>Install → Chọn file OFRP.zip</strong></li>
+              <li>Vuốt để xác nhận cài đặt</li>
+              <li>Sau khi cài xong, khởi động lại vào OFRP</li>
+            </ol>
+          </div>
+        </div>
+
+        <!-- Section 4: Flash ROM via Recovery -->
+        <div class="guide-section card" id="flashrom">
+          <div class="guide-section-header">
+            <span class="guide-section-icon">📲</span>
+            <div>
+              <h2>4. Flash ROM qua Recovery</h2>
+              <p>Cách flash ROM HyperUR qua Recovery (TWRP/OFRP)</p>
+            </div>
+          </div>
+
+          <div class="guide-section-content">
+            <ol class="guide-list">
+              <li>Tải file ROM HyperUR phù hợp với thiết bị</li>
+              <li>Copy file ROM vào bộ nhớ trong hoặc thẻ SD</li>
+              <li>Vào Recovery (TWRP/OFRP)</li>
+              <li><strong>QUAN TRỌNG:</strong> Thực hiện Wipe trước khi cài (xem mục 5)</li>
+              <li>Chọn <strong>Install</strong></li>
+              <li>Chọn file ROM HyperUR đã copy</li>
+              <li>Vuốt thanh trượt để flash</li>
+              <li>Đợi quá trình hoàn tất (5-15 phút)</li>
+              <li>Chọn <strong>Reboot → System</strong></li>
+            </ol>
+          </div>
+        </div>
+
+        <!-- Section 5: Flash ROM via Fastboot -->
+        <div class="guide-section card" id="flashrom-fastboot">
+          <div class="guide-section-header">
+            <span class="guide-section-icon">💻</span>
+            <div>
+              <h2>5. Flash ROM qua Fastboot</h2>
+              <p>Cách flash ROM HyperUR qua Flashing Tool trên máy tính</p>
+            </div>
+          </div>
+
+          <div class="guide-section-content">
+            <ol class="guide-list">
+              <li>Tải ROM HyperUR (định dạng .tgz hoặc .zip)</li>
+              <li>Giải nén file ROM vào thư mục bất kỳ</li>
+              <li>Mở thư mục ROM đã giải nén</li>
+              <li>Double-click file <strong>Flashing_Tool_Windows_UR.bat</strong></li>
+              <li>Công cụ sẽ tự động nhận diện thiết bị (nếu đã vào Fastboot mode)</li>
+              <li>Nếu chưa vào Fastboot: tắt máy → Power + Volume Down</li>
+              <li>Nhấn <strong>Flash</strong> và đợi hoàn tất (5-15 phút)</li>
+            </ol>
+            <div class="guide-code">
+              <code>Flashing_Tool_Windows_UR.bat</code>
+            </div>
+
+            <div class="guide-info">
+              💡 <strong>Mẹo:</strong> Tool sẽ tự động flash đúng các phân vùng cần thiết. Lần đầu khởi động ROM mới có thể mất 5-15 phút. Không tháo pin hay tắt nguồn trong quá trình này.
+            </div>
+          </div>
+        </div>
+
+        <!-- Section 6: Wipe & Data -->
+        <div class="guide-section card" id="caidata">
+          <div class="guide-section-header">
+            <span class="guide-section-icon">🧹</span>
+            <div>
+              <h2>6. Wipe Data & Restore</h2>
+              <p>Hướng dẫn wipe đúng cách trước khi flash ROM mới</p>
+            </div>
+          </div>
+
+          <div class="guide-section-content">
+            <h3>Trước khi flash ROM mới (Nên làm)</h3>
+            <ol class="guide-list">
+              <li>Vào <strong>Wipe → Advanced Wipe</strong></li>
+              <li>Chọn các phân vùng sau:
+                <ul>
+                  <li>System</li>
+                  <li>Data</li>
+                  <li>Cache</li>
+                  <li>Dalvik Cache</li>
+                </ul>
+              </li>
+              <li>Vuốt để wipe</li>
+            </ol>
+
+            <h3>Chuyển từ ROM khác sang HyperUR (Bắt buộc)</h3>
+            <ol class="guide-list">
+              <li>Vào <strong>Wipe → Format Data</strong></li>
+              <li>Gõ <code>yes</code> để xác nhận</li>
+              <li>Đợi format hoàn tất</li>
+              <li>Quay lại và thực hiện Advanced Wipe như trên</li>
+            </ol>
+
+            <h3>Restore dữ liệu sau khi cài xong</h3>
+            <ol class="guide-list">
+              <li>Sau khi boot vào hệ thống lần đầu, không đăng nhập Google ngay</li>
+              <li>Kết nối với máy tính qua MTP</li>
+              <li>Copy lại dữ liệu cần thiết (ảnh, video, nhạc)</li>
+              <li>Cài đặt lại các ứng dụng từ Google Play</li>
+              <li>Restore dữ liệu từ Google Drive nếu đã backup</li>
+            </ol>
+
+            <div class="guide-warning">
+              ⚠️ <strong>Lưu ý:</strong> Không restore dữ liệu từ ROM cũ bằng backup app (Titanium Backup) vì có thể gây xung đột.
+            </div>
+          </div>
+        </div>
+
+        <!-- Section 6: Lỗi thường gặp -->
+        <div class="guide-section card" id="loinhan">
+          <div class="guide-section-header">
+            <span class="guide-section-icon">⚠️</span>
+            <div>
+              <h2>7. Lỗi thường gặp & cách khắc phục</h2>
+              <p>Giải đáp các lỗi phổ biến khi flash ROM</p>
+            </div>
+          </div>
+
+          <div class="guide-section-content">
+            <div class="guide-error-item">
+              <h3>❌ Lỗi "Failed to boot" hoặc bootloop</h3>
+              <p><strong>Nguyên nhân:</strong> ROM không tương thích hoặc wipe chưa đủ</p>
+              <p><strong>Cách khắc phục:</strong></p>
+              <ul class="guide-list">
+                <li>Vào lại Recovery</li>
+                <li>Format Data lại</li>
+                <li>Wipe toàn bộ (System, Data, Cache, Dalvik)</li>
+                <li>Flash ROM lại</li>
+              </ul>
+            </div>
+
+            <div class="guide-error-item">
+              <h3>❌ Lỗi "Encryption Failed"</h3>
+              <p><strong>Nguyên nhân:</strong> File ROM bị lỗi hoặc chưa format data</p>
+              <p><strong>Cách khắc phục:</strong></p>
+              <ul class="guide-list">
+                <li>Vào Recovery</li>
+                <li>Wipe → Format Data → Gõ "yes"</li>
+                <li>Flash ROM lại</li>
+              </ul>
+            </div>
+
+            <div class="guide-error-item">
+              <h3>❌ Lỗi "Device encrypted unsuccessful"</h3>
+              <p><strong>Nguyên nhân:</strong> Không mount được data partition</p>
+              <p><strong>Cách khắc phục:</strong></p>
+              <ul class="guide-list">
+                <li>Vào TWRP → Wipe → Format Data</li>
+                <li>Reboot Recovery</li>
+                <li>Flash ROM</li>
+              </ul>
+            </div>
+
+            <div class="guide-error-item">
+              <h3>❌ Không vào được Recovery</h3>
+              <p><strong>Nguyên nhân:</strong> Boot image bị hỏng</p>
+              <p><strong>Cách khắc phục:</strong></p>
+              <ul class="guide-list">
+                <li>Vào Fastboot mode</li>
+                <li>Flash lại recovery qua fastboot</li>
+                <li>Hoặc flash ROM gốc qua MiFlash</li>
+              </ul>
+            </div>
+
+            <div class="guide-error-item">
+              <h3>❌ Lỗi "CRC Error" khi flash</h3>
+              <p><strong>Nguyên nhân:</strong> File ROM bị lỗi khi tải</p>
+              <p><strong>Cách khắc phục:</strong></p>
+              <ul class="guide-list">
+                <li>Xóa file ROM cũ</li>
+                <li>Tải lại ROM từ trang chính thức</li>
+                <li>Kiểm tra dung lượng file sau khi tải</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Section 7: FAQ -->
+        <div class="guide-section card" id="cauhoithuong">
+          <div class="guide-section-header">
+            <span class="guide-section-icon">❓</span>
+            <div>
+              <h2>8. Câu hỏi thường gặp (FAQ)</h2>
+              <p>Giải đáp các thắc mắc phổ biến về HyperUR</p>
+            </div>
+          </div>
+
+          <div class="guide-section-content">
+            <div class="guide-faq-item">
+              <h3>Q: HyperUR có an toàn không?</h3>
+              <p><strong>A:</strong> HyperUR được phát triển dựa trên ROM gốc của Xiaomi với các tinh chỉnh tối ưu. ROM được test kỹ trước khi phát hành. Tuy nhiên, bạn nên backup dữ liệu trước khi flash.</p>
+            </div>
+
+            <div class="guide-faq-item">
+              <h3>Q: Flash ROM có mất bảo hành không?</h3>
+              <p><strong>A:</strong> Mở khóa Bootloader sẽ khiến thiết bị không còn được bảo hành chính hãng. Tuy nhiên, bạn có thể khóa lại Bootloader và ROM gốc để restore bảo hành.</p>
+            </div>
+
+            <div class="guide-faq-item">
+              <h3>Q: Có thể quay lại ROM gốc không?</h3>
+              <p><strong>A:</strong> Có. Bạn có thể flash ROM gốc qua MiFlash hoặc khóa lại Bootloader sau khi flash ROM gốc.</p>
+            </div>
+
+            <div class="guide-faq-item">
+              <h3>Q: Dữ liệu có bị mất không?</h3>
+              <p><strong>A:</strong> Có, toàn bộ dữ liệu sẽ bị xóa khi flash ROM mới. Hãy backup dữ liệu quan trọng trước khi thực hiện.</p>
+            </div>
+
+            <div class="guide-faq-item">
+              <h3>Q: Bao lâu thì có bản cập nhật?</h3>
+              <p><strong>A:</strong> HyperUR cập nhật theo chu kỳ của Xiaomi. Thường có bản cập nhật security patch hàng tháng và major update khi Xiaomi phát hành ROM mới.</p>
+            </div>
+
+            <div class="guide-faq-item">
+              <h3>Q: Thiết bị của tôi không có trong danh sách?</h3>
+              <p><strong>A:</strong> Hiện tại HyperUR chỉ hỗ trợ một số dòng thiết bị nhất định. Theo dõi trang <a href="downloads.html">Tải ROM</a> để cập nhật danh sách thiết bị mới được hỗ trợ.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- CTA -->
+        <div class="guide-cta">
+          <h3>🚀 Sẵn sàng trải nghiệm?</h3>
+          <p>Tải HyperUR ngay để nâng cấp thiết bị của bạn!</p>
+          <div class="guide-cta-buttons">
+            <a href="downloads.html" class="btn btn-primary btn-lg">
+              <span>⬇️</span> Tải ROM
+            </a>
+            <a href="index.html" class="btn btn-outline btn-lg">
+              <span>🏠</span> Về trang chủ
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container footer-inner">
+        <p>© <span id="year"></span> HyperUR. Phiên bản demo trang giới thiệu.</p>
+        <div class="footer-links">
+          <a href="index.html">Trang chủ</a>
+          <a href="features.html">Tính năng</a>
+          <a href="downloads.html">Tải ROM</a>
+          <a href="donate.html">Donate</a>
+        </div>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>

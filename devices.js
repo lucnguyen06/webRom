@@ -11,7 +11,6 @@ const devices = [
   // Xiaomi 12 Series
   { name: 'Xiaomi 12', codeName: 'CUPID' },
   { name: 'Xiaomi 12 Pro', codeName: 'ZEUS' },
-  { name: 'Xiaomi 12 Pro Dimensity Edition', codeName: 'DAUMIER' },
   { name: 'Xiaomi 12 Lite', codeName: 'TAOYAO' },
   { name: 'Xiaomi 12S', codeName: 'MAYFLY' },
   { name: 'Xiaomi 12S Pro', codeName: 'UNICORN' },
@@ -275,7 +274,6 @@ const changelogData = {
     'Hỗ trợ HyperOS 2.0 (Android 14 - 15)',
     'Hỗ trợ HyperOS 3.0 (Android 15 - 16)',
     'Hỗ trợ toàn bộ động máy Snapdragon',
-    'Hỗ trợ động máy Dimensity (MediaTek)',
     'Tích hợp 16 ứng dụng được mod',
     'Tính năng Hybrid ROM kết hợp ổn định và tuy biến',
     'Custom recovery hỗ trợ (TWRP)'
