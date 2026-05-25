@@ -8,6 +8,7 @@
       name="description"
       content="Khám phá các tính năng nổi bật của HyperUR - Tối ưu hiệu năng, pin, bảo mật và nhiều hơn nữa."
     />
+    <title data-i18n="features.page.title">Tính năng HyperUR</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
@@ -34,7 +35,8 @@
           <a href="index.html" class="nav-link" data-i18n="nav.home">Trang chủ</a>
           <a href="features.html" class="nav-link active" data-i18n="nav.features">Tính năng</a>
           <a href="downloads.html" class="nav-link" data-i18n="nav.download">Tải ROM</a>
-          <a href="guide.html" class="nav-link">Hướng dẫn</a>
+          <a href="guide.html" class="nav-link" data-i18n="nav.guide">Hướng dẫn</a>
+          <a href="serial.html" class="nav-link" data-i18n="nav.serial">Đăng ký serial</a>
           <a href="donate.html" class="nav-link" data-i18n="nav.donate">Donate</a>
         </nav>
 
@@ -50,13 +52,14 @@
       </div>
     </header>
 
+    <main>
     <!-- Features Hero -->
     <section class="features-hero">
       <div class="container">
         <div class="features-hero-content">
           <span class="features-hero-icon">⚡</span>
-          <h1>Tính năng nổi bật</h1>
-          <p class="features-hero-subtitle">
+          <h1 data-i18n="features.hero.title">Tính năng nổi bật</h1>
+          <p class="features-hero-subtitle" data-i18n="features.hero.subtitle">
             HyperUR không chỉ là một bản ROM, mà là hệ sinh thái tối ưu cho mọi nhu cầu: 
             chơi game, làm việc, học tập và giải trí.
           </p>
@@ -72,8 +75,8 @@
           <div class="feature-category-header">
             <span class="feature-category-icon">✨</span>
             <div>
-              <h2>Tính năng mới</h2>
-              <p>Các tính năng được thêm vào HyperUR</p>
+              <h2 data-i18n="features.category.new">Tính năng mới</h2>
+              <p data-i18n="features.category.new.desc">Các tính năng được thêm vào HyperUR</p>
             </div>
           </div>
           <div class="feature-items-grid" id="features-added">
@@ -86,8 +89,8 @@
           <div class="feature-category-header">
             <span class="feature-category-icon">🚀</span>
             <div>
-              <h2>Cải thiện</h2>
-              <p>Các cải tiến và tối ưu hóa</p>
+              <h2 data-i18n="features.category.improved">Cải thiện</h2>
+              <p data-i18n="features.category.improved.desc">Các cải tiến và tối ưu hóa</p>
             </div>
           </div>
           <div class="feature-items-grid" id="features-improved">
@@ -100,8 +103,8 @@
           <div class="feature-category-header">
             <span class="feature-category-icon">🔧</span>
             <div>
-              <h2>Đã sửa lỗi</h2>
-              <p>Các lỗi đã được khắc phục</p>
+              <h2 data-i18n="features.category.fixed">Đã sửa lỗi</h2>
+              <p data-i18n="features.category.fixed.desc">Các lỗi đã được khắc phục</p>
             </div>
           </div>
           <div class="feature-items-grid" id="features-fixed">
@@ -114,8 +117,8 @@
           <div class="feature-category-header">
             <span class="feature-category-icon">📱</span>
             <div>
-              <h2>Ứng dụng được mod</h2>
-              <p>16 ứng dụng hệ thống đã được tối ưu</p>
+              <h2 data-i18n="features.category.apps">Ứng dụng được mod</h2>
+              <p data-i18n="features.category.apps.desc">16 ứng dụng hệ thống đã được tối ưu</p>
             </div>
           </div>
           <div class="modded-apps-grid" id="modded-apps">
@@ -127,101 +130,55 @@
         <div class="features-highlights">
           <div class="highlight-card">
             <div class="highlight-icon">🎮</div>
-            <h3>Gaming Mode</h3>
-            <p>Tối ưu cho PUBG, Free Fire, COD với hiệu năng cao nhất, giảm lag, ổn định FPS.</p>
+            <h3 data-i18n="features.highlight.gaming.title">Gaming Mode</h3>
+            <p data-i18n="features.highlight.gaming.desc">Tối ưu cho PUBG, Free Fire, COD với hiệu năng cao nhất, giảm lag, ổn định FPS.</p>
           </div>
           <div class="highlight-card">
             <div class="highlight-icon">🔋</div>
-            <h3>Battery Optimization</h3>
-            <p>Quản lý pin thông minh, giảm app chạy nền, kéo dài thời gian sử dụng.</p>
+            <h3 data-i18n="features.highlight.battery.title">Battery Optimization</h3>
+            <p data-i18n="features.highlight.battery.desc">Quản lý pin thông minh, giảm app chạy nền, kéo dài thời gian sử dụng.</p>
           </div>
           <div class="highlight-card">
             <div class="highlight-icon">🛡️</div>
-            <h3>Security Enhanced</h3>
-            <p>Bảo mật tăng cường, chặn quảng cáo hệ thống, bảo vệ quyền riêng tư.</p>
+            <h3 data-i18n="features.highlight.security.title">Security Enhanced</h3>
+            <p data-i18n="features.highlight.security.desc">Bảo mật tăng cường, chặn quảng cáo hệ thống, bảo vệ quyền riêng tư.</p>
           </div>
           <div class="highlight-card">
             <div class="highlight-icon">📸</div>
-            <h3>Google Photos Unlimited</h3>
-            <p>Sao lưu ảnh và video không giới hạn lên Google Photos miễn phí.</p>
+            <h3 data-i18n="features.highlight.photos.title">Google Photos Unlimited</h3>
+            <p data-i18n="features.highlight.photos.desc">Sao lưu ảnh và video không giới hạn lên Google Photos miễn phí.</p>
           </div>
         </div>
 
         <!-- CTA -->
         <div class="features-cta">
-          <h3>Sẵn sàng trải nghiệm?</h3>
-          <p>Tải HyperUR ngay để nâng cấp thiết bị của bạn!</p>
+          <h3 data-i18n="features.cta.title">Sẵn sàng trải nghiệm?</h3>
+          <p data-i18n="features.cta.desc">Tải HyperUR ngay để nâng cấp thiết bị của bạn!</p>
           <a href="downloads.html" class="btn btn-primary btn-lg">
-            <span>⬇️</span> Tải HyperUR
+            <span>⬇️</span> <span data-i18n="features.cta.btn">Tải HyperUR</span>
           </a>
         </div>
       </div>
     </section>
+    </main>
 
     <!-- Footer -->
     <footer class="footer">
       <div class="container footer-inner">
-        <p>© <span id="year"></span> HyperUR. Phiên bản demo trang giới thiệu.</p>
+        <p>© <span id="year"></span> <span data-i18n="footer.copyright">HyperUR. Phiên bản demo trang giới thiệu.</span></p>
         <div class="footer-links">
-          <a href="index.html">Trang chủ</a>
-          <a href="downloads.html">Tải ROM</a>
-          <a href="guide.html">Hướng dẫn</a>
-          <a href="donate.html">Donate</a>
+          <a href="index.html" data-i18n="nav.home">Trang chủ</a>
+          <a href="features.html" data-i18n="nav.features">Tính năng</a>
+          <a href="downloads.html" data-i18n="nav.download">Tải ROM</a>
+          <a href="guide.html" data-i18n="nav.guide">Hướng dẫn</a>
+          <a href="donate.html" data-i18n="nav.donate">Donate</a>
+          <a href="serial.html" data-i18n="nav.serial">Đăng ký serial</a>
         </div>
       </div>
     </footer>
-
-    <!-- Modal đăng ký serial -->
-    <div class="modal-overlay" id="modal-serial">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h2>Đăng ký serial</h2>
-          <button class="modal-close" id="modal-close">&times;</button>
-        </div>
-        <div class="modal-body">
-          <form id="serial-form">
-            <div class="form-group">
-              <label for="serial-input">Nhập serial key:</label>
-              <input
-                type="text"
-                id="serial-input"
-                class="form-input"
-                placeholder="VD: 1a2b3c4d"
-                required
-              />
-            </div>
-            <div class="form-group">
-              <label for="email-input">Email của bạn:</label>
-              <input
-                type="email"
-                id="email-input"
-                class="form-input"
-                placeholder="email@example.com"
-                required
-              />
-            </div>
-            <div class="form-group">
-              <label for="device-input">Thiết bị:</label>
-              <input
-                type="text"
-                id="device-input"
-                class="form-input"
-                placeholder="VD: Redmi k60 pro - socrates"
-                required
-              />
-            </div>
-            <div class="form-actions">
-              <button type="submit" class="btn btn-primary">Đăng ký</button>
-              <button type="button" class="btn btn-outline" id="modal-cancel">Hủy</button>
-            </div>
-          </form>
-        </div>
-      </div>
-    </div>
 
     <script src="devices.js"></script>
     <script src="i18n.js"></script>
     <script src="features.js"></script>
   </body>
 </html>
-

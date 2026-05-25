@@ -99,7 +99,7 @@ if (serialForm) {
     console.log('Email:', emailInput?.value);
     console.log('Device:', deviceInput?.value);
     
-    alert('Đăng ký serial thành công! Chúng tôi sẽ liên hệ với bạn sớm nhất.');
+    alert(i18n.t('modal.serial.register.success'));
     
     serialForm.reset();
     closeModal();
@@ -145,7 +145,7 @@ function renderDeviceSlider(filteredDevices = null) {
   
   // Update count
   if (deviceCountEl) {
-    deviceCountEl.textContent = `${devicesToRender.length} thiết bị`;
+    deviceCountEl.innerHTML = `${devicesToRender.length} <span data-i18n="downloads.device.count">${i18n.t('downloads.device.count')}</span>`;
   }
 
   // Show/hide no results message
@@ -182,7 +182,7 @@ function renderDeviceSlider(filteredDevices = null) {
                loading="lazy">
           <span class="device-fallback-icon" style="display:none;">${fallbackIcon}</span>
           <div class="device-card-status">
-            <span class="tag ${hasLink ? 'tag-stable' : 'tag-dev'}">${hasLink ? 'Stable' : 'Dev'}</span>
+            <span class="tag ${hasLink ? 'tag-stable' : 'tag-dev'}">${hasLink ? i18n.t('common.stable') : i18n.t('common.dev')}</span>
           </div>
         </div>
         <div class="device-card-info">
@@ -192,9 +192,9 @@ function renderDeviceSlider(filteredDevices = null) {
         <div class="device-card-footer">
           ${hasLink 
             ? `<a href="${downloadLink}" target="_blank" rel="noopener noreferrer" class="btn-download">
-                <span>⬇️</span> Tải ROM
+                <span>⬇️</span> ${i18n.t('downloads.btn.download')}
               </a>`
-            : '<span class="text-muted">🔜 Sắp có</span>'
+            : `<span class="text-muted">${i18n.t('downloads.coming')}</span>`
           }
         </div>
       </div>

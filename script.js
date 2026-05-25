@@ -260,7 +260,7 @@ if (serialForm) {
     console.log('Device:', deviceInput?.value);
     
     // Ví dụ: hiển thị thông báo thành công
-    alert('Đăng ký serial thành công! Chúng tôi sẽ liên hệ với bạn sớm nhất.');
+    alert(i18n.t('modal.serial.register.success'));
     
     // Reset form và đóng modal
     serialForm.reset();
@@ -463,7 +463,7 @@ const galleryImages = {
   os3: Array.from({ length: 16 }, (_, i) => `images_devices/os3/a${i + 1}.jpg`)
 };
 
-let currentGallery = 'os2';
+let currentGallery = 'os3';
 let currentSlide = 0;
 let currentLightboxIndex = 0;
 let itemsPerView = 4;

@@ -99,7 +99,7 @@ if (serialForm) {
     console.log('Email:', emailInput?.value);
     console.log('Device:', deviceInput?.value);
     
-    alert('Đăng ký serial thành công! Chúng tôi sẽ liên hệ với bạn sớm nhất.');
+    alert(i18n.t('modal.serial.register.success'));
     
     serialForm.reset();
     closeModal();

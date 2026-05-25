@@ -40,7 +40,8 @@
           <a href="#home" class="nav-link active" data-i18n="nav.home">Trang chủ</a>
           <a href="features.html" class="nav-link" data-i18n="nav.features">Tính năng</a>
           <a href="downloads.html" class="nav-link" data-i18n="nav.download">Tải ROM</a>
-          <a href="guide.html" class="nav-link">Hướng dẫn</a>
+          <a href="guide.html" class="nav-link" data-i18n="nav.guide">Hướng dẫn</a>
+          <a href="serial.html" class="nav-link" data-i18n="nav.serial">Đăng ký serial</a>
           <a href="donate.html" class="nav-link" data-i18n="nav.donate">Donate</a>
         </nav>
 
@@ -52,11 +53,11 @@
           <button class="btn btn-outline" id="btn-theme-toggle">
             <span class="theme-icon">🌙</span>
           </button>
-          <button class="btn btn-primary" id="btn-register-serial" data-i18n="nav.register">Đăng ký serial</button>
         </div>
       </div>
     </header>
 
+    <main>
     <!-- Hero section -->
     <section id="home" class="hero">
       <div class="container hero-inner">
@@ -104,9 +105,6 @@
               <li><strong data-i18n="version.base">Base:</strong> CN, EU, Global</li>
               <li><strong data-i18n="version.security">Security:</strong> <span data-i18n="version.security.value">Patch mới nhất</span></li>
             </ul>
-            <a href="downloads.html" class="btn btn-primary btn-full" data-i18n="version.btn">
-              Tải bản mới nhất
-            </a>
             <p class="version-note" data-i18n="version.note">
               * Vui lòng đọc kỹ hướng dẫn cài đặt trước khi flash ROM.
             </p>
@@ -171,18 +169,6 @@
           <p data-i18n="gallery.subtitle">Khám phá giao diện HyperUR trên các phiên bản HyperOS</p>
         </div>
 
-        <!-- Gallery Tabs -->
-        <div class="gallery-tabs">
-          <button class="gallery-tab active" data-gallery="os2">
-            <span class="gallery-tab-icon">🌙</span>
-            <span data-i18n="gallery.tab.os2">HyperOS 2</span>
-          </button>
-          <button class="gallery-tab" data-gallery="os3">
-            <span class="gallery-tab-icon">✨</span>
-            <span data-i18n="gallery.tab.os3">HyperOS 3</span>
-          </button>
-        </div>
-
         <!-- Gallery Container -->
         <div class="gallery-container">
           <button class="gallery-nav gallery-nav-prev" id="gallery-prev">
@@ -215,6 +201,7 @@
     </section>
 
     <!-- Footer -->
+    </main>
     <footer class="footer">
       <div class="container footer-inner">
         <p>© <span id="year"></span> <span data-i18n="footer.copyright">HyperUR. Phiên bản demo trang giới thiệu.</span></p>
@@ -222,133 +209,12 @@
           <a href="index.html" data-i18n="nav.home">Trang chủ</a>
           <a href="features.html" data-i18n="nav.features">Tính năng</a>
           <a href="downloads.html" data-i18n="nav.download">Tải ROM</a>
-          <a href="guide.html">Hướng dẫn</a>
+          <a href="guide.html" data-i18n="nav.guide">Hướng dẫn</a>
+          <a href="serial.html" data-i18n="nav.serial">Đăng ký serial</a>
           <a href="donate.html" data-i18n="nav.donate">Donate</a>
         </div>
       </div>
     </footer>
-
-    <!-- Modal đăng ký serial -->
-    <div class="modal-overlay" id="modal-serial">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h2 data-i18n="modal.title">Serial Key</h2>
-          <button class="modal-close" id="modal-close">&times;</button>
-        </div>
-        <div class="modal-body">
-          <!-- Tabs -->
-          <div class="modal-tabs">
-            <button class="modal-tab active" data-tab="register" data-i18n="modal.tab.register">📝 Đăng ký</button>
-            <button class="modal-tab" data-tab="lookup" data-i18n="modal.tab.lookup">🔍 Tra cứu</button>
-          </div>
-
-          <!-- Register Form -->
-          <div class="tab-content" id="tab-register">
-            <form id="serial-form">
-              <div class="form-group">
-                <label for="serial-input" data-i18n="modal.serial.label">Nhập serial key:</label>
-                <input
-                  type="text"
-                  id="serial-input"
-                  class="form-input"
-                  placeholder="VD: 1a2b3c4d"
-                  data-i18n-placeholder="modal.serial.placeholder"
-                  required
-                />
-              </div>
-              <div class="form-group">
-                <label for="email-input" data-i18n="modal.email.label">Email của bạn:</label>
-                <input
-                  type="email"
-                  id="email-input"
-                  class="form-input"
-                  placeholder="email@example.com"
-                  data-i18n-placeholder="modal.email.placeholder"
-                  required
-                />
-              </div>
-              <div class="form-group">
-                <label for="device-input" data-i18n="modal.device.label">Thiết bị:</label>
-                <div class="autocomplete-wrapper">
-                  <input
-                    type="text"
-                    id="device-input"
-                    class="form-input"
-                    placeholder="Nhập tên thiết bị để tìm kiếm..."
-                    data-i18n-placeholder="modal.device.placeholder"
-                    autocomplete="off"
-                    required
-                  />
-                  <div class="autocomplete-dropdown hidden" id="device-dropdown"></div>
-                </div>
-              </div>
-              <div class="form-actions">
-                <button type="submit" class="btn btn-primary" data-i18n="modal.btn.register">Đăng ký</button>
-                <button type="button" class="btn btn-outline" id="modal-cancel" data-i18n="modal.btn.cancel">Hủy</button>
-              </div>
-            </form>
-          </div>
-
-          <!-- Lookup Form -->
-          <div class="tab-content hidden" id="tab-lookup">
-            <form id="lookup-form">
-              <div class="form-group">
-                <label for="lookup-input" data-i18n="modal.lookup.label">Serial hoặc Email:</label>
-                <input
-                  type="text"
-                  id="lookup-input"
-                  class="form-input"
-                  placeholder="Nhập serial hoặc email để tra cứu..."
-                  data-i18n-placeholder="modal.lookup.placeholder"
-                  required
-                />
-              </div>
-              <div class="form-actions">
-                <button type="submit" class="btn btn-primary" data-i18n="modal.btn.lookup">🔍 Tra cứu</button>
-                <button type="button" class="btn btn-outline" id="modal-cancel-lookup" data-i18n="modal.btn.cancel">Hủy</button>
-              </div>
-            </form>
-
-            <!-- Lookup Result -->
-            <div class="lookup-result hidden" id="lookup-result">
-              <div class="lookup-result-header">
-                <span class="lookup-result-icon">✅</span>
-                <h4 data-i18n="modal.result.title">Kết quả tra cứu</h4>
-              </div>
-              <div class="lookup-result-content">
-                <div class="lookup-result-item">
-                  <span class="lookup-label" data-i18n="modal.result.serial">Serial:</span>
-                  <span class="lookup-value" id="result-serial">-</span>
-                </div>
-                <div class="lookup-result-item">
-                  <span class="lookup-label" data-i18n="modal.result.email">Email:</span>
-                  <span class="lookup-value" id="result-email">-</span>
-                </div>
-                <div class="lookup-result-item">
-                  <span class="lookup-label" data-i18n="modal.result.device">Thiết bị:</span>
-                  <span class="lookup-value" id="result-device">-</span>
-                </div>
-                <div class="lookup-result-item">
-                  <span class="lookup-label" data-i18n="modal.result.date">Ngày đăng ký:</span>
-                  <span class="lookup-value" id="result-date">-</span>
-                </div>
-                <div class="lookup-result-item">
-                  <span class="lookup-label" data-i18n="modal.result.status">Trạng thái:</span>
-                  <span class="lookup-value lookup-status" id="result-status">-</span>
-                </div>
-              </div>
-            </div>
-
-            <!-- Not Found -->
-            <div class="lookup-not-found hidden" id="lookup-not-found">
-              <span class="lookup-not-found-icon">❌</span>
-              <p data-i18n="modal.notfound">Không tìm thấy thông tin đăng ký.</p>
-              <p class="lookup-not-found-hint" data-i18n="modal.notfound.hint">Vui lòng kiểm tra lại serial hoặc email của bạn.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
 
     <script src="devices.js"></script>
     <script src="i18n.js"></script>

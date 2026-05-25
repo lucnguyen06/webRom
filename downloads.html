@@ -40,7 +40,8 @@
           <a href="index.html" class="nav-link" data-i18n="nav.home">Trang chủ</a>
           <a href="features.html" class="nav-link" data-i18n="nav.features">Tính năng</a>
           <a href="downloads.html" class="nav-link active" data-i18n="nav.download">Tải ROM</a>
-          <a href="guide.html" class="nav-link">Hướng dẫn</a>
+          <a href="guide.html" class="nav-link" data-i18n="nav.guide">Hướng dẫn</a>
+          <a href="serial.html" class="nav-link" data-i18n="nav.serial">Đăng ký serial</a>
           <a href="donate.html" class="nav-link" data-i18n="nav.donate">Donate</a>
         </nav>
 
@@ -56,12 +57,13 @@
       </div>
     </header>
 
+    <main>
     <!-- Downloads Hero -->
     <section class="downloads-hero">
       <div class="container">
         <div class="downloads-hero-content">
-          <h1>Tải HyperUR</h1>
-          <p class="downloads-hero-subtitle">
+          <h1 data-i18n="downloads.hero.title">Tải HyperUR</h1>
+          <p class="downloads-hero-subtitle" data-i18n="downloads.hero.subtitle">
             Chọn đúng dòng máy và base ROM hiện tại để đảm bảo quá trình flash an toàn.
             Mỗi bản ROM được tối ưu riêng cho từng thiết bị.
           </p>
@@ -80,10 +82,11 @@
               id="device-search" 
               class="search-input" 
               placeholder="Tìm kiếm thiết bị hoặc codename..."
+              data-i18n-placeholder="downloads.search.placeholder"
             />
           </div>
           <div class="filter-info">
-            <span id="device-count">0 thiết bị</span>
+            <span id="device-count">0 <span data-i18n="downloads.device.count">thiết bị</span></span>
           </div>
         </div>
       </div>
@@ -93,17 +96,17 @@
     <section class="section section-alt">
       <div class="container">
         <div class="slider-header">
-          <h2>📱 Danh sách ROM theo thiết bị</h2>
+          <h2 data-i18n="downloads.devices.title">📱 Danh sách ROM theo thiết bị</h2>
           <div class="category-tabs" id="category-tabs">
-            <button class="category-tab active" data-category="all">Tất cả</button>
-            <button class="category-tab" data-category="xiaomi">Xiaomi</button>
-            <button class="category-tab" data-category="pad">Pad</button>
-            <button class="category-tab" data-category="mix">MIX</button>
-            <button class="category-tab" data-category="civi">Civi</button>
-            <button class="category-tab" data-category="redmi">Redmi</button>
-            <button class="category-tab" data-category="redmi-note">Note</button>
-            <button class="category-tab" data-category="redmi-k">K Series</button>
-            <button class="category-tab" data-category="poco">POCO</button>
+            <button class="category-tab active" data-category="all" data-i18n="downloads.category.tatca">Tất cả</button>
+            <button class="category-tab" data-category="xiaomi" data-i18n="downloads.category.xiaomi">Xiaomi</button>
+            <button class="category-tab" data-category="pad" data-i18n="downloads.category.pad">Pad</button>
+            <button class="category-tab" data-category="mix" data-i18n="downloads.category.mix">MIX</button>
+            <button class="category-tab" data-category="civi" data-i18n="downloads.category.civi">Civi</button>
+            <button class="category-tab" data-category="redmi" data-i18n="downloads.category.redmi">Redmi</button>
+            <button class="category-tab" data-category="redmi-note" data-i18n="downloads.category.note">Note</button>
+            <button class="category-tab" data-category="redmi-k" data-i18n="downloads.category.k">K Series</button>
+            <button class="category-tab" data-category="poco" data-i18n="downloads.category.poco">POCO</button>
           </div>
         </div>
 
@@ -123,37 +126,37 @@
         </div>
 
         <div id="no-results" class="no-results" style="display: none;">
-          <p>😕 Không tìm thấy thiết bị nào phù hợp.</p>
+          <p data-i18n="downloads.noresults">😕 Không tìm thấy thiết bị nào phù hợp.</p>
         </div>
 
         <!-- Info Cards Row -->
         <div class="info-cards-row">
           <div class="card guide-card">
-            <h3>📋 Hướng dẫn cài đặt nhanh</h3>
+            <h3 data-i18n="downloads.guide.card.title">📋 Hướng dẫn cài đặt nhanh</h3>
             <ol class="guide-list">
-              <li>Sao lưu toàn bộ dữ liệu quan trọng.</li>
-              <li>Mở khoá bootloader & cài custom recovery (TWRP / OFRP).</li>
-              <li>Wipe data, cache, system theo hướng dẫn từng dòng máy.</li>
-              <li>Flash bản HyperUR tương ứng.</li>
-              <li>Reboot & chờ máy khởi động lại lần đầu.</li>
+              <li data-i18n="downloads.guide.card.item1">Sao lưu toàn bộ dữ liệu quan trọng.</li>
+              <li data-i18n="downloads.guide.card.item2">Mở khoá bootloader & cài custom recovery (TWRP / OFRP).</li>
+              <li data-i18n="downloads.guide.card.item3">Wipe data, cache, system theo hướng dẫn từng dòng máy.</li>
+              <li data-i18n="downloads.guide.card.item4">Flash bản HyperUR tương ứng.</li>
+              <li data-i18n="downloads.guide.card.item5">Reboot & chờ máy khởi động lại lần đầu.</li>
             </ol>
-            <p class="guide-warning">
+            <p class="guide-warning" data-i18n="downloads.guide.card.warning">
               ⚠️ Việc can thiệp hệ thống luôn tiềm ẩn rủi ro. Bạn tự chịu trách nhiệm với thiết bị của mình.
             </p>
           </div>
 
           <div class="card info-card">
-            <h3>ℹ️ Thông tin phiên bản</h3>
+            <h3 data-i18n="downloads.info.card.title">ℹ️ Thông tin phiên bản</h3>
             <ul class="info-list">
-              <li><strong>HyperOS:</strong> 1.0, 2.0, 3.0</li>
-              <li><strong>Android:</strong> 14, 15, 16</li>
-              <li><strong>Base:</strong> CN, EU, Global</li>
+              <li><strong data-i18n="downloads.info.card.hyperos">HyperOS:</strong> 1.0, 2.0, 3.0</li>
+              <li><strong data-i18n="downloads.info.card.android">Android:</strong> 14, 15, 16</li>
+              <li><strong data-i18n="downloads.info.card.base">Base:</strong> CN, EU, Global</li>
             </ul>
           </div>
 
           <div class="card support-card">
-            <h3>💬 Cần hỗ trợ?</h3>
-            <p>Liên hệ team qua Telegram để được hỗ trợ cài đặt và fix lỗi.</p>
+            <h3 data-i18n="downloads.support.card.title">💬 Cần hỗ trợ?</h3>
+            <p data-i18n="downloads.support.card.desc">Liên hệ team qua Telegram để được hỗ trợ cài đặt và fix lỗi.</p>
             <div class="support-actions">
               <a class="btn-contact" href="https://t.me/Usagi79" target="_blank" rel="noopener noreferrer">
                 @Usagi79
@@ -168,66 +171,20 @@
     </section>
 
     <!-- Footer -->
+    </main>
     <footer class="footer">
       <div class="container footer-inner">
-        <p>© <span id="year"></span> HyperUR. Phiên bản demo trang giới thiệu.</p>
+        <p>© <span id="year"></span> <span data-i18n="footer.copyright">HyperUR. Phiên bản demo trang giới thiệu.</span></p>
         <div class="footer-links">
-          <a href="index.html">Trang chủ</a>
-          <a href="features.html">Tính năng</a>
-          <a href="downloads.html">Tải ROM</a>
-          <a href="guide.html">Hướng dẫn</a>
-          <a href="donate.html">Donate</a>
+          <a href="index.html" data-i18n="nav.home">Trang chủ</a>
+          <a href="features.html" data-i18n="nav.features">Tính năng</a>
+          <a href="downloads.html" data-i18n="nav.download">Tải ROM</a>
+          <a href="guide.html" data-i18n="nav.guide">Hướng dẫn</a>
+          <a href="donate.html" data-i18n="nav.donate">Donate</a>
+          <a href="serial.html" data-i18n="nav.serial">Đăng ký serial</a>
         </div>
       </div>
     </footer>
-
-    <!-- Modal đăng ký serial -->
-    <div class="modal-overlay" id="modal-serial">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h2>Đăng ký serial</h2>
-          <button class="modal-close" id="modal-close">&times;</button>
-        </div>
-        <div class="modal-body">
-          <form id="serial-form">
-            <div class="form-group">
-              <label for="serial-input">Nhập serial key:</label>
-              <input
-                type="text"
-                id="serial-input"
-                class="form-input"
-                placeholder="VD: 1a2b3c4d"
-                required
-              />
-            </div>
-            <div class="form-group">
-              <label for="email-input">Email của bạn:</label>
-              <input
-                type="email"
-                id="email-input"
-                class="form-input"
-                placeholder="email@example.com"
-                required
-              />
-            </div>
-            <div class="form-group">
-              <label for="device-input">Thiết bị:</label>
-              <input
-                type="text"
-                id="device-input"
-                class="form-input"
-                placeholder="VD: Redmi k60 pro - socrates"
-                required
-              />
-            </div>
-            <div class="form-actions">
-              <button type="submit" class="btn btn-primary">Đăng ký</button>
-              <button type="button" class="btn btn-outline" id="modal-cancel">Hủy</button>
-            </div>
-          </form>
-        </div>
-      </div>
-    </div>
 
     <script src="devices.js"></script>
     <script src="i18n.js"></script>

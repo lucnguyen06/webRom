@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title data-i18n="serial.page.title">Đăng ký HYPER UR - HyperUR</title>
+    <meta name="description" data-i18n="serial.page.desc" content="Đăng ký serial key cho HyperUR ROM mod." />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!-- Blur Background -->
+    <div class="blur-bg blur-bg-1"></div>
+    <div class="blur-bg blur-bg-2"></div>
+    <div class="blur-bg blur-bg-3"></div>   
+    <div class="blur-bg blur-bg-4"></div>
+    <div class="blur-bg blur-bg-5"></div>
+
+    <!-- Gradient Orbs -->
+    <div class="gradient-orb gradient-orb-1"></div>
+    <div class="gradient-orb gradient-orb-2"></div>
+    <div class="gradient-orb gradient-orb-3"></div>
+
+    <!-- Header / Navbar -->
+    <header class="header">
+      <div class="container header-inner">
+        <a href="index.html" class="logo">
+          <span class="logo-text"><span class="logo-hyper">Hyper</span><span class="logo-ur">UR</span></span>
+        </a>
+
+        <nav class="nav">
+          <a href="index.html" class="nav-link" data-i18n="nav.home">Trang chủ</a>
+          <a href="features.html" class="nav-link" data-i18n="nav.features">Tính năng</a>
+          <a href="downloads.html" class="nav-link" data-i18n="nav.download">Tải ROM</a>
+          <a href="guide.html" class="nav-link" data-i18n="nav.guide">Hướng dẫn</a>
+          <a href="serial.html" class="nav-link active" data-i18n="nav.serial">Đăng ký serial</a>
+          <a href="donate.html" class="nav-link" data-i18n="nav.donate">Donate</a>
+        </nav>
+
+        <div class="nav-actions">
+          <button class="btn btn-outline btn-lang" id="btn-lang-toggle" title="Switch Language">
+            <span class="lang-icon">🌐</span>
+            <span class="lang-text">VI</span>
+          </button>
+          <button class="btn btn-outline" id="btn-theme-toggle">
+            <span class="theme-icon">🌙</span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <div class="container">
+        <div class="card" style="max-width: 700px; margin: 0 auto;">
+          <h2 style="text-align: center; margin-bottom: 10px;" data-i18n="serial.form.title">Đăng ký HYPER UR</h2>
+          <p style="text-align: center; color: #666; margin-bottom: 20px;"><b data-i18n="serial.form.subtitle">Vui lòng đọc kỹ khi đăng ký</b></p>
+
+          <!-- Tab Navigation -->
+          <div class="serial-tabs">
+            <button class="serial-tab active" id="tab-register" data-i18n="modal.tab.register">Đăng ký</button>
+            <button class="serial-tab" id="tab-lookup" data-i18n="modal.tab.lookup">Tra cứu</button>
+          </div>
+
+          <!-- Register Form -->
+          <div id="register-section">
+            <form id="serial-form">
+              <div class="form-group">
+                <label for="email" data-i18n="serial.label.email">Email</label>
+                <input type="email" id="email" class="form-input" data-i18n="serial.placeholder.email" data-i18n-placeholder placeholder="email@example.com" required />
+              </div>
+
+              <div class="form-group">
+                <label for="serial" data-i18n="serial.label.serial">Số serial thiết bị</label>
+                <input type="text" id="serial" class="form-input" data-i18n="serial.placeholder.serial" data-i18n-placeholder placeholder="Chỉ nhập serial" required />
+              </div>
+
+              <div class="form-group">
+                <label for="codename" data-i18n="serial.label.codename">Mã thiết bị (Codename)</label>
+                <div class="autocomplete-wrapper">
+                  <input type="text" id="codename" class="form-input" data-i18n="serial.placeholder.codename" data-i18n-placeholder placeholder="Nhập codename (ví dụ: fuxi)" autocomplete="off" required />
+                  <div class="autocomplete-dropdown hidden" id="codename-dropdown"></div>
+                </div>
+                <small id="device-name-display" style="color: #666; display: none;"></small>
+              </div>
+
+              <div class="form-group">
+                <label for="telegram" data-i18n="serial.label.telegram">Telegram</label>
+                <input type="text" id="telegram" class="form-input" data-i18n="serial.placeholder.telegram" data-i18n-placeholder placeholder="@username" />
+              </div>
+
+              <div class="form-group">
+                <label for="reg-type" data-i18n="serial.label.regType">Loại đăng ký</label>
+                <select id="reg-type" class="form-input" required>
+                  <option value="paid" data-i18n="serial.option.paid">Đăng ký có ủng hộ (Vĩnh viễn)</option>
+                  <option value="free" data-i18n="serial.option.free">Đăng ký miễn phí</option>
+                </select>
+              </div>
+
+              <div id="payment-fields-wrapper">
+                <div class="form-group payment-field" id="payment-method-group">
+                  <label for="payment-method" data-i18n="serial.label.paymentMethod">Phương thức ủng hộ</label>
+                  <select id="payment-method" class="form-input">
+                    <option value="momo" data-i18n="serial.option.momo">Momo</option>
+                    <option value="paypal" data-i18n="serial.option.paypal">Paypal</option>
+                    <option value="binance" data-i18n="serial.option.binance">Binance</option>
+                  </select>
+                </div>
+
+                <div class="form-group payment-field" id="sender-name-group">
+                  <label for="sender-name" data-i18n="serial.label.senderName">Tên người gửi</label>
+                  <input type="text" id="sender-name" class="form-input" />
+                </div>
+
+                <div class="form-group payment-field" id="amount-group">
+                  <label for="amount" data-i18n="serial.label.amount">Số tiền ủng hộ</label>
+                  <input type="number" id="amount" class="form-input" data-i18n="serial.placeholder.amount" data-i18n-placeholder placeholder="VNĐ" />
+                </div>
+
+                <div class="form-group payment-field" id="transaction-group">
+                  <label for="transaction" data-i18n="serial.label.transaction">Nội dung + Mã giao dịch</label>
+                  <textarea id="transaction" class="form-input" rows="4" data-i18n="serial.placeholder.transaction" data-i18n-placeholder placeholder="Nhập nội dung chuyển khoản và mã giao dịch..."></textarea>
+                </div>
+              </div>
+
+              <div class="form-actions">
+                <button type="submit" class="btn btn-primary btn-lg" style="width: 100%;" data-i18n="serial.btn.register">
+                  Đăng ký
+                </button>
+              </div>
+            </form>
+          </div>
+
+          <!-- Lookup Section -->
+          <div id="lookup-section" style="display: none;">
+            <form id="lookup-form">
+              <div class="form-group">
+                <label for="lookup-input" data-i18n="modal.lookup.label">Serial hoặc Email:</label>
+                <input type="text" id="lookup-input" class="form-input" data-i18n="modal.lookup.placeholder" data-i18n-placeholder placeholder="Nhập serial hoặc email để tra cứu..." required />
+              </div>
+              <div class="form-actions">
+                <button type="submit" class="btn btn-primary btn-lg" style="width: 100%;" data-i18n="modal.btn.lookup">
+                  Tra cứu
+                </button>
+              </div>
+            </form>
+
+            <!-- Lookup Result -->
+            <div id="lookup-result" style="display: none; margin-top: 20px;">
+              <h4 style="margin-bottom: 15px;" data-i18n="modal.result.title">Kết quả tra cứu</h4>
+              <div class="lookup-result-card">
+                <div class="lookup-result-row">
+                  <span class="lookup-result-label" data-i18n="modal.result.serial">Serial:</span>
+                  <span class="lookup-result-value" id="result-serial">-</span>
+                </div>
+                <div class="lookup-result-row">
+                  <span class="lookup-result-label" data-i18n="modal.result.email">Email:</span>
+                  <span class="lookup-result-value" id="result-email">-</span>
+                </div>
+                <div class="lookup-result-row">
+                  <span class="lookup-result-label" data-i18n="modal.result.device">Thiết bị:</span>
+                  <span class="lookup-result-value" id="result-device">-</span>
+                </div>
+                <div class="lookup-result-row">
+                  <span class="lookup-result-label" data-i18n="modal.result.date">Ngày đăng ký:</span>
+                  <span class="lookup-result-value" id="result-date">-</span>
+                </div>
+                <div class="lookup-result-row">
+                  <span class="lookup-result-label" data-i18n="modal.result.status">Trạng thái:</span>
+                  <span class="lookup-result-value" id="result-status">-</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Lookup Not Found -->
+            <div id="lookup-notfound" style="display: none; margin-top: 20px; text-align: center;">
+              <p style="color: #e74c3c; margin-bottom: 5px;" data-i18n="modal.notfound">Không tìm thấy thông tin đăng ký.</p>
+              <small style="color: #666;" data-i18n="modal.notfound.hint">Vui lòng kiểm tra lại serial hoặc email của bạn.</small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container footer-inner">
+        <p>© <span id="year"></span> <span data-i18n="footer.copyright">HyperUR. Phiên bản demo trang giới thiệu.</span></p>
+        <div class="footer-links">
+          <a href="index.html" data-i18n="nav.home">Trang chủ</a>
+          <a href="features.html" data-i18n="nav.features">Tính năng</a>
+          <a href="downloads.html" data-i18n="nav.download">Tải ROM</a>
+          <a href="guide.html" data-i18n="nav.guide">Hướng dẫn</a>
+          <a href="serial.html" data-i18n="nav.serial">Đăng ký serial</a>
+          <a href="donate.html" data-i18n="nav.donate">Donate</a>
+        </div>
+      </div>
+    </footer>
+
+    <script src="devices.js"></script>
+    <script src="i18n.js"></script>
+    <script src="serial.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        // Serial Page Tab Switching
+        const tabRegister = document.getElementById('tab-register');
+        const tabLookup = document.getElementById('tab-lookup');
+        const registerSection = document.getElementById('register-section');
+        const lookupSection = document.getElementById('lookup-section');
+
+        function switchTab(tab) {
+          if (tab === 'register') {
+            tabRegister.classList.add('active');
+            tabLookup.classList.remove('active');
+            registerSection.style.display = 'block';
+            lookupSection.style.display = 'none';
+          } else {
+            tabRegister.classList.remove('active');
+            tabLookup.classList.add('active');
+            registerSection.style.display = 'none';
+            lookupSection.style.display = 'block';
+          }
+        }
+
+        tabRegister.addEventListener('click', () => switchTab('register'));
+        tabLookup.addEventListener('click', () => switchTab('lookup'));
+
+        // Auto update year
+        const yearEl = document.getElementById('year');
+        if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+        // Toggle payment fields based on registration type
+        const regType = document.getElementById('reg-type');
+        const paymentWrapper = document.getElementById('payment-fields-wrapper');
+
+        function togglePaymentFields(clearValues = false) {
+          if (!regType || !paymentWrapper) return;
+
+          const isPaid = regType.value === 'paid';
+          paymentWrapper.style.display = isPaid ? 'block' : 'none';
+
+          paymentWrapper.querySelectorAll('input, select, textarea').forEach(input => {
+            input.disabled = !isPaid;
+            if (isPaid) {
+              input.required = true;
+            } else {
+              input.required = false;
+              if (clearValues) input.value = '';
+            }
+          });
+        }
+
+        if (regType) {
+          regType.addEventListener('change', () => togglePaymentFields(true));
+          togglePaymentFields(false);
+        }
+
+        // Registration Form submit
+        const serialForm = document.getElementById('serial-form');
+        if (serialForm) {
+          serialForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert(i18n.t('serial.success'));
+            this.reset();
+            const deviceDisplay = document.getElementById('device-name-display');
+            if (deviceDisplay) deviceDisplay.style.display = 'none';
+            togglePaymentFields(false);
+          });
+        }
+
+        // Codename Autocomplete
+        const codenameInput = document.getElementById('codename');
+        const codenameDropdown = document.getElementById('codename-dropdown');
+        const deviceNameDisplay = document.getElementById('device-name-display');
+        let activeIndex = -1;
+
+        function findDeviceByCodename(query) {
+          if (typeof devices === 'undefined') return [];
+          return devices.filter(d => d.codeName.toLowerCase() === query.toLowerCase());
+        }
+
+        function renderCodenameDropdown(matches) {
+          if (!codenameDropdown) return;
+          if (matches.length === 0) {
+            codenameDropdown.innerHTML = `<div class="autocomplete-no-results">${i18n.t('serial.device.found')}</div>`;
+            codenameDropdown.classList.remove('hidden');
+            if (deviceNameDisplay) deviceNameDisplay.style.display = 'none';
+            return;
+          }
+
+          codenameDropdown.innerHTML = matches.slice(0, 10).map((d, i) => `
+            <div class="autocomplete-item" data-index="${i}" data-codename="${d.codeName}" data-name="${d.name}">
+              <strong>${d.codeName}</strong> - ${d.name}
+            </div>
+          `).join('');
+          codenameDropdown.classList.remove('hidden');
+          activeIndex = -1;
+        }
+
+        if (codenameInput) {
+          codenameInput.addEventListener('input', (e) => {
+            const query = e.target.value.trim();
+            if (query.length === 0) {
+              codenameDropdown.classList.add('hidden');
+              if (deviceNameDisplay) deviceNameDisplay.style.display = 'none';
+              return;
+            }
+            const matches = findDeviceByCodename(query);
+            if (matches.length > 0) {
+              renderCodenameDropdown(matches);
+              if (matches.length === 1 && matches[0].codeName.toLowerCase() === query.toLowerCase()) {
+                if (deviceNameDisplay) {
+                  deviceNameDisplay.textContent = '📱 ' + matches[0].name;
+                  deviceNameDisplay.style.display = 'block';
+                }
+              } else {
+                if (deviceNameDisplay) deviceNameDisplay.style.display = 'none';
+              }
+            } else {
+              codenameDropdown.innerHTML = `<div class="autocomplete-no-results">${i18n.t('serial.device.found')}</div>`;
+              codenameDropdown.classList.remove('hidden');
+              if (deviceNameDisplay) deviceNameDisplay.style.display = 'none';
+            }
+          });
+
+          codenameInput.addEventListener('keydown', (e) => {
+            const items = codenameDropdown.querySelectorAll('.autocomplete-item');
+            if (codenameDropdown.classList.contains('hidden')) return;
+
+            if (e.key === 'ArrowDown') {
+              e.preventDefault();
+              activeIndex = (activeIndex + 1) % items.length;
+              items.forEach((item, i) => item.classList.toggle('autocomplete-item-active', i === activeIndex));
+            } else if (e.key === 'ArrowUp') {
+              e.preventDefault();
+              activeIndex = activeIndex <= 0 ? items.length - 1 : activeIndex - 1;
+              items.forEach((item, i) => item.classList.toggle('autocomplete-item-active', i === activeIndex));
+            } else if (e.key === 'Enter' && activeIndex >= 0) {
+              e.preventDefault();
+              selectCodename(items[activeIndex]);
+            } else if (e.key === 'Escape') {
+              codenameDropdown.classList.add('hidden');
+            }
+          });
+        }
+
+        function selectCodename(item) {
+          if (codenameInput) codenameInput.value = item.dataset.codename;
+          if (deviceNameDisplay) {
+            deviceNameDisplay.textContent = '📱 ' + item.dataset.name;
+            deviceNameDisplay.style.display = 'block';
+          }
+          codenameDropdown.classList.add('hidden');
+        }
+
+        if (codenameDropdown) {
+          codenameDropdown.addEventListener('click', (e) => {
+            const item = e.target.closest('.autocomplete-item');
+            if (item) selectCodename(item);
+          });
+        }
+
+        document.addEventListener('click', (e) => {
+          if (!e.target.closest('.autocomplete-wrapper')) {
+            if (codenameDropdown) codenameDropdown.classList.add('hidden');
+          }
+        });
+
+        // ======================
+        // Serial Lookup
+        // ======================
+
+        // Sample registered serials database
+        const registeredSerials = [
+          { serial: 'HYPER-A1B2C3D4', email: 'user1@example.com', device: 'Redmi K60 Pro - socrates', date: '2024-01-15', status: 'active', type: 'paid' },
+          { serial: 'HYPER-E5F6G7H8', email: 'user2@example.com', device: 'Xiaomi 13 - fuxi', date: '2024-02-20', status: 'active', type: 'paid' },
+          { serial: 'HYPER-I9J0K1L2', email: 'user3@example.com', device: 'POCO F5 - marble', date: '2024-03-10', status: 'active', type: 'free' },
+          { serial: 'HYPER-M3N4O5P6', email: 'test@example.com', device: 'Redmi Note 13 Pro+ - garnet', date: '2024-04-05', status: 'active', type: 'paid' },
+        ];
+
+        // Save to localStorage on page load
+        function initSerialDatabase() {
+          const stored = localStorage.getItem('hyperur-serials');
+          if (!stored) {
+            localStorage.setItem('hyperur-serials', JSON.stringify(registeredSerials));
+          }
+        }
+
+        initSerialDatabase();
+
+        // Lookup form submit
+        const lookupForm = document.getElementById('lookup-form');
+        const lookupResult = document.getElementById('lookup-result');
+        const lookupNotfound = document.getElementById('lookup-notfound');
+
+        if (lookupForm) {
+          lookupForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const lookupInput = document.getElementById('lookup-input');
+            if (!lookupInput) return;
+
+            const query = lookupInput.value.trim().toLowerCase();
+            if (!query) return;
+
+            // Get serials from localStorage
+            const serials = JSON.parse(localStorage.getItem('hyperur-serials') || '[]');
+
+            // Find by serial or email
+            const found = serials.find(s =>
+              s.serial.toLowerCase() === query ||
+              s.email.toLowerCase() === query
+            );
+
+            // Hide previous results
+            if (lookupResult) lookupResult.style.display = 'none';
+            if (lookupNotfound) lookupNotfound.style.display = 'none';
+
+            if (found) {
+              // Display result
+              const resultSerial = document.getElementById('result-serial');
+              const resultEmail = document.getElementById('result-email');
+              const resultDevice = document.getElementById('result-device');
+              const resultDate = document.getElementById('result-date');
+              const resultStatus = document.getElementById('result-status');
+
+              if (resultSerial) resultSerial.textContent = found.serial;
+              if (resultEmail) resultEmail.textContent = found.email;
+              if (resultDevice) resultDevice.textContent = found.device;
+              if (resultDate) resultDate.textContent = found.date;
+
+              if (resultStatus) {
+                resultStatus.textContent = found.status === 'active'
+                  ? (found.type === 'paid' ? '✅ Đã kích hoạt (Vĩnh viễn)' : '✅ Đã kích hoạt (Miễn phí)')
+                  : '❌ Hết hạn';
+                resultStatus.style.color = found.status === 'active' ? '#27ae60' : '#e74c3c';
+              }
+
+              if (lookupResult) lookupResult.style.display = 'block';
+            } else {
+              if (lookupNotfound) lookupNotfound.style.display = 'block';
+            }
+          });
+        }
+
+        // Language change handler
+        window.addEventListener('i18n:languageChanged', () => {
+          if (lookupResult && lookupResult.style.display === 'block') {
+            const lookupInput = document.getElementById('lookup-input');
+            if (lookupInput) {
+              const query = lookupInput.value.trim().toLowerCase();
+              const serials = JSON.parse(localStorage.getItem('hyperur-serials') || '[]');
+              const found = serials.find(s =>
+                s.serial.toLowerCase() === query ||
+                s.email.toLowerCase() === query
+              );
+              if (found) {
+                const resultStatus = document.getElementById('result-status');
+                if (resultStatus) {
+                  resultStatus.textContent = found.status === 'active'
+                    ? (found.type === 'paid' ? '✅ Đã kích hoạt (Vĩnh viễn)' : '✅ Đã kích hoạt (Miễn phí)')
+                    : '❌ Hết hạn';
+                }
+              }
+            }
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

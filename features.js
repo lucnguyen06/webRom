@@ -1,8 +1,4 @@
 // Auto update year in footer
-const yearEl = document.getElementById('year');
-if (yearEl) {
-  yearEl.textContent = new Date().getFullYear().toString();
-}
 
 // Theme toggle (light / dark)
 const body = document.body;
@@ -99,7 +95,7 @@ if (serialForm) {
     console.log('Email:', emailInput?.value);
     console.log('Device:', deviceInput?.value);
     
-    alert('Đăng ký serial thành công! Chúng tôi sẽ liên hệ với bạn sớm nhất.');
+    alert(i18n.t('modal.serial.register.success'));
     
     serialForm.reset();
     closeModal();
@@ -114,7 +110,7 @@ function renderFeatureItems(containerId, items) {
   container.innerHTML = items.map((item, index) => `
     <div class="feature-item" style="animation-delay: ${index * 0.05}s">
       <span class="feature-item-check">✓</span>
-      <span class="feature-item-text">${item}</span>
+      <span class="feature-item-text">${typeof i18n !== 'undefined' ? i18n.t(item) : item}</span>
     </div>
   `).join('');
 }
@@ -180,3 +176,12 @@ window.addEventListener('load', () => {
   }, 100);
 });
 
+// Re-render changelog when language changes
+window.addEventListener('i18n:languageChanged', () => {
+  if (typeof changelogData !== 'undefined') {
+    renderFeatureItems('features-added', changelogData.added);
+    renderFeatureItems('features-improved', changelogData.improved);
+    renderFeatureItems('features-fixed', changelogData.fixed);
+  }
+  renderModdedApps();
+});
