@@ -62,7 +62,7 @@
           </div>
 
           <!-- Register Form -->
-          <div id="register-section">
+          <div id="register-section" class="form-section">
             <form id="serial-form">
               <div class="form-group">
                 <label for="email" data-i18n="serial.label.email">Email</label>
@@ -131,7 +131,7 @@
           </div>
 
           <!-- Lookup Section -->
-          <div id="lookup-section" style="display: none;">
+          <div id="lookup-section" class="form-section hidden">
             <form id="lookup-form">
               <div class="form-group">
                 <label for="lookup-input" data-i18n="modal.lookup.label">Serial hoặc Email:</label>
@@ -145,7 +145,7 @@
             </form>
 
             <!-- Lookup Result -->
-            <div id="lookup-result" style="display: none; margin-top: 20px;">
+            <div id="lookup-result" class="lookup-result hidden">
               <h4 style="margin-bottom: 15px;" data-i18n="modal.result.title">Kết quả tra cứu</h4>
               <div class="lookup-result-card">
                 <div class="lookup-result-row">
@@ -172,7 +172,7 @@
             </div>
 
             <!-- Lookup Not Found -->
-            <div id="lookup-notfound" style="display: none; margin-top: 20px; text-align: center;">
+            <div id="lookup-notfound" class="lookup-not-found hidden">
               <p style="color: #e74c3c; margin-bottom: 5px;" data-i18n="modal.notfound">Không tìm thấy thông tin đăng ký.</p>
               <small style="color: #666;" data-i18n="modal.notfound.hint">Vui lòng kiểm tra lại serial hoặc email của bạn.</small>
             </div>
@@ -211,13 +211,13 @@
           if (tab === 'register') {
             tabRegister.classList.add('active');
             tabLookup.classList.remove('active');
-            registerSection.style.display = 'block';
-            lookupSection.style.display = 'none';
+            registerSection.classList.remove('hidden');
+            lookupSection.classList.add('hidden');
           } else {
             tabRegister.classList.remove('active');
             tabLookup.classList.add('active');
-            registerSection.style.display = 'none';
-            lookupSection.style.display = 'block';
+            registerSection.classList.add('hidden');
+            lookupSection.classList.remove('hidden');
           }
         }
 
@@ -412,8 +412,8 @@
             );
 
             // Hide previous results
-            if (lookupResult) lookupResult.style.display = 'none';
-            if (lookupNotfound) lookupNotfound.style.display = 'none';
+            if (lookupResult) lookupResult.classList.add('hidden');
+            if (lookupNotfound) lookupNotfound.classList.add('hidden');
 
             if (found) {
               // Display result
@@ -435,9 +435,9 @@
                 resultStatus.style.color = found.status === 'active' ? '#27ae60' : '#e74c3c';
               }
 
-              if (lookupResult) lookupResult.style.display = 'block';
+              if (lookupResult) lookupResult.classList.remove('hidden');
             } else {
-              if (lookupNotfound) lookupNotfound.style.display = 'block';
+              if (lookupNotfound) lookupNotfound.classList.remove('hidden');
             }
           });
         }

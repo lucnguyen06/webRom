@@ -2696,6 +2696,13 @@ body.dark-mode .lookup-status {
 
 /* Lookup Not Found */
 .lookup-not-found {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.lookup-not-found.hidden {
+  display: none !important;
+}
   margin-top: 1.5rem;
   padding: 2rem 1.5rem;
   background: linear-gradient(135deg, rgba(239, 68, 68, 0.08), rgba(220, 38, 38, 0.05));
@@ -3863,7 +3870,24 @@ body.light-mode .serial-tab:hover {
   box-shadow: 0 4px 15px rgba(124, 58, 237, 0.35);
 }
 
+/* Form Sections */
+.form-section {
+  display: block;
+}
+
+.form-section.hidden {
+  display: none !important;
+}
+
 /* Lookup Result Card */
+.lookup-result {
+  margin-top: 20px;
+}
+
+.lookup-result.hidden {
+  display: none !important;
+}
+
 .lookup-result-card {
   background: rgba(255, 255, 255, 0.05);
   border: 1px solid rgba(255, 255, 255, 0.1);
