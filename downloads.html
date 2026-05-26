@@ -2,19 +2,14 @@
 <html lang="vi">
   <head>
     <meta charset="UTF-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0"
-    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="theme-color" content="#0f0f1a" />
     <title>Tải HyperUR - Hyper Mods Hub</title>
     <meta
       name="description"
       content="Tải HyperUR cho các dòng máy Xiaomi, Redmi. Hỗ trợ Snapdragon, nhiều tuỳ biến cao cấp."
     />
-    <link
-      rel="stylesheet"
-      href="styles.css"
-    />
+    <link rel="stylesheet" href="styles.css?v=20250626" />
   </head>
   <body>
     <!-- Blur Background -->
@@ -97,6 +92,27 @@
       <div class="container">
         <div class="slider-header">
           <h2 data-i18n="downloads.devices.title">📱 Danh sách ROM theo thiết bị</h2>
+          
+          <!-- Mobile Category Menu Button -->
+          <div class="mobile-category-menu" id="mobile-category-menu">
+            <button class="mobile-category-btn" id="mobile-category-btn">
+              <span class="mobile-category-icon">☰</span>
+              <span class="mobile-category-label" id="mobile-category-label">Tất cả</span>
+              <span class="mobile-category-arrow">▼</span>
+            </button>
+            <div class="mobile-category-dropdown" id="mobile-category-dropdown">
+              <button class="mobile-category-option active" data-category="all" data-i18n="downloads.category.tatca">Tất cả</button>
+              <button class="mobile-category-option" data-category="xiaomi" data-i18n="downloads.category.xiaomi">Xiaomi</button>
+              <button class="mobile-category-option" data-category="pad" data-i18n="downloads.category.pad">Pad</button>
+              <button class="mobile-category-option" data-category="mix" data-i18n="downloads.category.mix">MIX</button>
+              <button class="mobile-category-option" data-category="civi" data-i18n="downloads.category.civi">Civi</button>
+              <button class="mobile-category-option" data-category="redmi" data-i18n="downloads.category.redmi">Redmi</button>
+              <button class="mobile-category-option" data-category="redmi-note" data-i18n="downloads.category.note">Note</button>
+              <button class="mobile-category-option" data-category="redmi-k" data-i18n="downloads.category.k">K Series</button>
+              <button class="mobile-category-option" data-category="poco" data-i18n="downloads.category.poco">POCO</button>
+            </div>
+          </div>
+
           <div class="category-tabs" id="category-tabs">
             <button class="category-tab active" data-category="all" data-i18n="downloads.category.tatca">Tất cả</button>
             <button class="category-tab" data-category="xiaomi" data-i18n="downloads.category.xiaomi">Xiaomi</button>

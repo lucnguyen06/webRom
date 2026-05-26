@@ -202,36 +202,101 @@ function renderDeviceSlider(filteredDevices = null) {
   }).join('');
 }
 
+// Mobile category menu toggle
+const mobileMenuBtn = document.getElementById('mobile-category-btn');
+const mobileMenuDropdown = document.getElementById('mobile-category-dropdown');
+
+// Close dropdown initially (it's inside a hidden menu on desktop)
+if (mobileMenuDropdown) {
+  mobileMenuDropdown.style.display = 'none';
+}
+
+if (mobileMenuBtn && mobileMenuDropdown) {
+  mobileMenuBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    if (mobileMenuDropdown.style.display === 'none') {
+      mobileMenuDropdown.style.display = 'block';
+    } else {
+      mobileMenuDropdown.style.display = 'none';
+    }
+  });
+  
+  document.addEventListener('click', (e) => {
+    if (!mobileMenuDropdown.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
+      mobileMenuDropdown.style.display = 'none';
+    }
+  });
+}
+
 // Initialize category tabs
 function initCategoryTabs() {
   const tabs = document.querySelectorAll('.category-tab');
+  const mobileTabs = document.querySelectorAll('.mobile-category-option');
+  const mobileMenu = document.getElementById('mobile-category-menu');
+  const mobileBtn = document.getElementById('mobile-category-btn');
+  const mobileLabel = document.getElementById('mobile-category-label');
+  const mobileDropdown = document.getElementById('mobile-category-dropdown');
   
+  // Function to update active category
+  function setActiveCategory(category, label) {
+    // Update desktop tabs
+    tabs.forEach(t => {
+      if (t.dataset.category === category) {
+        t.classList.add('active');
+      } else {
+        t.classList.remove('active');
+      }
+    });
+    
+    // Update mobile tabs
+    mobileTabs.forEach(t => {
+      if (t.dataset.category === category) {
+        t.classList.add('active');
+      } else {
+        t.classList.remove('active');
+      }
+    });
+    
+    // Update mobile label
+    if (mobileLabel) {
+      mobileLabel.textContent = label;
+    }
+    
+    // Filter and render
+    currentCategory = category;
+    const filtered = filterDevicesByCategory(currentCategory);
+    
+    // Also apply search filter if there's a search query
+    const searchInput = document.getElementById('device-search');
+    if (searchInput && searchInput.value.trim()) {
+      const query = searchInput.value.toLowerCase().trim();
+      const searchFiltered = filtered.filter(device => 
+        device.name.toLowerCase().includes(query) || 
+        device.codeName.toLowerCase().includes(query)
+      );
+      renderDeviceSlider(searchFiltered);
+    } else {
+      renderDeviceSlider(filtered);
+    }
+    
+    // Reset slider position
+    const slider = document.getElementById('device-slider');
+    if (slider) slider.scrollLeft = 0;
+  }
+  
+  // Desktop tabs click handler
   tabs.forEach(tab => {
     tab.addEventListener('click', () => {
-      // Update active state
-      tabs.forEach(t => t.classList.remove('active'));
-      tab.classList.add('active');
-      
-      // Filter and render
-      currentCategory = tab.dataset.category;
-      const filtered = filterDevicesByCategory(currentCategory);
-      
-      // Also apply search filter if there's a search query
-      const searchInput = document.getElementById('device-search');
-      if (searchInput && searchInput.value.trim()) {
-        const query = searchInput.value.toLowerCase().trim();
-        const searchFiltered = filtered.filter(device => 
-          device.name.toLowerCase().includes(query) || 
-          device.codeName.toLowerCase().includes(query)
-        );
-        renderDeviceSlider(searchFiltered);
-      } else {
-        renderDeviceSlider(filtered);
-      }
-      
-      // Reset slider position
-      const slider = document.getElementById('device-slider');
-      if (slider) slider.scrollLeft = 0;
+      setActiveCategory(tab.dataset.category, tab.textContent);
+    });
+  });
+  
+  // Mobile tabs click handler
+  mobileTabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      setActiveCategory(tab.dataset.category, tab.textContent);
+      // Close dropdown
+      if (mobileDropdown) mobileDropdown.classList.add('hidden');
     });
   });
 }
