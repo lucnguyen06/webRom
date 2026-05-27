@@ -2383,12 +2383,13 @@ body.dark-mode .features-cta {
 /* Footer */
 .footer {
   padding: 1.6rem 0 2rem;
-  background: var(--bg);
+  background: transparent;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   border-top: 1px solid rgba(148, 163, 184, 0.15);
 }
 
 body.dark-mode .footer {
-  background: #020617;
   border-top-color: rgba(30, 64, 175, 0.3);
 }
 
@@ -2404,6 +2405,8 @@ body.dark-mode .footer {
   font-size: 0.82rem;
   color: var(--text-soft);
   margin: 0;
+  text-align: center;
+  width: 100%;
 }
 
 .footer-admin-btn {
@@ -2458,6 +2461,8 @@ body.dark-mode .footer-divider {
   gap: 0.25rem;
   padding: 0.9rem 0.5rem;
   background: rgba(148, 163, 184, 0.05);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
   border: 1px solid rgba(148, 163, 184, 0.1);
   border-radius: 12px;
   text-decoration: none;
@@ -2517,11 +2522,12 @@ body.dark-mode .footer-team-card:hover {
 }
 
 .footer-hur-heading {
-  font-size: 0.8rem;
+  font-size: 0.72rem;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: var(--primary-strong);
+  letter-spacing: 0.1em;
+  color: var(--text-soft);
+  opacity: 0.6;
   text-align: center;
   margin: 0 0 0.75rem;
 }
@@ -2538,23 +2544,28 @@ body.dark-mode .footer-team-card:hover {
   align-items: center;
   gap: 0.5rem;
   padding: 0.6rem 1.2rem;
-  background: linear-gradient(135deg, rgba(99, 102, 241, 0.12), rgba(30, 64, 175, 0.15));
-  border: 1px solid rgba(99, 102, 241, 0.3);
+  background: rgba(148, 163, 184, 0.05);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(148, 163, 184, 0.1);
   border-radius: 50px;
   text-decoration: none;
-  transition: all 0.25s;
+  transition: all 0.3s ease;
 }
 
 body.dark-mode .footer-hur-card {
-  background: linear-gradient(135deg, rgba(30, 64, 175, 0.2), rgba(99, 102, 241, 0.1));
-  border-color: rgba(99, 102, 241, 0.4);
+  background: rgba(30, 64, 175, 0.08);
+  border-color: rgba(30, 64, 175, 0.2);
 }
 
 .footer-hur-card:hover {
-  background: linear-gradient(135deg, rgba(99, 102, 241, 0.25), rgba(30, 64, 175, 0.3));
-  border-color: rgba(99, 102, 241, 0.6);
+  background: rgba(99, 102, 241, 0.08);
+  border-color: rgba(99, 102, 241, 0.3);
   transform: translateY(-2px);
-  box-shadow: 0 4px 20px rgba(99, 102, 241, 0.2);
+}
+
+body.dark-mode .footer-hur-card:hover {
+  background: rgba(30, 64, 175, 0.15);
 }
 
 .footer-hur-icon {
@@ -2563,16 +2574,17 @@ body.dark-mode .footer-hur-card {
 }
 
 .footer-hur-label {
-  font-size: 0.72rem;
+  font-size: 0.7rem;
   font-weight: 600;
-  color: var(--text-soft);
-  opacity: 0.8;
+  color: var(--primary-strong);
+  text-align: center;
+  line-height: 1.3;
 }
 
 .footer-hur-name {
   font-size: 0.72rem;
-  font-weight: 700;
-  color: var(--primary-strong);
+  color: var(--text-soft);
+  opacity: 0.7;
 }
 
 /* Modal */
