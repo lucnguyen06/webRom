@@ -2382,7 +2382,7 @@ body.dark-mode .features-cta {
 
 /* Footer */
 .footer {
-  padding: 1.4rem 0 1.8rem;
+  padding: 1.6rem 0 2rem;
   background: var(--bg);
   border-top: 1px solid rgba(148, 163, 184, 0.15);
 }
@@ -2392,27 +2392,123 @@ body.dark-mode .footer {
   border-top-color: rgba(30, 64, 175, 0.3);
 }
 
-.footer-inner {
+.footer-top {
   display: flex;
-  flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
+  flex-wrap: wrap;
   gap: 0.75rem;
+}
+
+.footer-copyright {
   font-size: 0.82rem;
   color: var(--text-soft);
+  margin: 0;
 }
 
-.footer-links {
-  display: flex;
-  gap: 0.9rem;
-}
-
-.footer-links a {
-  text-decoration: none;
-}
-
-.footer-links a:hover {
+.footer-admin-btn {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.35rem 1rem;
+  font-size: 0.78rem;
+  font-weight: 600;
   color: var(--primary-strong);
+  border: 1px solid var(--primary-strong);
+  border-radius: 20px;
+  text-decoration: none;
+  transition: background 0.2s, color 0.2s;
+}
+
+.footer-admin-btn:hover {
+  background: var(--primary-strong);
+  color: #fff;
+}
+
+.footer-divider {
+  height: 1px;
+  background: rgba(148, 163, 184, 0.12);
+  margin: 1.25rem 0;
+}
+
+body.dark-mode .footer-divider {
+  background: rgba(30, 64, 175, 0.25);
+}
+
+.footer-team-heading {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-soft);
+  margin: 0 0 1rem;
+  text-align: center;
+  opacity: 0.6;
+}
+
+.footer-team-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.75rem;
+}
+
+.footer-team-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.9rem 0.5rem;
+  background: rgba(148, 163, 184, 0.05);
+  border: 1px solid rgba(148, 163, 184, 0.1);
+  border-radius: 12px;
+  text-decoration: none;
+  transition: background 0.2s, border-color 0.2s, transform 0.2s;
+}
+
+body.dark-mode .footer-team-card {
+  background: rgba(30, 64, 175, 0.08);
+  border-color: rgba(30, 64, 175, 0.2);
+}
+
+.footer-team-card:hover {
+  background: rgba(99, 102, 241, 0.08);
+  border-color: rgba(99, 102, 241, 0.3);
+  transform: translateY(-2px);
+}
+
+body.dark-mode .footer-team-card:hover {
+  background: rgba(30, 64, 175, 0.15);
+}
+
+.footer-team-icon {
+  font-size: 1.3rem;
+  line-height: 1;
+}
+
+.footer-team-role {
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--primary-strong);
+  text-align: center;
+  line-height: 1.3;
+}
+
+.footer-team-name {
+  font-size: 0.72rem;
+  color: var(--text-soft);
+  opacity: 0.7;
+}
+
+@media (max-width: 640px) {
+  .footer-team-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 400px) {
+  .footer-team-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem;
+  }
 }
 
 /* Modal */

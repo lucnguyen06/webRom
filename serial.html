@@ -183,15 +183,33 @@
 
     <!-- Footer -->
     <footer class="footer">
-      <div class="container footer-inner">
-        <p>© <span id="year"></span> <span data-i18n="footer.copyright">HyperUR. Phiên bản demo trang giới thiệu.</span></p>
-        <div class="footer-links">
-          <a href="index.html" data-i18n="nav.home">Trang chủ</a>
-          <a href="features.html" data-i18n="nav.features">Tính năng</a>
-          <a href="downloads.html" data-i18n="nav.download">Tải ROM</a>
-          <a href="guide.html" data-i18n="nav.guide">Hướng dẫn</a>
-          <a href="serial.html" data-i18n="nav.serial">Đăng ký serial</a>
-          <a href="donate.html" data-i18n="nav.donate">Donate</a>
+      <div class="container">
+        <div class="footer-top">
+          <p class="footer-copyright">All rights to the HyperUR ROM are owned and managed by Team HyperUR.</p>
+        </div>
+        <div class="footer-divider"></div>
+        <p class="footer-team-heading">Đội ngũ phát triển</p>
+        <div class="footer-team-grid">
+          <a href="https://t.me/lcnguy06" target="_blank" rel="noopener noreferrer" class="footer-team-card">
+            <span class="footer-team-icon">💬</span>
+            <span class="footer-team-role">Project Lead &amp; Developer</span>
+            <span class="footer-team-name">@lcnguy06</span>
+          </a>
+          <a href="https://t.me/Usagi79" target="_blank" rel="noopener noreferrer" class="footer-team-card">
+            <span class="footer-team-icon">💬</span>
+            <span class="footer-team-role">Project Lead &amp; Developer</span>
+            <span class="footer-team-name">@Usagi79</span>
+          </a>
+          <a href="https://t.me/Kswukong" target="_blank" rel="noopener noreferrer" class="footer-team-card">
+            <span class="footer-team-icon">💬</span>
+            <span class="footer-team-role">Developer ToolBox</span>
+            <span class="footer-team-name">@Kswukong</span>
+          </a>
+          <a href="https://t.me/Vqn222" target="_blank" rel="noopener noreferrer" class="footer-team-card">
+            <span class="footer-team-icon">💬</span>
+            <span class="footer-team-role">Developer Support</span>
+            <span class="footer-team-name">@Vqn222</span>
+          </a>
         </div>
       </div>
     </footer>
@@ -254,18 +272,6 @@
           togglePaymentFields(false);
         }
 
-        // Registration Form submit
-        const serialForm = document.getElementById('serial-form');
-        if (serialForm) {
-          serialForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            alert(i18n.t('serial.success'));
-            this.reset();
-            const deviceDisplay = document.getElementById('device-name-display');
-            if (deviceDisplay) deviceDisplay.style.display = 'none';
-            togglePaymentFields(false);
-          });
-        }
 
         // Codename Autocomplete
         const codenameInput = document.getElementById('codename');
@@ -366,26 +372,71 @@
         });
 
         // ======================
-        // Serial Lookup
+        // Serial Registration - API Backend
         // ======================
 
-        // Sample registered serials database
-        const registeredSerials = [
-          { serial: 'HYPER-A1B2C3D4', email: 'user1@example.com', device: 'Redmi K60 Pro - socrates', date: '2024-01-15', status: 'active', type: 'paid' },
-          { serial: 'HYPER-E5F6G7H8', email: 'user2@example.com', device: 'Xiaomi 13 - fuxi', date: '2024-02-20', status: 'active', type: 'paid' },
-          { serial: 'HYPER-I9J0K1L2', email: 'user3@example.com', device: 'POCO F5 - marble', date: '2024-03-10', status: 'active', type: 'free' },
-          { serial: 'HYPER-M3N4O5P6', email: 'test@example.com', device: 'Redmi Note 13 Pro+ - garnet', date: '2024-04-05', status: 'active', type: 'paid' },
-        ];
+        const API_BASE = 'http://localhost:8080/api/serial';
 
-        // Save to localStorage on page load
-        function initSerialDatabase() {
-          const stored = localStorage.getItem('hyperur-serials');
-          if (!stored) {
-            localStorage.setItem('hyperur-serials', JSON.stringify(registeredSerials));
-          }
+        async function apiRegister(formData) {
+          const res = await fetch(`${API_BASE}/register`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(formData)
+          });
+          return res.json();
         }
 
-        initSerialDatabase();
+        async function apiLookup(query) {
+          const res = await fetch(`${API_BASE}/lookup?q=${encodeURIComponent(query)}`);
+          return res.json();
+        }
+
+        // Registration Form submit
+        const serialForm = document.getElementById('serial-form');
+        if (serialForm) {
+          serialForm.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            const btn = this.querySelector('button[type="submit"]');
+            const originalText = btn.textContent;
+            btn.disabled = true;
+            btn.textContent = 'Dang xu ly...';
+
+            const formData = {
+              email: document.getElementById('email').value.trim(),
+              serial: document.getElementById('serial').value.trim(),
+              codename: document.getElementById('codename').value.trim(),
+              deviceName: document.getElementById('device-name-display').textContent.replace('📱 ', ''),
+              telegram: document.getElementById('telegram').value.trim(),
+              regType: document.getElementById('reg-type').value,
+              paymentMethod: document.getElementById('payment-method').value,
+              senderName: document.getElementById('sender-name').value.trim(),
+              amount: parseFloat(document.getElementById('amount').value) || null,
+              transaction: document.getElementById('transaction').value.trim()
+            };
+
+            try {
+              const result = await apiRegister(formData);
+              if (result.success) {
+                alert(i18n.t('serial.success') + '\n\nSerial: ' + result.data.serial + '\nTrang thai: ' + result.data.status);
+                this.reset();
+                const deviceDisplay = document.getElementById('device-name-display');
+                if (deviceDisplay) deviceDisplay.style.display = 'none';
+                togglePaymentFields(false);
+              } else {
+                alert('Loi: ' + result.message);
+              }
+            } catch (err) {
+              alert('Khong the ket noi server. Vui long dam bao backend dang chay o port 8080.\n\n' + err);
+            } finally {
+              btn.disabled = false;
+              btn.textContent = originalText;
+            }
+          });
+        }
+
+        // ======================
+        // Serial Lookup - API Backend
+        // ======================
 
         // Lookup form submit
         const lookupForm = document.getElementById('lookup-form');
@@ -393,74 +444,89 @@
         const lookupNotfound = document.getElementById('lookup-notfound');
 
         if (lookupForm) {
-          lookupForm.addEventListener('submit', function(e) {
+          lookupForm.addEventListener('submit', async function(e) {
             e.preventDefault();
 
             const lookupInput = document.getElementById('lookup-input');
             if (!lookupInput) return;
 
-            const query = lookupInput.value.trim().toLowerCase();
+            const query = lookupInput.value.trim();
             if (!query) return;
 
-            // Get serials from localStorage
-            const serials = JSON.parse(localStorage.getItem('hyperur-serials') || '[]');
-
-            // Find by serial or email
-            const found = serials.find(s =>
-              s.serial.toLowerCase() === query ||
-              s.email.toLowerCase() === query
-            );
+            const btn = this.querySelector('button[type="submit"]');
+            const originalText = btn.textContent;
+            btn.disabled = true;
+            btn.textContent = 'Dang tra cuu...';
 
             // Hide previous results
             if (lookupResult) lookupResult.classList.add('hidden');
             if (lookupNotfound) lookupNotfound.classList.add('hidden');
 
-            if (found) {
-              // Display result
-              const resultSerial = document.getElementById('result-serial');
-              const resultEmail = document.getElementById('result-email');
-              const resultDevice = document.getElementById('result-device');
-              const resultDate = document.getElementById('result-date');
-              const resultStatus = document.getElementById('result-status');
+            try {
+              const result = await apiLookup(query);
 
-              if (resultSerial) resultSerial.textContent = found.serial;
-              if (resultEmail) resultEmail.textContent = found.email;
-              if (resultDevice) resultDevice.textContent = found.device;
-              if (resultDate) resultDate.textContent = found.date;
+              if (result.found && result.data) {
+                const d = result.data;
+                const resultSerial = document.getElementById('result-serial');
+                const resultEmail = document.getElementById('result-email');
+                const resultDevice = document.getElementById('result-device');
+                const resultDate = document.getElementById('result-date');
+                const resultStatus = document.getElementById('result-status');
 
-              if (resultStatus) {
-                resultStatus.textContent = found.status === 'active'
-                  ? (found.type === 'paid' ? '✅ Đã kích hoạt (Vĩnh viễn)' : '✅ Đã kích hoạt (Miễn phí)')
-                  : '❌ Hết hạn';
-                resultStatus.style.color = found.status === 'active' ? '#27ae60' : '#e74c3c';
+                if (resultSerial) resultSerial.textContent = d.serial;
+                if (resultEmail) resultEmail.textContent = d.email;
+                if (resultDevice) resultDevice.textContent = (d.deviceName || '') + (d.codename ? ' - ' + d.codename : '');
+                if (resultDate) resultDate.textContent = d.createdAt ? new Date(d.createdAt).toLocaleDateString('vi-VN') : '-';
+
+                if (resultStatus) {
+                  const statusMap = { active: 'active', pending: 'cho_xu_ly', rejected: 'tu_choi' };
+                  const statusKey = statusMap[d.status] || d.status;
+                  const statusLabel = {
+                    active: d.regType === 'paid' ? 'Da kich hoat (Vinh vien)' : 'Da kich hoat (Mien phi)',
+                    cho_xu_ly: 'Dang cho xu ly',
+                    tu_choi: 'Da tu choi'
+                  };
+                  resultStatus.textContent = d.status === 'active'
+                    ? '✅ ' + statusLabel.active
+                    : d.status === 'pending'
+                    ? '⏳ ' + statusLabel.cho_xu_ly
+                    : '❌ ' + statusLabel.tu_choi;
+                  resultStatus.style.color = d.status === 'active' ? '#27ae60' : d.status === 'pending' ? '#f39c12' : '#e74c3c';
+                }
+
+                if (lookupResult) lookupResult.classList.remove('hidden');
+              } else {
+                if (lookupNotfound) lookupNotfound.classList.remove('hidden');
               }
-
-              if (lookupResult) lookupResult.classList.remove('hidden');
-            } else {
-              if (lookupNotfound) lookupNotfound.classList.remove('hidden');
+            } catch (err) {
+              alert('Khong the ket noi server. Vui long dam bao backend dang chay o port 8080.\n\n' + err);
+            } finally {
+              btn.disabled = false;
+              btn.textContent = originalText;
             }
           });
         }
 
         // Language change handler
         window.addEventListener('i18n:languageChanged', () => {
-          if (lookupResult && lookupResult.style.display === 'block') {
+          if (lookupResult && !lookupResult.classList.contains('hidden')) {
             const lookupInput = document.getElementById('lookup-input');
             if (lookupInput) {
-              const query = lookupInput.value.trim().toLowerCase();
-              const serials = JSON.parse(localStorage.getItem('hyperur-serials') || '[]');
-              const found = serials.find(s =>
-                s.serial.toLowerCase() === query ||
-                s.email.toLowerCase() === query
-              );
-              if (found) {
-                const resultStatus = document.getElementById('result-status');
-                if (resultStatus) {
-                  resultStatus.textContent = found.status === 'active'
-                    ? (found.type === 'paid' ? '✅ Đã kích hoạt (Vĩnh viễn)' : '✅ Đã kích hoạt (Miễn phí)')
-                    : '❌ Hết hạn';
+              const query = lookupInput.value.trim();
+              if (query) apiLookup(query).then(result => {
+                if (result.found && result.data) {
+                  const d = result.data;
+                  const resultStatus = document.getElementById('result-status');
+                  if (resultStatus) {
+                    resultStatus.textContent = d.status === 'active'
+                      ? (d.regType === 'paid' ? '✅ Da kich hoat (Vinh vien)' : '✅ Da kich hoat (Mien phi)')
+                      : d.status === 'pending'
+                      ? '⏳ Dang cho xu ly'
+                      : '❌ Da tu choi';
+                    resultStatus.style.color = d.status === 'active' ? '#27ae60' : d.status === 'pending' ? '#f39c12' : '#e74c3c';
+                  }
                 }
-              }
+              }).catch(() => {});
             }
           }
         });
