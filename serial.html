@@ -180,10 +180,18 @@
                 <div class="form-group payment-field" id="payment-method-group">
                   <label for="payment-method" data-i18n="serial.label.paymentMethod">Phương thức ủng hộ</label>
                   <select id="payment-method" class="form-input">
+                    <option value="" disabled selected data-i18n="serial.option.selectPayment">Chọn phương thức thanh toán</option>
                     <option value="momo" data-i18n="serial.option.momo">Momo</option>
-                    <option value="paypal" data-i18n="serial.option.paypal">Paypal</option>
                     <option value="binance" data-i18n="serial.option.binance">Binance</option>
+                    <option value="paypal" data-i18n="serial.option.paypal">PayPal</option>
                   </select>
+                </div>
+
+                <div class="form-group payment-field" id="developer-group" style="display: none;">
+                  <label data-i18n="serial.label.developer">Chọn Developer</label>
+                  <button type="button" id="btn-select-developer" class="btn btn-outline" style="width: 100%; margin-top: 0.25rem;">
+                    <span>👨‍💻</span> <span data-i18n="serial.btn.selectDev">Chọn Developer & Xem QR Momo</span>
+                  </button>
                 </div>
 
                 <div class="form-group payment-field" id="sender-name-group">
@@ -256,6 +264,38 @@
         </div>
       </div>
     </main>
+
+    <!-- Developer Momo Popup -->
+    <div id="momo-popup" class="modal-overlay hidden">
+      <div class="modal-content" style="max-width: 420px;">
+        <div class="modal-header">
+          <h2>💳 Chọn Developer Momo</h2>
+          <button class="modal-close" id="momo-popup-close">&times;</button>
+        </div>
+        <div class="modal-body" style="text-align: center;">
+          <p style="color: var(--text-soft); font-size: 0.9rem; margin-bottom: 1.5rem;" data-i18n="serial.popup.desc">Ủng hộ qua ví Momo của Developer đã chọn</p>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+            <div class="card" id="momo-dev-1" style="cursor: pointer; padding: 1rem; text-align: center; transition: all 0.3s;" onclick="selectDevQR('lcnguyen06')">
+              <div style="font-size: 2.5rem; margin-bottom: 0.5rem;">👨‍💻</div>
+              <div style="font-weight: 600; font-size: 0.95rem;">LucNguyen06</div>
+              <div style="font-size: 0.78rem; color: var(--text-soft);">Developer &amp; Maintainer</div>
+            </div>
+            <div class="card" id="momo-dev-2" style="cursor: pointer; padding: 1rem; text-align: center; transition: all 0.3s;" onclick="selectDevQR('Usagi')">
+              <div style="font-size: 2.5rem; margin-bottom: 0.5rem;">🐰</div>
+              <div style="font-weight: 600; font-size: 0.95rem;">Usagi</div>
+              <div style="font-size: 0.78rem; color: var(--text-soft);">Developer &amp; Support</div>
+            </div>
+          </div>
+          <div id="momo-qr-display" style="display: none; margin-top: 1.5rem; text-align: center;">
+            <p id="momo-qr-dev-name" style="font-weight: 600; margin-bottom: 0.75rem; font-size: 1rem;"></p>
+            <div class="qr-wrapper" style="max-width: 250px; margin: 0 auto;">
+              <img id="momo-qr-img" src="" alt="QR Momo" style="width: 100%; border-radius: 10px;" />
+            </div>
+            <p style="color: var(--text-soft); font-size: 0.82rem; margin-top: 0.75rem;" data-i18n="serial.popup.scan">Quét mã QR bằng ứng dụng Momo để ủng hộ</p>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <!-- Footer -->
     <footer class="footer">
@@ -360,10 +400,63 @@
         }
 
         if (regType) {
-          regType.addEventListener('change', () => togglePaymentFields(true));
+          regType.addEventListener('change', () => { togglePaymentFields(true); toggleDeveloperField(); });
           togglePaymentFields(false);
+          toggleDeveloperField();
         }
 
+        // Toggle developer field when Momo is selected
+        const paymentMethod = document.getElementById('payment-method');
+        const developerGroup = document.getElementById('developer-group');
+        const btnSelectDeveloper = document.getElementById('btn-select-developer');
+        const momoPopup = document.getElementById('momo-popup');
+        const momoPopupClose = document.getElementById('momo-popup-close');
+        const momoQrDisplay = document.getElementById('momo-qr-display');
+        const momoQrImg = document.getElementById('momo-qr-img');
+        const momoQrDevName = document.getElementById('momo-qr-dev-name');
+        const momoDev1 = document.getElementById('momo-dev-1');
+        const momoDev2 = document.getElementById('momo-dev-2');
+
+        const devQRMap = {
+          lcnguyen06: { name: 'LucNguyen06', role: 'Developer & Maintainer', qr: 'QR_lucnguyen06/qr_momo.jpg' },
+          Usagi: { name: 'Usagi', role: 'Developer & Support', qr: 'QR_usagi/qr_momo.jpg' }
+        };
+
+        function selectDevQR(devKey) {
+          const dev = devQRMap[devKey];
+          if (!dev) return;
+          momoQrDevName.textContent = dev.name + '\n' + dev.role;
+          momoQrImg.src = dev.qr;
+          momoQrDisplay.classList.remove('hidden');
+          momoDev1.style.borderColor = devKey === 'lcnguyen06' ? 'var(--primary)' : '';
+          momoDev2.style.borderColor = devKey === 'Usagi' ? 'var(--primary)' : '';
+        }
+
+        function showMomoPopup() {
+          momoQrDisplay.classList.add('hidden');
+          momoPopup.classList.remove('hidden');
+          momoPopup.classList.add('active');
+          document.body.style.overflow = 'hidden';
+        }
+
+        function hideMomoPopup() {
+          momoPopup.classList.remove('active');
+          document.body.style.overflow = '';
+        }
+
+        if (btnSelectDeveloper) {
+          btnSelectDeveloper.addEventListener('click', showMomoPopup);
+        }
+
+        if (momoPopupClose) {
+          momoPopupClose.addEventListener('click', hideMomoPopup);
+        }
+
+        if (momoPopup) {
+          momoPopup.addEventListener('click', (e) => {
+            if (e.target === momoPopup) hideMomoPopup();
+          });
+        }
 
         // Codename Autocomplete
         const codenameInput = document.getElementById('codename');

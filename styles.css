@@ -1914,6 +1914,54 @@ body.light-mode .donate-method-card {
   border-color: rgba(0, 0, 0, 0.08);
 }
 
+/* Payment Method Selector Tabs */
+.donate-payment-selector {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1.25rem;
+  flex-wrap: wrap;
+}
+
+.donate-payment-tab {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  border: 1.5px solid rgba(168, 85, 247, 0.3);
+  background: rgba(168, 85, 247, 0.08);
+  color: var(--text-soft);
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.donate-payment-tab:hover {
+  border-color: rgba(168, 85, 247, 0.6);
+  background: rgba(168, 85, 247, 0.15);
+  color: var(--text);
+}
+
+.donate-payment-tab.active {
+  border-color: var(--primary);
+  background: rgba(168, 85, 247, 0.2);
+  color: var(--primary);
+  font-weight: 600;
+}
+
+body.light-mode .donate-payment-tab {
+  border-color: rgba(168, 85, 247, 0.25);
+  background: rgba(168, 85, 247, 0.05);
+  color: var(--text-soft);
+}
+
+body.light-mode .donate-payment-tab.active {
+  border-color: var(--primary);
+  background: rgba(168, 85, 247, 0.12);
+  color: var(--primary);
+}
+
 .donate-method-card-wide {
   grid-column: span 2;
   text-align: left;
@@ -2703,6 +2751,10 @@ body.dark-mode .footer-hur-card:hover {
 }
 
 /* Modal */
+.modal-overlay.hidden {
+  display: none !important;
+}
+
 .modal-overlay {
   position: fixed;
   top: 0;
