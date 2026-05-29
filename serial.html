@@ -103,16 +103,9 @@
               <div class="form-group">
                 <label for="codename" data-i18n="serial.label.codename">Mã thiết bị (Codename)</label>
                 <div class="autocomplete-wrapper">
-                  <input type="text" id="codename" class="form-input" data-i18n="serial.placeholder.codename" data-i18n-placeholder placeholder="Nhập codename (ví dụ: fuxi)" autocomplete="off" required />
+                <input type="text" id="codename" class="form-input" data-i18n="serial.placeholder.codename" data-i18n-placeholder placeholder="Nhập codename (ví dụ: fuxi)" autocomplete="off" required />
                   <div class="autocomplete-dropdown hidden" id="codename-dropdown"></div>
                 </div>
-                <small id="device-name-display" style="color: #666; display: none;"></small>
-              </div>
-
-              <div class="form-group">
-                <label for="telegram" data-i18n="serial.label.telegram">Telegram</label>
-                <input type="text" id="telegram" class="form-input" data-i18n="serial.placeholder.telegram" data-i18n-placeholder placeholder="@username" />
-              </div>
 
               <div class="form-group">
                 <label for="reg-type" data-i18n="serial.label.regType">Loại đăng ký</label>
@@ -318,7 +311,6 @@
         // Codename Autocomplete
         const codenameInput = document.getElementById('codename');
         const codenameDropdown = document.getElementById('codename-dropdown');
-        const deviceNameDisplay = document.getElementById('device-name-display');
         let activeIndex = -1;
 
         function findDeviceByCodename(query) {
@@ -345,7 +337,6 @@
           if (matches.length === 0) {
             codenameDropdown.innerHTML = `<div class="autocomplete-no-results">${i18n.t('serial.device.found')}</div>`;
             codenameDropdown.classList.remove('hidden');
-            if (deviceNameDisplay) deviceNameDisplay.style.display = 'none';
             return;
           }
 
@@ -373,24 +364,14 @@
             const query = e.target.value.trim();
             if (query.length === 0) {
               codenameDropdown.classList.add('hidden');
-              if (deviceNameDisplay) deviceNameDisplay.style.display = 'none';
               return;
             }
             const matches = findDeviceByCodename(query);
             if (matches.length > 0) {
               renderCodenameDropdown(matches);
-              if (matches.length === 1 && matches[0].codeName.toLowerCase() === query.toLowerCase()) {
-                if (deviceNameDisplay) {
-                  deviceNameDisplay.textContent = '📱 ' + matches[0].name;
-                  deviceNameDisplay.style.display = 'block';
-                }
-              } else {
-                if (deviceNameDisplay) deviceNameDisplay.style.display = 'none';
-              }
             } else {
               codenameDropdown.innerHTML = `<div class="autocomplete-no-results">${i18n.t('serial.device.found')}</div>`;
               codenameDropdown.classList.remove('hidden');
-              if (deviceNameDisplay) deviceNameDisplay.style.display = 'none';
             }
           });
 
@@ -416,11 +397,7 @@
         }
 
         function selectCodename(item) {
-          if (codenameInput) codenameInput.value = item.dataset.codename;
-          if (deviceNameDisplay) {
-            deviceNameDisplay.textContent = '📱 ' + item.dataset.name;
-            deviceNameDisplay.style.display = 'block';
-          }
+          if (codenameInput) codenameInput.value = item.dataset.name + ' - ' + item.dataset.codename;
           codenameDropdown.classList.add('hidden');
         }
 
@@ -467,12 +444,16 @@
             btn.disabled = true;
             btn.textContent = 'Dang xu ly...';
 
+            const deviceInputValue = document.getElementById('codename').value.trim();
+            const lastDashIndex = deviceInputValue.lastIndexOf(' - ');
+            const deviceName = lastDashIndex !== -1 ? deviceInputValue.substring(0, lastDashIndex) : '';
+            const codename = lastDashIndex !== -1 ? deviceInputValue.substring(lastDashIndex + 3) : deviceInputValue;
+
             const formData = {
               email: document.getElementById('email').value.trim(),
               serial: document.getElementById('serial').value.trim(),
-              codename: document.getElementById('codename').value.trim(),
-              deviceName: document.getElementById('device-name-display').textContent.replace('📱 ', ''),
-              telegram: document.getElementById('telegram').value.trim(),
+              codename: codename,
+              deviceName: deviceInputValue,
               regType: document.getElementById('reg-type').value,
               paymentMethod: document.getElementById('payment-method').value,
               senderName: document.getElementById('sender-name').value.trim(),
@@ -485,9 +466,6 @@
               if (result.success) {
                 alert(i18n.t('serial.success') + '\n\nSerial: ' + result.data.serial + '\nTrang thai: ' + result.data.status);
                 this.reset();
-                const deviceDisplay = document.getElementById('device-name-display');
-                if (deviceDisplay) deviceDisplay.style.display = 'none';
-                togglePaymentFields(false);
               } else {
                 alert('Loi: ' + result.message);
               }
