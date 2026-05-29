@@ -928,6 +928,13 @@ const i18n = {
         langText.textContent = this.currentLang.toUpperCase();
       }
     }
+    const mobileLangBtn = document.getElementById('btn-lang-toggle-mobile');
+    if (mobileLangBtn) {
+      const langText = mobileLangBtn.querySelector('.lang-text');
+      if (langText) {
+        langText.textContent = this.currentLang.toUpperCase();
+      }
+    }
   }
 };
 
@@ -940,6 +947,49 @@ document.addEventListener('DOMContentLoaded', () => {
   if (langToggleBtn) {
     langToggleBtn.addEventListener('click', () => {
       i18n.toggleLanguage();
+    });
+  }
+
+  const mobileLangToggleBtn = document.getElementById('btn-lang-toggle-mobile');
+  if (mobileLangToggleBtn) {
+    mobileLangToggleBtn.addEventListener('click', () => {
+      i18n.toggleLanguage();
+    });
+  }
+
+  // Mobile menu hamburger toggle
+  const hamburgerBtn = document.getElementById('hamburger-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
+  if (hamburgerBtn && mobileMenu) {
+    hamburgerBtn.addEventListener('click', () => {
+      hamburgerBtn.classList.toggle('active');
+      mobileMenu.classList.toggle('active');
+    });
+
+    // Close menu when clicking a nav link
+    const mobileNavLinks = mobileMenu.querySelectorAll('.mobile-nav-link');
+    mobileNavLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        hamburgerBtn.classList.remove('active');
+        mobileMenu.classList.remove('active');
+      });
+    });
+  }
+
+  // Mobile theme toggle
+  const mobileThemeBtn = document.getElementById('btn-theme-toggle-mobile');
+  if (mobileThemeBtn) {
+    mobileThemeBtn.addEventListener('click', () => {
+      const isDark = document.body.classList.contains('dark-mode');
+      const nextTheme = isDark ? 'light' : 'dark';
+      document.body.classList.toggle('dark-mode');
+      localStorage.setItem('hypermods-theme', nextTheme);
+      const icon = nextTheme === 'dark' ? '☀️' : '🌙';
+      mobileThemeBtn.querySelector('.theme-icon').textContent = icon;
+      const desktopBtn = document.getElementById('btn-theme-toggle');
+      if (desktopBtn) {
+        desktopBtn.querySelector('.theme-icon').textContent = icon;
+      }
     });
   }
 });

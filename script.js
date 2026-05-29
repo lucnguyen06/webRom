@@ -67,6 +67,11 @@ function applyTheme(theme) {
     const icon = theme === 'dark' ? '☀️' : '🌙';
     themeToggleBtn.querySelector('.theme-icon').textContent = icon;
   }
+  const mobileThemeBtn = document.getElementById('btn-theme-toggle-mobile');
+  if (mobileThemeBtn) {
+    const icon = theme === 'dark' ? '☀️' : '🌙';
+    mobileThemeBtn.querySelector('.theme-icon').textContent = icon;
+  }
 }
 
 // Load saved theme
