@@ -323,7 +323,21 @@
 
         function findDeviceByCodename(query) {
           if (typeof devices === 'undefined') return [];
-          return devices.filter(d => d.codeName.toLowerCase() === query.toLowerCase());
+          const q = query.toLowerCase();
+          return devices.filter(d =>
+            d.codeName.toLowerCase().includes(q) ||
+            d.name.toLowerCase().includes(q)
+          );
+        }
+
+        function getDeviceIcon(name) {
+          const lowerName = name.toLowerCase();
+          if (lowerName.includes('pad')) return '📲';
+          if (lowerName.includes('fold') || lowerName.includes('flip')) return '📱';
+          if (lowerName.includes('ultra')) return '⚡';
+          if (lowerName.includes('pro')) return '🔥';
+          if (lowerName.includes('poco')) return '🎯';
+          return '📱';
         }
 
         function renderCodenameDropdown(matches) {
@@ -335,11 +349,21 @@
             return;
           }
 
-          codenameDropdown.innerHTML = matches.slice(0, 10).map((d, i) => `
-            <div class="autocomplete-item" data-index="${i}" data-codename="${d.codeName}" data-name="${d.name}">
-              <strong>${d.codeName}</strong> - ${d.name}
-            </div>
-          `).join('');
+          codenameDropdown.innerHTML = matches.slice(0, 10).map((d, i) => {
+            const imagePath = `images/${d.codeName.toLowerCase()}.png`;
+            const icon = getDeviceIcon(d.name);
+            return `
+              <div class="autocomplete-item" data-index="${i}" data-codename="${d.codeName}" data-name="${d.name}">
+                <div class="autocomplete-image">
+                  <img src="${imagePath}" alt="${d.name}" onerror="this.onerror=null;this.outerHTML='<span class=\\'autocomplete-fallback-icon\\'>${icon}</span>';">
+                </div>
+                <div class="autocomplete-info">
+                  <div class="autocomplete-name">${d.name}</div>
+                </div>
+                <div class="autocomplete-codename">${d.codeName}</div>
+              </div>
+            `;
+          }).join('');
           codenameDropdown.classList.remove('hidden');
           activeIndex = -1;
         }
