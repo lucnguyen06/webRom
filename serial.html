@@ -77,19 +77,80 @@
     <!-- Main Content -->
     <main class="main-content">
       <div class="container">
-        <div class="card" style="max-width: 700px; margin: 0 auto;">
+        <div class="card" style="max-width: 1000px; margin: 0 auto;">
           <h2 style="text-align: center; margin-bottom: 10px;" data-i18n="serial.form.title">Đăng ký HYPER UR</h2>
           <p style="text-align: center; color: #666; margin-bottom: 20px;"><b data-i18n="serial.form.subtitle">Vui lòng đọc kỹ khi đăng ký</b></p>
 
-          <!-- Tab Navigation -->
-          <div class="serial-tabs">
-            <button class="serial-tab active" id="tab-register" data-i18n="modal.tab.register">Đăng ký</button>
-            <button class="serial-tab" id="tab-lookup" data-i18n="modal.tab.lookup">Tra cứu</button>
-          </div>
+          <!-- Two-column layout: notice left, form right -->
+          <div class="serial-layout">
 
-          <!-- Register Form -->
-          <div id="register-section" class="form-section">
-            <form id="serial-form">
+            <!-- Left: Donation Notice -->
+            <div class="serial-notice" id="serial-notice">
+              <div class="serial-notice-header">
+                <span class="serial-notice-icon">📋</span>
+                <span class="serial-notice-title" data-i18n="serial.notice.title">Lưu ý khi ủng hộ</span>
+              </div>
+              <div class="serial-notice-body">
+                <p class="serial-notice-intro" data-i18n="serial.notice.intro">Anh em ủng hộ xong vui lòng gửi bill cho dev để được active vĩnh viễn nhé.</p>
+
+                <div class="serial-notice-section">
+                  <div class="serial-notice-section-title">📌 <span data-i18n="serial.notice.section.transfer">Nội dung chuyển khoản</span></div>
+                  <p class="serial-notice-section-content" data-i18n="serial.notice.section.transfer.content">UR + Serial + Mail hoặc tên máy</p>
+                </div>
+
+                <div class="serial-notice-section">
+                  <div class="serial-notice-section-title">💸 <span data-i18n="serial.notice.section.amount">Mức ủng hộ</span></div>
+                  <ul class="serial-notice-list">
+                    <li data-i18n="serial.notice.section.amount.min"><strong>Tối thiểu:</strong> 36k</li>
+                    <li data-i18n="serial.notice.section.amount.max"><strong>Không giới hạn,</strong> anh em tùy tâm ❤️</li>
+                  </ul>
+                </div>
+
+                <div class="serial-notice-section">
+                  <div class="serial-notice-section-title">🌍 <span data-i18n="serial.notice.section.intl">Thanh toán quốc tế</span></div>
+                  <ul class="serial-notice-list">
+                    <li>PayPal: <strong>$4</strong></li>
+                    <li>Binance: <strong>$3</strong></li>
+                  </ul>
+                </div>
+
+                <div class="serial-notice-section">
+                  <div class="serial-notice-section-title">🆓 <span data-i18n="serial.notice.section.free">Đối với anh em sử dụng active free</span></div>
+                  <p class="serial-notice-section-content serial-notice-content-small" data-i18n="serial.notice.section.free.content">Thời hạn sử dụng sẽ là 36 ngày. Đây là thời gian để anh em trải nghiệm và thử nghiệm ROM xem có ổn định, phù hợp và xứng đáng để dùng lâu dài hay không.</p>
+                </div>
+
+                <div class="serial-notice-section">
+                  <div class="serial-notice-section-title">💎 <span data-i18n="serial.notice.section.paid">Đối với anh em đã ủng hộ</span></div>
+                  <p class="serial-notice-section-content serial-notice-content-small" data-i18n="serial.notice.section.paid.content">Sẽ được active vĩnh viễn cho đến khi thiết bị không còn được update hỗ trợ nữa.</p>
+                </div>
+
+                <div class="serial-notice-section">
+                  <div class="serial-notice-section-title">👨‍💻 <span data-i18n="serial.notice.section.dev">Thông tin Dev</span></div>
+                  <ul class="serial-notice-list">
+                    <li><strong>Dev 1:</strong> <a href="https://t.me/lcnguy06" target="_blank" rel="noopener noreferrer">@lcnguy06</a> | <a href="https://www.facebook.com/lucnguyen2912" target="_blank" rel="noopener noreferrer">Facebook</a></li>
+                    <li><strong>Dev 2:</strong> <a href="https://t.me/Usagi79" target="_blank" rel="noopener noreferrer">@Usagi79</a></li>
+                  </ul>
+                </div>
+
+                <div class="serial-notice-section serial-notice-section-highlight">
+                  <p class="serial-notice-section-content" data-i18n="serial.notice.section.otherdev">📌 Ủng hộ cho Developer nào thì vui lòng gửi bill và mã serial trực tiếp cho Developer đó.</p>
+                </div>
+
+                <p class="serial-notice-thanks" data-i18n="serial.notice.thanks">Xin cảm ơn anh em đã ủng hộ!</p>
+              </div>
+            </div>
+
+            <!-- Right: Form + Tabs -->
+            <div class="serial-form-area">
+              <!-- Tab Navigation -->
+              <div class="serial-tabs">
+                <button class="serial-tab active" id="tab-register" data-i18n="modal.tab.register">Đăng ký</button>
+                <button class="serial-tab" id="tab-lookup" data-i18n="modal.tab.lookup">Tra cứu</button>
+              </div>
+
+              <!-- Register Form -->
+              <div id="register-section" class="form-section">
+                <form id="serial-form">
               <div class="form-group">
                 <label for="email" data-i18n="serial.label.email">Email</label>
                 <input type="email" id="email" class="form-input" data-i18n="serial.placeholder.email" data-i18n-placeholder placeholder="email@example.com" required />
@@ -189,6 +250,9 @@
               <small style="color: #666;" data-i18n="modal.notfound.hint">Vui lòng kiểm tra lại serial của bạn.</small>
             </div>
           </div>
+
+          </div><!-- /.serial-form-area -->
+          </div><!-- /.serial-layout -->
         </div>
       </div>
     </main>

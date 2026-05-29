@@ -4226,6 +4226,149 @@ body.light-mode .guide-info {
   flex-wrap: wrap;
 }
 
+/* Serial Two-Column Layout */
+.serial-layout {
+  display: flex;
+  gap: 1.5rem;
+  align-items: flex-start;
+}
+
+.serial-notice {
+  flex: 0 0 300px;
+}
+
+.serial-form-area {
+  flex: 1;
+  min-width: 0;
+}
+
+/* Serial Donation Notice */
+.serial-notice {
+  border-radius: var(--radius-md);
+  background: rgba(168, 85, 247, 0.08);
+  border: 1px solid rgba(168, 85, 247, 0.25);
+  padding: 1.1rem 1.2rem;
+}
+
+body.light-mode .serial-notice {
+  background: rgba(124, 58, 237, 0.06);
+  border-color: rgba(124, 58, 237, 0.2);
+}
+
+.serial-notice-header {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: 0.75rem;
+}
+
+.serial-notice-icon {
+  font-size: 1rem;
+}
+
+.serial-notice-title {
+  font-weight: 700;
+  font-size: 0.92rem;
+  color: var(--primary-strong);
+}
+
+.serial-notice-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+
+.serial-notice-intro {
+  font-size: 0.82rem;
+  color: var(--text-soft);
+  margin: 0;
+  line-height: 1.4;
+}
+
+.serial-notice-section {
+  border-top: 1px solid rgba(168, 85, 247, 0.15);
+  padding-top: 0.65rem;
+}
+
+body.light-mode .serial-notice-section {
+  border-top-color: rgba(124, 58, 237, 0.15);
+}
+
+.serial-notice-section-title {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 0.25rem;
+}
+
+.serial-notice-section-content {
+  font-size: 0.78rem;
+  color: var(--text-soft);
+  margin: 0;
+  line-height: 1.45;
+}
+
+.serial-notice-content-small {
+  font-size: 0.76rem;
+}
+
+.serial-notice-list {
+  list-style: none;
+  margin: 0.2rem 0 0;
+  padding: 0;
+}
+
+.serial-notice-list li {
+  font-size: 0.78rem;
+  color: var(--text-soft);
+  margin-bottom: 0.2rem;
+  line-height: 1.4;
+}
+
+.serial-notice-list li:last-child {
+  margin-bottom: 0;
+}
+
+.serial-notice-list a {
+  color: var(--primary-strong);
+  text-decoration: none;
+}
+
+.serial-notice-list a:hover {
+  text-decoration: underline;
+}
+
+.serial-notice-section-highlight {
+  background: rgba(168, 85, 247, 0.08);
+  border-radius: 8px;
+  padding: 0.5rem 0.65rem;
+  border: 1px solid rgba(168, 85, 247, 0.15);
+}
+
+body.light-mode .serial-notice-section-highlight {
+  background: rgba(124, 58, 237, 0.05);
+  border-color: rgba(124, 58, 237, 0.15);
+}
+
+.serial-notice-thanks {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--primary-strong);
+  margin: 0.3rem 0 0;
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .serial-layout {
+    flex-direction: column;
+  }
+
+  .serial-notice {
+    flex: none;
+    width: 100%;
+  }
+}
+
 /* Serial Page Tabs */
 .serial-tabs {
   display: flex;
