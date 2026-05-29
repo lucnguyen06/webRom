@@ -2198,6 +2198,21 @@ body.light-mode .modded-app-item:hover {
   background: rgba(255, 255, 255, 0.9);
 }
 
+body.dark-mode .modded-app-item {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.12);
+}
+
+body.dark-mode .modded-app-item:hover {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(168, 85, 247, 0.5);
+  box-shadow: 0 8px 25px rgba(168, 85, 247, 0.3);
+}
+
+body.dark-mode .modded-app-name {
+  color: rgba(255, 255, 255, 0.9);
+}
+
 .modded-app-icon {
   font-size: 1.3rem;
 }

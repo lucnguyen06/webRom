@@ -142,7 +142,7 @@ function renderModdedApps() {
   container.innerHTML = moddedApps.map((app, index) => `
     <div class="modded-app-item" style="animation-delay: ${index * 0.05}s">
       <span class="modded-app-icon">${appIcons[app] || '📱'}</span>
-      <span class="modded-app-name">${app}</span>
+      <span class="modded-app-name">${typeof i18n !== 'undefined' ? i18n.t('app.' + app) : app}</span>
     </div>
   `).join('');
 }

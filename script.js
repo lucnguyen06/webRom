@@ -459,8 +459,8 @@ const lightboxCounter = document.getElementById('lightbox-counter');
 
 // Gallery configuration
 const galleryImages = {
-  os2: Array.from({ length: 16 }, (_, i) => `images_devices/os2/a${i + 1}.jpg`),
-  os3: Array.from({ length: 16 }, (_, i) => `images_devices/os3/a${i + 1}.jpg`)
+  os2: Array.from({ length: 7 }, (_, i) => `images_devices/os2/a${i + 1}.jpg`),
+  os3: Array.from({ length: 7 }, (_, i) => `images_devices/os3/a${i + 1}.jpg`)
 };
 
 let currentGallery = 'os3';
