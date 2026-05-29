@@ -151,49 +151,42 @@
 
           <!-- Lookup Section -->
           <div id="lookup-section" class="form-section hidden">
-            <form id="lookup-form">
-              <div class="form-group">
-                <label for="lookup-input" data-i18n="modal.lookup.label">Serial hoặc Email:</label>
-                <input type="text" id="lookup-input" class="form-input" data-i18n="modal.lookup.placeholder" data-i18n-placeholder placeholder="Nhập serial hoặc email để tra cứu..." required />
-              </div>
-              <div class="form-actions">
-                <button type="submit" class="btn btn-primary btn-lg" style="width: 100%;" data-i18n="modal.btn.lookup">
-                  Tra cứu
-                </button>
-              </div>
-            </form>
+            <div class="form-group" style="margin-bottom: 20px;">
+              <label for="lookup-input" data-i18n="modal.lookup.label">Tra cứu đăng ký</label>
+              <input type="text" id="lookup-input" class="form-input" data-i18n="modal.lookup.placeholder" data-i18n-placeholder placeholder="Nhập serial..." />
+            </div>
+            <button type="button" id="btn-lookup" class="btn btn-primary btn-lg" style="width: 100%; margin-bottom: 20px;" data-i18n="modal.btn.lookup">
+              Tra cứu
+            </button>
 
             <!-- Lookup Result -->
-            <div id="lookup-result" class="lookup-result hidden">
-              <h4 style="margin-bottom: 15px;" data-i18n="modal.result.title">Kết quả tra cứu</h4>
-              <div class="lookup-result-card">
-                <div class="lookup-result-row">
-                  <span class="lookup-result-label" data-i18n="modal.result.serial">Serial:</span>
-                  <span class="lookup-result-value" id="result-serial">-</span>
-                </div>
-                <div class="lookup-result-row">
-                  <span class="lookup-result-label" data-i18n="modal.result.email">Email:</span>
-                  <span class="lookup-result-value" id="result-email">-</span>
-                </div>
-                <div class="lookup-result-row">
-                  <span class="lookup-result-label" data-i18n="modal.result.device">Thiết bị:</span>
-                  <span class="lookup-result-value" id="result-device">-</span>
-                </div>
-                <div class="lookup-result-row">
-                  <span class="lookup-result-label" data-i18n="modal.result.date">Ngày đăng ký:</span>
-                  <span class="lookup-result-value" id="result-date">-</span>
-                </div>
-                <div class="lookup-result-row">
-                  <span class="lookup-result-label" data-i18n="modal.result.status">Trạng thái:</span>
-                  <span class="lookup-result-value" id="result-status">-</span>
-                </div>
+            <div id="lookup-result" class="lookup-result-card hidden">
+              <div class="lookup-result-row">
+                <span class="lookup-result-label">Activation Serial</span>
+                <span class="lookup-result-value" id="result-serial">-</span>
+              </div>
+              <div class="lookup-result-row">
+                <span class="lookup-result-label">Thiết bị</span>
+                <span class="lookup-result-value" id="result-device">-</span>
+              </div>
+              <div class="lookup-result-row">
+                <span class="lookup-result-label">Email</span>
+                <span class="lookup-result-value" id="result-email">-</span>
+              </div>
+              <div class="lookup-result-row">
+                <span class="lookup-result-label">Ngày đăng ký</span>
+                <span class="lookup-result-value" id="result-date">-</span>
+              </div>
+              <div class="lookup-result-row">
+                <span class="lookup-result-label">Trạng thái</span>
+                <span class="lookup-result-value" id="result-status">-</span>
               </div>
             </div>
 
             <!-- Lookup Not Found -->
             <div id="lookup-notfound" class="lookup-not-found hidden">
               <p style="color: #e74c3c; margin-bottom: 5px;" data-i18n="modal.notfound">Không tìm thấy thông tin đăng ký.</p>
-              <small style="color: #666;" data-i18n="modal.notfound.hint">Vui lòng kiểm tra lại serial hoặc email của bạn.</small>
+              <small style="color: #666;" data-i18n="modal.notfound.hint">Vui lòng kiểm tra lại serial của bạn.</small>
             </div>
           </div>
         </div>
@@ -486,23 +479,20 @@
         const lookupForm = document.getElementById('lookup-form');
         const lookupResult = document.getElementById('lookup-result');
         const lookupNotfound = document.getElementById('lookup-notfound');
+        const lookupInput = document.getElementById('lookup-input');
+        const btnLookup = document.getElementById('btn-lookup');
 
-        if (lookupForm) {
-          lookupForm.addEventListener('submit', async function(e) {
-            e.preventDefault();
-
-            const lookupInput = document.getElementById('lookup-input');
+        if (btnLookup) {
+          btnLookup.addEventListener('click', async function() {
             if (!lookupInput) return;
 
             const query = lookupInput.value.trim();
             if (!query) return;
 
-            const btn = this.querySelector('button[type="submit"]');
-            const originalText = btn.textContent;
-            btn.disabled = true;
-            btn.textContent = 'Dang tra cuu...';
+            const originalText = this.textContent;
+            this.disabled = true;
+            this.textContent = 'Dang tra cuu...';
 
-            // Hide previous results
             if (lookupResult) lookupResult.classList.add('hidden');
             if (lookupNotfound) lookupNotfound.classList.add('hidden');
 
@@ -519,22 +509,15 @@
 
                 if (resultSerial) resultSerial.textContent = d.serial;
                 if (resultEmail) resultEmail.textContent = d.email;
-                if (resultDevice) resultDevice.textContent = (d.deviceName || '') + (d.codename ? ' - ' + d.codename : '');
-                if (resultDate) resultDate.textContent = d.createdAt ? new Date(d.createdAt).toLocaleDateString('vi-VN') : '-';
+                if (resultDevice) resultDevice.textContent = d.deviceName || '-';
+                if (resultDate) resultDate.textContent = d.createdAt ? new Date(d.createdAt).toLocaleDateString('vi-VN') : 'unlimited';
 
                 if (resultStatus) {
-                  const statusMap = { active: 'active', pending: 'cho_xu_ly', rejected: 'tu_choi' };
-                  const statusKey = statusMap[d.status] || d.status;
-                  const statusLabel = {
-                    active: d.regType === 'paid' ? 'Da kich hoat (Vinh vien)' : 'Da kich hoat (Mien phi)',
-                    cho_xu_ly: 'Dang cho xu ly',
-                    tu_choi: 'Da tu choi'
-                  };
                   resultStatus.textContent = d.status === 'active'
-                    ? '✅ ' + statusLabel.active
+                    ? '✅ Active'
                     : d.status === 'pending'
-                    ? '⏳ ' + statusLabel.cho_xu_ly
-                    : '❌ ' + statusLabel.tu_choi;
+                    ? '⏳ Pending'
+                    : '❌ Rejected';
                   resultStatus.style.color = d.status === 'active' ? '#27ae60' : d.status === 'pending' ? '#f39c12' : '#e74c3c';
                 }
 
@@ -545,34 +528,24 @@
             } catch (err) {
               alert('Khong the ket noi server. Vui long dam bao backend dang chay o port 8080.\n\n' + err);
             } finally {
-              btn.disabled = false;
-              btn.textContent = originalText;
+              this.disabled = false;
+              this.textContent = originalText;
+            }
+          });
+        }
+
+        if (lookupInput) {
+          lookupInput.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter') {
+              e.preventDefault();
+              btnLookup?.click();
             }
           });
         }
 
         // Language change handler
         window.addEventListener('i18n:languageChanged', () => {
-          if (lookupResult && !lookupResult.classList.contains('hidden')) {
-            const lookupInput = document.getElementById('lookup-input');
-            if (lookupInput) {
-              const query = lookupInput.value.trim();
-              if (query) apiLookup(query).then(result => {
-                if (result.found && result.data) {
-                  const d = result.data;
-                  const resultStatus = document.getElementById('result-status');
-                  if (resultStatus) {
-                    resultStatus.textContent = d.status === 'active'
-                      ? (d.regType === 'paid' ? '✅ Da kich hoat (Vinh vien)' : '✅ Da kich hoat (Mien phi)')
-                      : d.status === 'pending'
-                      ? '⏳ Dang cho xu ly'
-                      : '❌ Da tu choi';
-                    resultStatus.style.color = d.status === 'active' ? '#27ae60' : d.status === 'pending' ? '#f39c12' : '#e74c3c';
-                  }
-                }
-              }).catch(() => {});
-            }
-          }
+          // Language strings will be applied automatically on next lookup
         });
       });
     </script>
