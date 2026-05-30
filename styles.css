@@ -3095,7 +3095,6 @@ body.dark-mode .lookup-not-found p {
   overflow-y: auto;
   background: var(--bg-alt);
   border: 1px solid rgba(148, 163, 184, 0.5);
-  border-top: none;
   border-radius: 0 0 var(--radius-md) var(--radius-md);
   box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
   z-index: 10002;
@@ -4279,19 +4278,25 @@ body.light-mode .guide-info {
 }
 
 /* Serial Two-Column Layout */
-.serial-layout {
+.serial-layout, .serial-layout-new {
   display: flex;
   gap: 1.5rem;
-  align-items: flex-start;
+  align-items: stretch;
 }
 
 .serial-notice {
-  flex: 0 0 300px;
+  flex: 0 0 320px;
 }
 
-.serial-form-area {
-  flex: 1;
-  min-width: 0;
+@media (max-width: 768px) {
+  .serial-layout, .serial-layout-new {
+    flex-direction: column;
+  }
+
+  .serial-notice {
+    flex: none;
+    width: 100%;
+  }
 }
 
 /* Serial Donation Notice */
@@ -4569,4 +4574,75 @@ body.light-mode .lookup-result-row {
   .mobile-category-menu {
     display: block !important;
   }
+}
+
+/* ====================== */
+/* Serial Page - New Layout */
+/* ====================== */
+.serial-form-col {
+  flex: 1;
+  min-width: 0;
+}
+
+/* Tab buttons (inline style) */
+#tab-btn, #lookup-tab-btn {
+  padding: 0.65rem 1rem;
+  border: none;
+  border-radius: var(--radius-md);
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+/* Autocomplete dropdown - use CSS from existing .autocomplete-dropdown rules */
+/* Ensure hidden works */
+#codename-dropdown.hidden {
+  display: none;
+}
+
+/* Lookup result */
+#lookup-result {
+  background: rgba(30, 30, 50, 0.6);
+  border: 1px solid rgba(124, 58, 237, 0.3);
+  border-radius: var(--radius-md);
+  padding: 1rem;
+}
+
+body.light-mode #lookup-result {
+  background: rgba(255, 255, 255, 0.9);
+  border-color: rgba(124, 58, 237, 0.2);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+#lookup-result > div > div {
+  padding: 0.5rem 0;
+  border-bottom: 1px dashed rgba(255, 255, 255, 0.1);
+  line-height: 1.8;
+}
+
+body.light-mode #lookup-result > div > div {
+  border-bottom-color: rgba(0, 0, 0, 0.06);
+}
+
+#lookup-result > div > div:last-child {
+  border-bottom: none;
+}
+
+/* Serial page card adjustments */
+.serial-page-card .form-group label {
+  font-weight: 600;
+  font-size: 0.9rem;
+  margin-bottom: 0.4rem;
+  display: block;
+}
+
+.serial-page-card .form-input {
+  border-radius: var(--radius-md);
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.serial-page-card .form-input:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.15);
 }
