@@ -3136,14 +3136,14 @@ body.dark-mode .autocomplete-dropdown {
   border-bottom: none;
 }
 
-.autocomplete-item:hover,
-.autocomplete-item.active {
-  background: var(--primary-soft);
+#codename-dropdown > div:hover {
+  outline: 2px solid rgba(0, 0, 0, 0.6);
+  background: rgba(0, 0, 0, 0.05);
 }
 
-body.dark-mode .autocomplete-item:hover,
-body.dark-mode .autocomplete-item.active {
-  background: rgba(124, 58, 237, 0.2);
+body.dark-mode #codename-dropdown > div:hover {
+  outline: 2px solid rgba(255, 255, 255, 0.4);
+  background: rgba(255, 255, 255, 0.05);
 }
 
 .autocomplete-image {
