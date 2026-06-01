@@ -152,8 +152,8 @@
             <!-- Right: Form -->
             <div class="serial-form-col">
               <div style="display: flex; gap: 8px; margin-bottom: 20px;">
-                <button id="tab-btn" class="btn btn-primary" style="flex:1;" onclick="showTab('register')"><span data-i18n="serial.form.tab.register">Đăng ký</span></button>
-                <button id="lookup-tab-btn" class="btn btn-outline" style="flex:1;" onclick="showTab('lookup')"><span data-i18n="serial.form.tab.lookup">Tra cứu đăng ký</span></button>
+                <button id="tab-btn" class="btn btn-primary" style="flex:1;"><span data-i18n="serial.form.tab.register">Đăng ký</span></button>
+                <button id="lookup-tab-btn" class="btn btn-outline" style="flex:1;"><span data-i18n="serial.form.tab.lookup">Tra cứu đăng ký</span></button>
               </div>
 
               <div id="register-form">
@@ -232,7 +232,21 @@
         if (m) m.style.display = 'none';
       }
 
+      function showTab(tab) {
+        var isReg = tab === 'register';
+        document.getElementById('register-form').style.display = isReg ? 'block' : 'none';
+        document.getElementById('lookup-form').style.display = isReg ? 'none' : 'block';
+        document.getElementById('tab-btn').className = isReg ? 'btn btn-primary' : 'btn btn-outline';
+        document.getElementById('lookup-tab-btn').className = isReg ? 'btn btn-outline' : 'btn btn-primary';
+      }
+
       document.addEventListener('DOMContentLoaded', function() {
+
+        // Tab switching
+        var tabBtn = document.getElementById('tab-btn');
+        var lookupTabBtn = document.getElementById('lookup-tab-btn');
+        if (tabBtn) tabBtn.addEventListener('click', function() { showTab('register'); });
+        if (lookupTabBtn) lookupTabBtn.addEventListener('click', function() { showTab('lookup'); });
 
         var qrImg = document.getElementById('qr-momo-img');
         if (qrImg) {
@@ -280,14 +294,6 @@
           radios[i].addEventListener('change', updateSupportUI);
         }
         updateSupportUI();
-
-        function showTab(tab) {
-          var isReg = tab === 'register';
-          document.getElementById('register-form').style.display = isReg ? 'block' : 'none';
-          document.getElementById('lookup-form').style.display = isReg ? 'none' : 'block';
-          document.getElementById('tab-btn').className = isReg ? 'btn btn-primary' : 'btn btn-outline';
-          document.getElementById('lookup-tab-btn').className = isReg ? 'btn btn-outline' : 'btn btn-primary';
-        }
 
         // Autocomplete
         (function() {

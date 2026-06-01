@@ -4595,6 +4595,11 @@ body.light-mode .lookup-result-row {
   transition: all 0.2s ease;
 }
 
+/* Tab forms - instant switch, no lag */
+#register-form, #lookup-form {
+  transition: none !important;
+}
+
 /* Autocomplete dropdown - use CSS from existing .autocomplete-dropdown rules */
 /* Ensure hidden works */
 #codename-dropdown.hidden {
