@@ -75,10 +75,10 @@
     </header>
 
     <!-- QR Modal -->
-    <div id="qr-modal" style="display:none; position:fixed; top:0; left:0; right:0; bottom:0; background:rgba(0,0,0,0.85); z-index:99999; align-items:center; justify-content:center;" onclick="closeQrModal(event)">
+    <div id="qr-modal" style="display:none; position:fixed; top:0; left:0; right:0; bottom:0; z-index:99999; align-items:center; justify-content:center;" onclick="closeQrModal(event)">
       <div style="position:relative; max-width:90vw; max-height:90vh;" onclick="event.stopPropagation()">
-        <img id="qr-modal-img" src="" style="max-width:400px; max-height:400px; border-radius:12px; display:block; box-shadow:0 20px 60px rgba(0,0,0,0.5);" />
-        <button onclick="closeQrModal()" style="position:absolute; top:-12px; right:-12px; width:36px; height:36px; border-radius:50%; border:none; background:#fff; color:#000; font-size:18px; cursor:pointer; display:flex; align-items:center; justify-content:center; box-shadow:0 2px 10px rgba(0,0,0,0.3);">&times;</button>
+        <img id="qr-modal-img" src="" style="max-width:400px; max-height:400px; border-radius:12px; display:block; box-shadow:0 20px 60px rgba(0,0,0,0.3);" />
+        <button onclick="closeQrModal()" style="position:absolute; top:-14px; right:-14px; width:36px; height:36px; border-radius:50%; border:none; background:var(--bg-soft); color:var(--text); font-size:20px; cursor:pointer; display:flex; align-items:center; justify-content:center; box-shadow:0 2px 10px rgba(0,0,0,0.2);">&times;</button>
         <a id="qr-modal-download" href="" download="" class="btn btn-primary" style="display:block; margin:14px auto 0; text-align:center;">Tải về QR</a>
       </div>
     </div>
@@ -97,26 +97,26 @@
             <div class="serial-notice">
               <div class="serial-notice-header">
                 <span class="serial-notice-icon">📋</span>
-                <span class="serial-notice-title">Lưu ý khi ủng hộ</span>
+                <span class="serial-notice-title" data-i18n="serial.notice.page.title">Lưu ý khi ủng hộ</span>
               </div>
               <div class="serial-notice-body">
-                <p class="serial-notice-intro">Anh em ủng hộ xong vui lòng gửi bill cho dev để được active vĩnh viễn nhé.</p>
+                <p class="serial-notice-intro" data-i18n="serial.notice.page.intro">Anh em ủng hộ xong vui lòng gửi bill cho dev để được active vĩnh viễn nhé.</p>
 
                 <div class="serial-notice-section">
-                  <div class="serial-notice-section-title">📌 Nội dung chuyển khoản:</div>
-                  <p class="serial-notice-section-content">UR + Serial + Mail hoặc tên máy</p>
+                  <div class="serial-notice-section-title" data-i18n="serial.notice.page.transfer">📌 Nội dung chuyển khoản:</div>
+                  <p class="serial-notice-section-content" data-i18n="serial.notice.page.transfer.content">UR + Serial + Mail hoặc tên máy</p>
                 </div>
 
                 <div class="serial-notice-section">
-                  <div class="serial-notice-section-title">💸 Mức ủng hộ:</div>
+                  <div class="serial-notice-section-title" data-i18n="serial.notice.page.amount">💸 Mức ủng hộ:</div>
                   <ul class="serial-notice-list">
-                    <li>Tối thiểu: 36k</li>
-                    <li>Không giới hạn, anh em tùy tâm ❤️</li>
+                    <li data-i18n="serial.notice.page.amount.min">Tối thiểu: 36k</li>
+                    <li data-i18n="serial.notice.page.amount.max">Không giới hạn, anh em tùy tâm ❤️</li>
                   </ul>
                 </div>
 
                 <div class="serial-notice-section">
-                  <div class="serial-notice-section-title">🌍 Thanh toán quốc tế:</div>
+                  <div class="serial-notice-section-title" data-i18n="serial.notice.page.intl">🌍 Thanh toán quốc tế:</div>
                   <ul class="serial-notice-list">
                     <li>PayPal: <strong>$5</strong></li>
                     <li>Binance: <strong>$3,6</strong></li>
@@ -124,70 +124,70 @@
                 </div>
 
                 <div class="serial-notice-section">
-                  <div class="serial-notice-section-title">🆓 Đối với anh em sử dụng active free:</div>
-                  <p class="serial-notice-section-content serial-notice-content-small">Thời hạn sử dụng sẽ là 36 ngày. Đây là thời gian để anh em trải nghiệm và thử nghiệm ROM xem có ổn định, phù hợp và xứng đáng để dùng lâu dài hay không.</p>
+                  <div class="serial-notice-section-title" data-i18n="serial.notice.page.free.title">🆓 Đối với anh em sử dụng active free:</div>
+                  <p class="serial-notice-section-content serial-notice-content-small" data-i18n="serial.notice.page.free.content">Thời hạn sử dụng sẽ là 36 ngày. Đây là thời gian để anh em trải nghiệm và thử nghiệm ROM xem có ổn định, phù hợp và xứng đáng để dùng lâu dài hay không.</p>
                 </div>
 
                 <div class="serial-notice-section">
-                  <div class="serial-notice-section-title">💎 Đối với anh em đã ủng hộ:</div>
-                  <p class="serial-notice-section-content serial-notice-content-small">Sẽ được active vĩnh viễn cho đến khi thiết bị không còn được update hỗ trợ nữa.</p>
+                  <div class="serial-notice-section-title" data-i18n="serial.notice.page.paid.title">💎 Đối với anh em đã ủng hộ:</div>
+                  <p class="serial-notice-section-content serial-notice-content-small" data-i18n="serial.notice.page.paid.content">Sẽ được active vĩnh viễn cho đến khi thiết bị không còn được update hỗ trợ nữa.</p>
                 </div>
 
                 <div class="serial-notice-section">
-                  <div class="serial-notice-section-title">👨‍💻 Thông tin Dev:</div>
+                  <div class="serial-notice-section-title" data-i18n="serial.notice.page.dev.title">👨‍💻 Thông tin Dev:</div>
                   <ul class="serial-notice-list">
-                    <li>Dev 1: <a href="https://t.me/lcnguy06" target="_blank">@lcnguy06</a> | <a href="https://www.facebook.com/lucnguyen2912" target="_blank">Facebook</a></li>
-                    <li>Dev 2: <a href="https://t.me/Usagi79" target="_blank">@Usagi79</a></li>
+                    <li><span data-i18n="serial.notice.page.dev.item1">Dev 1:</span> <a href="https://t.me/lcnguy06" target="_blank">@lcnguy06</a> | <a href="https://www.facebook.com/lucnguyen2912" target="_blank">Facebook</a></li>
+                    <li><span data-i18n="serial.notice.page.dev.item2">Dev 2:</span> <a href="https://t.me/Usagi79" target="_blank">@Usagi79</a></li>
                   </ul>
                 </div>
 
                 <div class="serial-notice-section serial-notice-section-highlight">
-                  <p class="serial-notice-section-content">📌 Nếu DNT cho dev khác, vui lòng gửi bill và mã serial trực tiếp cho dev đó.</p>
+                  <p class="serial-notice-section-content" data-i18n="serial.notice.page.otherdev">📌 Nếu DNT cho dev khác, vui lòng gửi bill và mã serial trực tiếp cho dev đó.</p>
                 </div>
 
-                <p class="serial-notice-thanks">Xin cảm ơn anh em đã ủng hộ!</p>
+                <p class="serial-notice-thanks" data-i18n="serial.notice.page.thanks">Xin cảm ơn anh em đã ủng hộ!</p>
               </div>
             </div>
 
             <!-- Right: Form -->
             <div class="serial-form-col">
               <div style="display: flex; gap: 8px; margin-bottom: 20px;">
-                <button id="tab-btn" class="btn btn-primary" style="flex:1;" onclick="showTab('register')">Đăng ký</button>
-                <button id="lookup-tab-btn" class="btn btn-outline" style="flex:1;" onclick="showTab('lookup')">Tra cứu đăng ký</button>
+                <button id="tab-btn" class="btn btn-primary" style="flex:1;" onclick="showTab('register')"><span data-i18n="serial.form.tab.register">Đăng ký</span></button>
+                <button id="lookup-tab-btn" class="btn btn-outline" style="flex:1;" onclick="showTab('lookup')"><span data-i18n="serial.form.tab.lookup">Tra cứu đăng ký</span></button>
               </div>
 
               <div id="register-form">
                 <form id="serial-form">
                   <div class="form-group">
-                    <label for="codename">Thiết bị Activation Serial <span style="color:red">(*)</span></label>
+                    <label for="codename"><span data-i18n="serial.form.label.codename">Thiết bị Activation Serial</span> <span style="color:red">(*)</span></label>
                     <div class="autocomplete-wrapper" style="position:relative;">
-                      <input type="text" id="codename" class="form-input" placeholder="VD: Redmi K60 Pro - SOCRATES" autocomplete="off" required />
+                      <input type="text" id="codename" class="form-input" data-i18n-placeholder="serial.form.placeholder.codename" placeholder="VD: Redmi K60 Pro - SOCRATES" autocomplete="off" required />
                       <div id="codename-dropdown" class="autocomplete-dropdown hidden" style="position:absolute;top:100%;left:0;right:0;max-height:250px;overflow-y:auto;z-index:9999;"></div>
                     </div>
                   </div>
 
                   <div class="form-group">
-                    <label for="serial">Serial thiết bị <span style="color:red">(*)</span></label>
-                    <input type="text" id="serial" class="form-input" placeholder="VD: 1x2y3z4d" required />
+                    <label for="serial"><span data-i18n="serial.form.label.serial">Serial thiết bị</span> <span style="color:red">(*)</span></label>
+                    <input type="text" id="serial" class="form-input" data-i18n-placeholder="serial.form.placeholder.serial" placeholder="VD: 1x2y3z4d" required />
                   </div>
 
                   <div class="form-group">
-                    <label for="email">Email <span style="color:red">(*)</span></label>
-                    <input type="email" id="email" class="form-input" placeholder="you@example.com" required />
+                    <label for="email"><span data-i18n="serial.form.label.email">Email</span> <span style="color:red">(*)</span></label>
+                    <input type="email" id="email" class="form-input" data-i18n-placeholder="serial.form.placeholder.email" placeholder="you@example.com" required />
                   </div>
 
                   <div class="form-group">
-                    <label>Bạn có ủng hộ dev không? <span style="color:red">(*)</span></label>
+                    <label data-i18n="serial.form.label.support">Bạn có ủng hộ dev không?</label> <span style="color:red">(*)</span>
                     <div style="display: flex; gap: 10px; margin-top: 6px;">
                       <label id="label-support-yes" style="display: flex; align-items: center; gap: 6px; cursor: pointer; flex: 1; padding: 10px 14px; border: 1.5px solid; border-radius: 8px; transition: all 0.2s;">
                         <input type="radio" name="support" value="yes" id="support-yes" required style="display:none;" />
                         <span style="font-size: 1.1rem;">❤️</span>
-                        <span>Có, ủng hộ</span>
+                        <span data-i18n="serial.form.label.support.yes">Có, ủng hộ</span>
                       </label>
                       <label id="label-support-no" style="display: flex; align-items: center; gap: 6px; cursor: pointer; flex: 1; padding: 10px 14px; border: 1.5px solid; border-radius: 8px; transition: all 0.2s;">
                         <input type="radio" name="support" value="no" id="support-no" style="display:none;" />
                         <span style="font-size: 1.1rem;">🚫</span>
-                        <span>Chưa / Không</span>
+                        <span data-i18n="serial.form.label.support.no">Chưa / Không</span>
                       </label>
                     </div>
                   </div>
@@ -197,22 +197,22 @@
                         <img src="images/qr_dnt.jpg" alt="QR MoMo" style="width: 100px; height: 100px; object-fit: cover; border-radius: 8px; flex-shrink: 0; cursor: pointer;" id="qr-momo-img" />
                         <a href="images/qr_dnt.jpg" download="qr_momo_dnt.jpg" title="Tải về QR" style="display:none;" id="qr-download-link"></a>
                       <div style="flex: 1;">
-                        <p style="margin: 0 0 8px; font-size: 0.85rem; color: #555;">Quét mã MoMo hoặc nhấn nút bên dưới để ủng hộ dev</p>
-                        <a href="https://quy.momo.vn/v2/AKuG9EcLNV?cover=6749" target="_blank" class="btn btn-primary" style="display: inline-block;">Mở MoMo ủng hộ</a>
+                        <p style="margin: 0 0 8px; font-size: 0.85rem; color: #555;" data-i18n="serial.form.support.info.desc">Quét mã MoMo hoặc nhấn nút bên dưới để ủng hộ dev</p>
+                        <a href="https://quy.momo.vn/v2/AKuG9EcLNV?cover=6749" target="_blank" class="btn btn-primary" style="display: inline-block;" data-i18n="serial.form.support.info.btn">Mở MoMo ủng hộ</a>
                       </div>
                     </div>
                   </div>
 
-                  <button type="submit" class="btn btn-primary btn-lg" style="width: 100%;">Đăng ký</button>
+                  <button type="submit" class="btn btn-primary btn-lg" style="width: 100%;"><span data-i18n="serial.form.btn.register">Đăng ký</span></button>
                 </form>
               </div>
 
               <div id="lookup-form" style="display:none;">
                 <div class="form-group">
-                  <label for="lookup-input">Nhập email hoặc serial...</label>
-                  <input type="text" id="lookup-input" class="form-input" placeholder="Nhập email hoặc serial..." />
+                  <label for="lookup-input" data-i18n="serial.form.lookup.label">Nhập email hoặc serial...</label>
+                  <input type="text" id="lookup-input" class="form-input" data-i18n-placeholder="serial.form.lookup.placeholder" placeholder="Nhập email hoặc serial..." />
                 </div>
-                <button type="button" id="btn-lookup" class="btn btn-primary btn-lg" style="width: 100%;">Tìm</button>
+                <button type="button" id="btn-lookup" class="btn btn-primary btn-lg" style="width: 100%;" data-i18n="serial.form.lookup.btn">Tìm</button>
                 <div id="lookup-result" style="display:none; margin-top: 16px;"></div>
               </div>
             </div>
@@ -319,7 +319,7 @@
             }
 
             if (results.length === 0) {
-              openDropdown('<div style="padding:10px;color:#999;">Khong tim thay thiet bi</div>');
+              openDropdown('<div style="padding:10px;color:#999;">' + (typeof i18n !== 'undefined' ? i18n.t('serial.autocomplete.notfound') : 'Khong tim thay thiet bi') + '</div>');
               return;
             }
 
@@ -354,15 +354,16 @@
           });
         })();
 
-        // Form submit
         var form = document.getElementById('serial-form');
         if (form) {
           form.addEventListener('submit', function(e) {
             e.preventDefault();
             var btn = this.querySelector('[type=submit]');
-            var orig = btn.textContent;
+            var orig = btn.querySelector('[data-i18n]') ? btn.querySelector('[data-i18n]').textContent : btn.textContent;
             btn.disabled = true;
-            btn.textContent = 'Dang xu ly...';
+            var btnText = btn.querySelector('[data-i18n]');
+            if (btnText) btnText.textContent = i18n.t('serial.form.status.processing');
+            else btn.textContent = i18n.t('serial.form.status.processing');
 
             var deviceVal = document.getElementById('codename').value.trim();
             var last = deviceVal.lastIndexOf(' - ');
@@ -383,16 +384,17 @@
             }).then(function(r) { return r.json(); })
               .then(function(res) {
                 if (res.success) {
-                  alert('Thanh cong!\nSerial: ' + res.data.serial + '\nTrang thai: ' + res.data.status);
+                  alert(i18n.t('serial.form.success') + '\n' + i18n.t('serial.form.success.msg') + ' ' + res.data.serial + '\n' + i18n.t('serial.form.success.status') + ' ' + res.data.status);
                   form.reset();
                 } else {
-                  alert('Loi: ' + res.message);
+                  alert(i18n.t('serial.form.error') + ' ' + res.message);
                 }
               }).catch(function(err) {
-                alert('Khong the ket noi server.\n' + err);
+                alert(i18n.t('serial.form.error.connection') + '\n' + err);
               }).finally(function() {
                 btn.disabled = false;
-                btn.textContent = orig;
+                if (btnText) btnText.textContent = orig;
+                else btn.textContent = orig;
               });
           });
         }
@@ -403,9 +405,11 @@
           btnLookup.addEventListener('click', function() {
             var q = document.getElementById('lookup-input').value.trim();
             if (!q) return;
-            var orig = this.textContent;
+            var orig = this.getAttribute('data-i18n') ? i18n.t(this.getAttribute('data-i18n')) : this.textContent;
             this.disabled = true;
-            this.textContent = 'Dang tim...';
+            var btnText = this.getAttribute('data-i18n') ? this.textContent : null;
+            if (btnText) btnText = i18n.t('serial.form.lookup.btn');
+            else this.textContent = i18n.t('serial.form.status.processing');
 
             fetch('http://localhost:8080/api/serial/lookup?q=' + encodeURIComponent(q))
               .then(function(r) { return r.json(); })
@@ -413,23 +417,27 @@
                 var el = document.getElementById('lookup-result');
                 if (res.found && res.data) {
                   var d = res.data;
+                  var statusText = d.status === 'active' ? i18n.t('serial.form.lookup.result.active')
+                    : d.status === 'pending' ? i18n.t('serial.form.lookup.result.pending')
+                    : i18n.t('serial.form.lookup.result.rejected');
                   el.innerHTML = '<div style="background:#f8f8f8;padding:16px;border-radius:8px;line-height:1.8;">' +
-                    '<div><b>Activation Serial:</b> ' + d.serial + '</div>' +
-                    '<div><b>Thiet bi:</b> ' + (d.deviceName || '-') + '</div>' +
-                    '<div><b>Email:</b> ' + d.email + '</div>' +
-                    '<div><b>Ngay dang ky:</b> ' + (d.createdAt ? new Date(d.createdAt).toLocaleDateString('vi-VN') : '-') + '</div>' +
-                    '<div><b>Trang thai:</b> ' + (d.status === 'active' ? '✅ Active' : d.status === 'pending' ? '⏳ Pending' : '❌ Rejected') + '</div>' +
+                    '<div><b>' + i18n.t('serial.form.lookup.result.serial') + '</b> ' + d.serial + '</div>' +
+                    '<div><b>' + i18n.t('serial.form.lookup.result.device') + '</b> ' + (d.deviceName || '-') + '</div>' +
+                    '<div><b>' + i18n.t('serial.form.lookup.result.email') + '</b> ' + d.email + '</div>' +
+                    '<div><b>' + i18n.t('serial.form.lookup.result.date') + '</b> ' + (d.createdAt ? new Date(d.createdAt).toLocaleDateString('vi-VN') : '-') + '</div>' +
+                    '<div><b>' + i18n.t('serial.form.lookup.result.status') + '</b> ' + statusText + '</div>' +
                     '</div>';
                   el.style.display = 'block';
                 } else {
-                  el.innerHTML = '<div style="color:#e74c3c;padding:10px;">Khong tim thay thong tin dang ky.</div>';
+                  el.innerHTML = '<div style="color:#e74c3c;padding:10px;">' + i18n.t('serial.form.lookup.notfound') + '</div>';
                   el.style.display = 'block';
                 }
               }).catch(function() {
-                alert('Khong the ket noi server.');
+                alert(i18n.t('serial.form.error.connection'));
               }).finally(function() {
                 btnLookup.disabled = false;
-                btnLookup.textContent = orig;
+                if (btnText) btnLookup.textContent = btnText;
+                else btnLookup.textContent = orig;
               });
           });
         }

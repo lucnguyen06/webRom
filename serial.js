@@ -149,7 +149,7 @@ list.length===0
 dropdown.innerHTML=
 `
 <div class="autocomplete-no-results">
-Không tìm thấy thiết bị
+${i18n ? i18n.t('serial.autocomplete.notfound') : 'Không tìm thấy thiết bị'}
 </div>
 `;
 
