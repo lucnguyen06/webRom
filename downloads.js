@@ -129,7 +129,7 @@ function renderDeviceSlider(filteredDevices = null) {
     const hasLink = downloadLink !== '#';
     
     // Get device image path
-    const imagePath = `images/${device.codeName}.png`;
+    const imagePath = `images/${device.codeName.toLowerCase()}.png`;
     
     // Get fallback icon based on type
     let fallbackIcon = '📱';
