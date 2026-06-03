@@ -80,7 +80,7 @@ const registeredSerials = [
   },
   {
     serial: 'HM-2025-E5F6',
-    email: 'demo@hypermods.com',
+    email: 'user@example.com',
     device: 'Xiaomi 15 Pro - haotian',
     date: '05/01/2026',
     status: 'Chờ xác nhận'
