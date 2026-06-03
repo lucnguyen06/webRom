@@ -4,25 +4,25 @@
 
 /* ---------- Variables ---------- */
 :root {
-  --bg: #0a0a0a;
-  --bg-alt: #111111;
-  --bg-soft: #1a1a1a;
-  --text: #ffffff;
-  --text-soft: #b0b0b0;
-  --primary: #00ff88;
-  --primary-soft: rgba(0, 255, 136, 0.15);
-  --primary-strong: #00ff88;
-  --border: #1a1a1a;
-  --shadow: 0 18px 45px rgba(0, 0, 0, 0.8);
+  --bg: #020617;
+  --bg-alt: #031327;
+  --bg-soft: rgba(255, 255, 255, 0.05);
+  --text: #f8fafc;
+  --text-soft: #94a3b8;
+  --primary: #0ea5e9;
+  --primary-soft: rgba(14, 165, 233, 0.15);
+  --primary-strong: #06b6d4;
+  --border: rgba(255, 255, 255, 0.08);
+  --shadow: 0 18px 45px rgba(0, 0, 0, 0.5);
 
-  --accent-blue: #00ff88;
-  --accent-cyan: #00ffcc;
-  --accent-green: #00ff88;
-  --accent-lime: #88ff00;
-  --accent-red: #ff4444;
-  --accent-yellow: #ffdd00;
-  --accent-pink: #ff00ff;
-  --accent-orange: #ff8800;
+  --accent-blue: #0ea5e9;
+  --accent-cyan: #06b6d4;
+  --accent-green: #22c55e;
+  --accent-lime: #84cc16;
+  --accent-red: #ef4444;
+  --accent-yellow: #eab308;
+  --accent-pink: #ec4899;
+  --accent-orange: #f97316;
 
   --radius-sm: 8px;
   --radius-md: 14px;
@@ -53,7 +53,18 @@ html {
 body {
   min-height: 100vh;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  background: var(--bg);
+  background:
+    radial-gradient(circle at 20% 30%, rgba(14, 165, 233, 0.25), transparent 35%),
+    radial-gradient(circle at 80% 50%, rgba(34, 197, 94, 0.20), transparent 40%),
+    linear-gradient(
+      135deg,
+      #020617,
+      #031327,
+      #06243d,
+      #063b5b,
+      #0a4d3a
+    );
+  background-attachment: fixed;
   color: var(--text);
   line-height: 1.5;
   display: flex;
@@ -134,19 +145,19 @@ button {
   font-family: 'Orbitron', sans-serif;
   font-size: 1.5rem;
   font-weight: 900;
-  color: #00ff88;
-  text-shadow: 0 0 10px rgba(0, 255, 136, 0.45);
+  color: #0ea5e9;
+  text-shadow: 0 0 10px rgba(14, 165, 233, 0.45);
   background: none;
 }
 
 .logo-hyper {
-  color: var(--primary);
-  text-shadow: 0 0 10px rgba(0, 255, 136, 0.45);
+  color: #0ea5e9;
+  text-shadow: 0 0 10px rgba(14, 165, 233, 0.45);
 }
 
 .logo-ur {
-  color: var(--primary-strong);
-  text-shadow: 0 0 10px rgba(0, 255, 136, 0.45);
+  color: #22c55e;
+  text-shadow: 0 0 10px rgba(34, 197, 94, 0.45);
 }
 
 .nav {
@@ -168,7 +179,7 @@ button {
 }
 
 .nav-link.active {
-  background: rgba(0, 255, 136, 0.2);
+  background: rgba(14, 165, 233, 0.2);
   color: var(--primary);
 }
 
@@ -237,7 +248,7 @@ button {
 }
 
 .mobile-nav-link.active {
-  background: rgba(0, 255, 136, 0.15);
+  background: rgba(14, 165, 233, 0.15);
   color: var(--primary);
 }
 
@@ -266,27 +277,37 @@ button {
 }
 
 .btn-primary {
-  background: var(--primary);
-  color: #0a0a0a;
-  box-shadow: 0 4px 15px rgba(0, 255, 136, 0.35);
+  background: linear-gradient(
+    90deg,
+    #0ea5e9,
+    #06b6d4,
+    #22c55e
+  );
+  color: #fff;
+  box-shadow: 0 4px 15px rgba(14, 165, 233, 0.35);
 }
 
 .btn-primary:hover {
-  background: #00dd77;
-  box-shadow: 0 6px 20px rgba(0, 255, 136, 0.5);
+  background: linear-gradient(
+    90deg,
+    #38bdf8,
+    #22d3ee,
+    #4ade80
+  );
+  box-shadow: 0 6px 20px rgba(14, 165, 233, 0.5);
   transform: translateY(-1px);
 }
 
 .btn-outline {
-  border: 1.5px solid rgba(0, 255, 136, 0.4);
+  border: 1.5px solid rgba(14, 165, 233, 0.4);
   color: var(--primary);
   background: transparent;
 }
 
 .btn-outline:hover {
   border-color: var(--primary);
-  color: #0a0a0a;
-  background: rgba(0, 255, 136, 0.15);
+  color: #fff;
+  background: rgba(14, 165, 233, 0.15);
 }
 
 .btn-lg {
@@ -296,16 +317,17 @@ button {
 
 /* ---------- Cards ---------- */
 .card {
-  background: var(--bg-soft);
-  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: var(--radius-lg);
   padding: 1.5rem;
   transition: all var(--t-normal);
 }
 
 .card:hover {
-  border-color: var(--primary);
-  box-shadow: 0 0 20px rgba(0, 255, 136, 0.2);
+  border-color: rgba(14, 165, 233, 0.5);
+  box-shadow: 0 0 20px rgba(14, 165, 233, 0.2);
 }
 
 /* ---------- Hero ---------- */
@@ -333,14 +355,14 @@ button {
 }
 
 .hero-text h1 .hyper {
-  background: linear-gradient(135deg, var(--accent-blue), var(--accent-cyan));
+  background: linear-gradient(135deg, #0ea5e9, #06b6d4);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
 .hero-text h1 .mods {
-  background: linear-gradient(135deg, var(--accent-green), var(--accent-lime));
+  background: linear-gradient(135deg, #22c55e, #84cc16);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -354,8 +376,8 @@ button {
   border-radius: var(--radius-full);
   font-size: 0.85rem;
   font-weight: 500;
-  background: linear-gradient(135deg, #00ff88, #00ffcc);
-  color: #0a0a0a;
+  background: linear-gradient(135deg, #0ea5e9, #06b6d4, #22c55e);
+  color: #fff;
 }
 
 .badge-dot {
@@ -408,7 +430,7 @@ button {
 
 .hero-list li:hover {
   border-color: var(--primary);
-  box-shadow: 0 0 15px rgba(0, 255, 136, 0.15);
+  box-shadow: 0 0 15px rgba(14, 165, 233, 0.15);
 }
 
 .hero-list li .icon {
@@ -424,16 +446,17 @@ button {
 }
 
 .feature-card {
-  background: var(--bg-soft);
-  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: var(--radius-lg);
   padding: 1.5rem;
   transition: all var(--t-normal);
 }
 
 .feature-card:hover {
-  border-color: var(--primary);
-  box-shadow: 0 0 20px rgba(0, 255, 136, 0.2);
+  border-color: rgba(14, 165, 233, 0.5);
+  box-shadow: 0 0 20px rgba(14, 165, 233, 0.2);
 }
 
 .feature-icon {
@@ -573,16 +596,17 @@ button {
 .device-card {
   flex: 0 0 300px;
   scroll-snap-align: start;
-  background: var(--bg-soft);
-  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: var(--radius-lg);
   padding: 1.5rem;
   transition: all var(--t-normal);
 }
 
 .device-card:hover {
-  border-color: var(--primary);
-  box-shadow: 0 0 20px rgba(0, 255, 136, 0.2);
+  border-color: rgba(14, 165, 233, 0.5);
+  box-shadow: 0 0 20px rgba(14, 165, 233, 0.2);
 }
 
 .device-card h3 {
@@ -633,8 +657,9 @@ button {
 
 /* ---------- Footer ---------- */
 .footer {
-  background: var(--bg-alt);
-  border-top: 1px solid var(--border);
+  background: rgba(3, 19, 39, 0.8);
+  backdrop-filter: blur(20px);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
   padding: 3rem 0 1.5rem;
   margin-top: auto;
 }
@@ -689,13 +714,16 @@ button {
   align-items: center;
   gap: 0.75rem;
   padding: 0.75rem;
-  background: var(--bg-soft);
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: var(--radius-md);
   transition: all var(--t-fast);
 }
 
 .footer-team-card:hover {
-  background: rgba(168, 85, 247, 0.1);
+  background: rgba(14, 165, 233, 0.1);
+  border-color: rgba(14, 165, 233, 0.3);
 }
 
 .footer-team-icon {
@@ -1023,4 +1051,56 @@ button {
 @keyframes float3 {
   0%, 100% { transform: translate(0, 0); }
   50% { transform: translate(20px, 30px); }
+}
+
+/* ---------- Footer HUR Section ---------- */
+.footer-hur-section {
+  margin-top: 1.5rem;
+}
+
+.footer-hur-heading {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-soft);
+  margin-bottom: 1rem;
+}
+
+.footer-hur-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1rem;
+}
+
+.footer-hur-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-md);
+  transition: all var(--t-fast);
+}
+
+.footer-hur-card:hover {
+  background: rgba(14, 165, 233, 0.1);
+  border-color: rgba(14, 165, 233, 0.3);
+}
+
+.footer-hur-icon {
+  font-size: 1.5rem;
+}
+
+.footer-hur-label {
+  font-size: 0.8rem;
+  color: var(--text-soft);
+}
+
+.footer-hur-name {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--primary);
 }
