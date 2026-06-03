@@ -1164,11 +1164,6 @@ button {
   gap: 0.75rem;
 }
 
-.device-slider {
-  flex: 1;
-  min-width: 0;
-}
-
 .slider-arrow {
   flex-shrink: 0;
   width: 44px;
@@ -1203,6 +1198,36 @@ button {
   display: block;
   line-height: 1;
   margin-top: -2px;
+}
+
+/* Scroll hint dots - mobile slider navigation */
+.slider-scroll-hint {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+  margin-top: 0.75rem;
+  padding: 0 1rem;
+  animation: scrollHintFade 2s ease-in-out infinite;
+}
+
+.slider-scroll-hint-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.25);
+  transition: all 0.3s ease;
+}
+
+.slider-scroll-hint-dot.primary {
+  background: var(--primary);
+  width: 24px;
+  border-radius: 4px;
+}
+
+@keyframes scrollHintFade {
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 1; }
 }
 
 /* ---------- Device Card (new structure) ---------- */
@@ -1852,7 +1877,7 @@ button {
 }
 
 /* ---------- Downloads Page Responsive ---------- */
-@media (max-width: 768px) {
+  @media (max-width: 768px) {
   .downloads-hero {
     padding: calc(var(--header-h) + 2rem) 0 1.5rem;
   }
@@ -1888,6 +1913,32 @@ button {
 
   .slider-arrow {
     display: none;
+  }
+
+  /* Show scroll hint dots on mobile */
+  .slider-scroll-hint {
+    display: flex;
+  }
+
+  /* Make touch scroll obvious on mobile */
+  .device-slider {
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    padding-bottom: 0.5rem;
+  }
+
+  .device-slider::-webkit-scrollbar {
+    display: none;
+  }
+
+  .device-slider::after {
+    content: '';
+    flex-shrink: 0;
+    width: 1px;
+    height: 1px;
   }
 
   .device-card {

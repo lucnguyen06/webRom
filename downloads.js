@@ -127,10 +127,10 @@ function renderDeviceSlider(filteredDevices = null) {
   slider.innerHTML = devicesToRender.map((device, index) => {
     const downloadLink = downloadLinks[device.codeName] || '#';
     const hasLink = downloadLink !== '#';
-    
+
     // Get device image path
     const imagePath = `images/${device.codeName.toLowerCase()}.png`;
-    
+
     // Get fallback icon based on type
     let fallbackIcon = '📱';
     const name = device.name.toLowerCase();
@@ -138,12 +138,12 @@ function renderDeviceSlider(filteredDevices = null) {
     else if (name.includes('mix fold') || name.includes('mix flip')) fallbackIcon = '📱';
     else if (name.includes('ultra')) fallbackIcon = '⚡';
     else if (name.includes('pro')) fallbackIcon = '🔥';
-    
+
     return `
       <div class="device-card" style="animation-delay: ${index * 0.05}s">
         <div class="device-card-image">
-          <img src="${imagePath}" 
-               alt="${device.name}" 
+          <img src="${imagePath}"
+               alt="${device.name}"
                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
                loading="lazy">
           <span class="device-fallback-icon" style="display:none;">${fallbackIcon}</span>
@@ -156,7 +156,7 @@ function renderDeviceSlider(filteredDevices = null) {
           <span class="device-card-codename">${device.codeName}</span>
         </div>
         <div class="device-card-footer">
-          ${hasLink 
+          ${hasLink
             ? `<a href="${downloadLink}" target="_blank" rel="noopener noreferrer" class="btn-download">
                 <span>⬇️</span> ${i18n.t('downloads.btn.download')}
               </a>`
@@ -166,6 +166,9 @@ function renderDeviceSlider(filteredDevices = null) {
       </div>
     `;
   }).join('');
+
+  // Update mobile scroll dots after rendering
+  updateSliderDots();
 }
 
 // Mobile category menu toggle
@@ -267,26 +270,76 @@ function initCategoryTabs() {
   });
 }
 
+// Generate scroll hint dots for mobile
+function updateSliderDots() {
+  const slider = document.getElementById('device-slider');
+  const dotsContainer = document.getElementById('slider-scroll-hint');
+  if (!slider || !dotsContainer) return;
+
+  const cards = slider.querySelectorAll('.device-card');
+  if (cards.length === 0) {
+    dotsContainer.innerHTML = '';
+    return;
+  }
+
+  // Estimate how many cards fit in one "page" on mobile (260px card + gap)
+  const sliderWidth = slider.offsetWidth;
+  const cardWidth = 260 + 24; // card width + gap
+  const cardsPerPage = Math.max(1, Math.floor(sliderWidth / cardWidth));
+  const totalPages = Math.ceil(cards.length / cardsPerPage);
+
+  if (totalPages <= 1) {
+    dotsContainer.innerHTML = '';
+    return;
+  }
+
+  dotsContainer.innerHTML = Array.from({ length: totalPages }, (_, i) =>
+    `<span class="slider-scroll-hint-dot${i === 0 ? ' primary' : ''}"></span>`
+  ).join('');
+
+  // Sync dots on scroll
+  slider.removeEventListener('scroll', syncDotsOnScroll);
+  slider.addEventListener('scroll', syncDotsOnScroll);
+}
+
+function syncDotsOnScroll() {
+  const slider = document.getElementById('device-slider');
+  const dotsContainer = document.getElementById('slider-scroll-hint');
+  if (!slider || !dotsContainer) return;
+
+  const cards = slider.querySelectorAll('.device-card');
+  if (cards.length === 0) return;
+
+  const sliderWidth = slider.offsetWidth;
+  const cardWidth = 260 + 24;
+  const cardsPerPage = Math.max(1, Math.floor(sliderWidth / cardWidth));
+  const totalPages = Math.ceil(cards.length / cardsPerPage);
+  const dots = dotsContainer.querySelectorAll('.slider-scroll-hint-dot');
+  const currentPage = Math.round(slider.scrollLeft / (cardWidth * cardsPerPage));
+
+  dots.forEach((dot, i) => {
+    dot.classList.toggle('primary', i === Math.min(currentPage, totalPages - 1));
+  });
+}
+
 // Initialize slider navigation
 function initSliderNavigation() {
   const slider = document.getElementById('device-slider');
   const prevBtn = document.getElementById('slider-prev');
   const nextBtn = document.getElementById('slider-next');
-  
+
   if (!slider || !prevBtn || !nextBtn) return;
-  
+
   // Scroll by ~2 columns (280px each + gap)
   const scrollAmount = 580;
-  
+
   prevBtn.addEventListener('click', () => {
     slider.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
   });
-  
+
   nextBtn.addEventListener('click', () => {
     slider.scrollBy({ left: scrollAmount, behavior: 'smooth' });
   });
-  
-  // Touch/drag scroll support is already handled by CSS overflow-x: auto
 }
 
 // Search functionality
