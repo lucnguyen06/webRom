@@ -1083,7 +1083,7 @@ const i18n = {
   }
 };
 
-// Initialize i18n when DOM is ready
+  // Initialize i18n when DOM is ready
 document.addEventListener('DOMContentLoaded', () => {
   i18n.init();
 
@@ -1095,6 +1095,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // Mobile language toggle button
   const mobileLangToggleBtn = document.getElementById('btn-lang-toggle-mobile');
   if (mobileLangToggleBtn) {
     mobileLangToggleBtn.addEventListener('click', () => {
@@ -1109,6 +1110,7 @@ document.addEventListener('DOMContentLoaded', () => {
     hamburgerBtn.addEventListener('click', () => {
       hamburgerBtn.classList.toggle('active');
       mobileMenu.classList.toggle('active');
+      document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
     });
 
     // Close menu when clicking a nav link
@@ -1117,6 +1119,7 @@ document.addEventListener('DOMContentLoaded', () => {
       link.addEventListener('click', () => {
         hamburgerBtn.classList.remove('active');
         mobileMenu.classList.remove('active');
+        document.body.style.overflow = '';
       });
     });
   }
