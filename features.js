@@ -1,39 +1,5 @@
 // Auto update year in footer
 
-// Theme toggle (light / dark)
-const body = document.body;
-const themeToggleBtn = document.getElementById('btn-theme-toggle');
-const THEME_KEY = 'hypermods-theme';
-
-function applyTheme(theme) {
-  if (theme === 'dark') {
-    body.classList.add('dark');
-  } else {
-    body.classList.remove('dark');
-  }
-  if (themeToggleBtn) {
-    const icon = theme === 'dark' ? '☀️' : '🌙';
-    themeToggleBtn.querySelector('.theme-icon').textContent = icon;
-  }
-}
-
-// Load saved theme
-const savedTheme = window.localStorage.getItem(THEME_KEY);
-if (savedTheme === 'light' || savedTheme === 'dark') {
-  applyTheme(savedTheme);
-} else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-  applyTheme('dark');
-}
-
-if (themeToggleBtn) {
-  themeToggleBtn.addEventListener('click', () => {
-    const isDark = body.classList.contains('dark');
-    const nextTheme = isDark ? 'light' : 'dark';
-    applyTheme(nextTheme);
-    window.localStorage.setItem(THEME_KEY, nextTheme);
-  });
-}
-
 // Modal đăng ký serial
 const modalOverlay = document.getElementById('modal-serial');
 const btnRegisterSerial = document.getElementById('btn-register-serial');

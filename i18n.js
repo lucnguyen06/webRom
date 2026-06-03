@@ -1122,22 +1122,5 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
   }
-
-  // Mobile theme toggle
-  const mobileThemeBtn = document.getElementById('btn-theme-toggle-mobile');
-  if (mobileThemeBtn) {
-    mobileThemeBtn.addEventListener('click', () => {
-      const isDark = document.body.classList.contains('dark-mode');
-      const nextTheme = isDark ? 'light' : 'dark';
-      document.body.classList.toggle('dark-mode');
-      localStorage.setItem('hypermods-theme', nextTheme);
-      const icon = nextTheme === 'dark' ? '☀️' : '🌙';
-      mobileThemeBtn.querySelector('.theme-icon').textContent = icon;
-      const desktopBtn = document.getElementById('btn-theme-toggle');
-      if (desktopBtn) {
-        desktopBtn.querySelector('.theme-icon').textContent = icon;
-      }
-    });
-  }
 });
 

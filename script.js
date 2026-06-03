@@ -52,45 +52,6 @@ function updateActiveNav() {
 window.addEventListener('scroll', updateActiveNav);
 window.addEventListener('load', updateActiveNav);
 
-// Theme toggle (light / dark)
-const body = document.body;
-const themeToggleBtn = document.getElementById('btn-theme-toggle');
-const THEME_KEY = 'hypermods-theme';
-
-function applyTheme(theme) {
-  if (theme === 'dark') {
-    body.classList.add('dark-mode');
-  } else {
-    body.classList.remove('dark-mode');
-  }
-  if (themeToggleBtn) {
-    const icon = theme === 'dark' ? '☀️' : '🌙';
-    themeToggleBtn.querySelector('.theme-icon').textContent = icon;
-  }
-  const mobileThemeBtn = document.getElementById('btn-theme-toggle-mobile');
-  if (mobileThemeBtn) {
-    const icon = theme === 'dark' ? '☀️' : '🌙';
-    mobileThemeBtn.querySelector('.theme-icon').textContent = icon;
-  }
-}
-
-// Load saved theme
-const savedTheme = window.localStorage.getItem(THEME_KEY);
-if (savedTheme === 'light' || savedTheme === 'dark') {
-  applyTheme(savedTheme);
-} else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-  applyTheme('dark');
-}
-
-if (themeToggleBtn) {
-  themeToggleBtn.addEventListener('click', () => {
-    const isDark = body.classList.contains('dark-mode');
-    const nextTheme = isDark ? 'light' : 'dark';
-    applyTheme(nextTheme);
-    window.localStorage.setItem(THEME_KEY, nextTheme);
-  });
-}
-
 // Modal đăng ký serial
 const modalOverlay = document.getElementById('modal-serial');
 const btnRegisterSerial = document.getElementById('btn-register-serial');
@@ -471,17 +432,17 @@ const galleryImages = {
 let currentGallery = 'os3';
 let currentSlide = 0;
 let currentLightboxIndex = 0;
-let itemsPerView = 4;
+let itemsPerView = 3;
 
 function updateItemsPerView() {
   if (window.innerWidth <= 480) {
-    itemsPerView = 2;
+    itemsPerView = 1;
   } else if (window.innerWidth <= 768) {
     itemsPerView = 2;
   } else if (window.innerWidth <= 1024) {
-    itemsPerView = 3;
+    itemsPerView = 2;
   } else {
-    itemsPerView = 4;
+    itemsPerView = 3;
   }
 }
 
@@ -550,7 +511,7 @@ function updateGalleryPosition() {
 
   // Calculate item width including gap
   const containerWidth = galleryTrack.parentElement.offsetWidth;
-  const gap = 16; // 1rem
+  const gap = 16; // 1rem from CSS
   const itemWidth = (containerWidth - (gap * (itemsPerView - 1))) / itemsPerView;
   const offset = currentSlide * (itemWidth + gap) * itemsPerView;
 

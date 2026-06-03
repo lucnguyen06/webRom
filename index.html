@@ -11,24 +11,15 @@
       name="description"
       content="HyperUR - Nền tảng ROM mod tối ưu hiệu năng, pin, độ ổn định cho Android. Hỗ trợ Snapdragon, nhiều tuỳ biến cao cấp."
     />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link
       rel="stylesheet"
       href="styles.css"
     />
   </head>
   <body>
-    <!-- Blur Background -->
-    <div class="blur-bg blur-bg-1"></div>
-    <div class="blur-bg blur-bg-2"></div>
-    <div class="blur-bg blur-bg-3"></div>   
-    <div class="blur-bg blur-bg-4"></div>
-    <div class="blur-bg blur-bg-5"></div>
-
-    <!-- Gradient Orbs -->
-    <div class="gradient-orb gradient-orb-1"></div>
-    <div class="gradient-orb gradient-orb-2"></div>
-    <div class="gradient-orb gradient-orb-3"></div>
-
     <!-- Header / Navbar -->
     <header class="header">
       <div class="container header-inner">
@@ -56,9 +47,6 @@
             <span class="lang-icon">🌐</span>
             <span class="lang-text">VI</span>
           </button>
-          <button class="btn btn-outline" id="btn-theme-toggle">
-            <span class="theme-icon">🌙</span>
-          </button>
         </div>
       </div>
 
@@ -76,9 +64,6 @@
           <button class="btn btn-outline btn-lang" id="btn-lang-toggle-mobile" title="Switch Language">
             <span class="lang-icon">🌐</span>
             <span class="lang-text">VI</span>
-          </button>
-          <button class="btn btn-outline" id="btn-theme-toggle-mobile">
-            <span class="theme-icon">🌙</span>
           </button>
         </div>
       </div>
@@ -112,79 +97,12 @@
           </div>
 
           <ul class="hero-list">
-            <li data-i18n="hero.list.1">⚡ Tối ưu hiệu năng cho game & đa nhiệm</li>
-            <li data-i18n="hero.list.2">🔋 Quản lý pin thông minh, giảm app chạy nền</li>
-            <li data-i18n="hero.list.3">🛡️ Bảo mật tăng cường, chặn quảng cáo hệ thống</li>
+            <li><span class="icon">⚡</span> <span data-i18n="hero.list.1">Tối ưu hiệu năng cho game & đa nhiệm</span></li>
+            <li><span class="icon">🔋</span> <span data-i18n="hero.list.2">Quản lý pin thông minh, giảm app chạy nền</span></li>
+            <li><span class="icon">🛡️</span> <span data-i18n="hero.list.3">Bảo mật tăng cường, chặn quảng cáo hệ thống</span></li>
           </ul>
         </div>
 
-        <div class="hero-card">
-          <div class="hero-card-header">
-            <span class="dot red"></span>
-            <span class="dot yellow"></span>
-            <span class="dot green"></span>
-          </div>
-          <div class="hero-card-body">
-            <h2 data-i18n="version.title">Phiên bản hiện tại</h2>
-            <p class="version-name" data-i18n="version.name">HyperUR Hybrid 1.0</p>
-            <ul class="version-list">
-              <li><strong data-i18n="version.android">Android:</strong> 14, 15, 16 (HyperOS 1, 2, 3)</li>
-              <li><strong data-i18n="version.base">Base:</strong> CN, EU, Global</li>
-              <li><strong data-i18n="version.security">Security:</strong> <span data-i18n="version.security.value">Patch mới nhất</span></li>
-            </ul>
-            <p class="version-note" data-i18n="version.note">
-              * Vui lòng đọc kỹ hướng dẫn cài đặt trước khi flash ROM.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Quick Features Section -->
-    <section class="section home-features">
-      <div class="container">
-        <div class="section-header">
-          <h2 data-i18n="home.features.title">Tại sao chọn HyperUR?</h2>
-          <p data-i18n="home.features.subtitle">Những điểm nổi bật làm nên sự khác biệt của HyperUR</p>
-        </div>
-
-        <div class="home-features-grid">
-          <div class="home-feature-card">
-            <div class="home-feature-icon">🚀</div>
-            <h3 data-i18n="home.features.performance">Hiệu năng vượt trội</h3>
-            <p data-i18n="home.features.performance.desc">Tinh chỉnh hệ thống sâu để tăng tốc độ xử lý, giảm độ trễ và tối ưu RAM/CPU.</p>
-          </div>
-
-          <div class="home-feature-card">
-            <div class="home-feature-icon">🎮</div>
-            <h3 data-i18n="home.features.gaming">Chế độ Gaming tối ưu</h3>
-            <p data-i18n="home.features.gaming.desc">Hạn chế giật lag, giảm nhiệt và tăng FPS ổn định khi chơi game.</p>
-          </div>
-
-          <div class="home-feature-card">
-            <div class="home-feature-icon">🎨</div>
-            <h3 data-i18n="home.features.customize">Tùy biến linh hoạt</h3>
-            <p data-i18n="home.features.customize.desc">Giao diện, hiệu ứng, icon, banner… có thể được cá nhân hóa theo phong cách riêng.</p>
-          </div>
-
-          <div class="home-feature-card">
-            <div class="home-feature-icon">🔒</div>
-            <h3 data-i18n="home.features.security">An toàn & ổn định</h3>
-            <p data-i18n="home.features.security.desc">Giữ lại tính tương thích và bảo mật của ROM gốc, đồng thời loại bỏ bloatware thừa.</p>
-          </div>
-
-          <div class="home-feature-card">
-            <div class="home-feature-icon">🔧</div>
-            <h3 data-i18n="home.features.support">Hỗ trợ mở rộng</h3>
-            <p data-i18n="home.features.support.desc">Dễ dàng kết hợp với các công cụ flash, patch và mod khác từ cộng đồng.</p>
-          </div>
-        </div>
-
-        <div class="home-features-cta">
-          <a href="features.html" class="btn btn-outline btn-lg" data-i18n="home.features.cta">
-            Xem tất cả tính năng →
-          </a>
-        </div>
       </div>
     </section>
 
