@@ -295,6 +295,8 @@
           var dropdown = document.getElementById('codename-dropdown');
           if (!input || !dropdown) return;
 
+          var isSelecting = false;
+
           function closeDropdown() {
             dropdown.classList.add('hidden');
           }
@@ -307,7 +309,14 @@
           input.addEventListener('input', function() {
             var q = this.value.trim();
             if (q.length === 0) { closeDropdown(); return; }
+            if (isSelecting) { isSelecting = false; return; }
             if (typeof devices === 'undefined') return;
+
+            // If value already looks like a full selection (contains " - "), just close dropdown
+            if (q.indexOf(' - ') > -1) {
+              closeDropdown();
+              return;
+            }
 
             var results = [];
             for (var i = 0; i < devices.length; i++) {
@@ -327,7 +336,7 @@
             for (var i = 0; i < results.length; i++) {
               var d = results[i];
               html += '<div style="display:flex;align-items:center;gap:10px;padding:8px 12px;cursor:pointer;border-bottom:1px solid #eee;" ';
-              html += 'onclick="document.getElementById(\'codename\').value=\'' + d.name + ' - ' + d.codeName + '\';document.getElementById(\'codename-dropdown\').classList.add(\'hidden\')">';
+              html += 'onclick="selectDevice(\'' + d.name.replace(/'/g, "\\'") + '\', \'' + d.codeName.replace(/'/g, "\\'") + '\')">';
               html += '<div style="width:40px;height:40px;background:#f0f0f0;border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0;overflow:hidden;">';
               html += '<img src="images/' + d.codeName.toLowerCase() + '.png" style="width:100%;height:100%;object-fit:cover;" onerror="this.style.display=\'none\';this.parentElement.innerHTML=\'📱\'">';
               html += '</div>';
@@ -340,8 +349,22 @@
             openDropdown(html);
           });
 
+          window.selectDevice = function(name, codename) {
+            isSelecting = true;
+            input.value = name + ' - ' + codename;
+            closeDropdown();
+            setTimeout(function() { isSelecting = false; }, 100);
+          };
+
           input.addEventListener('blur', function() {
-            setTimeout(closeDropdown, 200);
+            // Only close if nothing is selected
+            if (!isSelecting) {
+              setTimeout(function() {
+                if (!dropdown.classList.contains('hidden')) {
+                  closeDropdown();
+                }
+              }, 100);
+            }
           });
 
           input.addEventListener('focus', function() {

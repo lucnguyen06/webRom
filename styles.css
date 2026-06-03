@@ -2483,6 +2483,11 @@ button {
   background: rgba(255, 255, 255, 0.08);
 }
 
+/* Utility */
+.hidden {
+  display: none !important;
+}
+
 /* Autocomplete Dropdown */
 .autocomplete-dropdown {
   background: rgba(3, 19, 39, 0.98);
