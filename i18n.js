@@ -142,7 +142,6 @@ const translations = {
     'serial.lookup.desc': 'Nhập serial hoặc email đã đăng ký để tra cứu thông tin',
 
     // Common
-    'common.stable': 'Stable',
     'common.dev': 'Dev',
 
     // Guide Page
@@ -640,7 +639,6 @@ const translations = {
     'serial.lookup.desc': 'Enter your registered serial or email to lookup information',
 
     // Common
-    'common.stable': 'Stable',
     'common.dev': 'Dev',
 
     // Guide Page

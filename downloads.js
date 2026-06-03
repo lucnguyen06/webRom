@@ -148,7 +148,7 @@ function renderDeviceSlider(filteredDevices = null) {
                loading="lazy">
           <span class="device-fallback-icon" style="display:none;">${fallbackIcon}</span>
           <div class="device-card-status">
-            <span class="tag ${hasLink ? 'tag-stable' : 'tag-dev'}">${hasLink ? i18n.t('common.stable') : i18n.t('common.dev')}</span>
+            ${hasLink ? '' : `<span class="tag tag-dev">${i18n.t('common.dev')}</span>`}
           </div>
         </div>
         <div class="device-card-info">
