@@ -1933,32 +1933,32 @@ button {
 .footer-divider {
   height: 1px;
   background: rgba(255, 255, 255, 0.08);
-  margin: 0.75rem 0;
+  margin: 0.5rem 0;
 }
 
 .footer-team-heading {
-  font-size: 0.7rem;
+  font-size: 0.65rem;
   text-transform: uppercase;
   letter-spacing: 0.05em;
   color: var(--text-soft);
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.35rem;
 }
 
 .footer-team-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-  gap: 0.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: 0.35rem;
 }
 
 .footer-team-card {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
-  padding: 0.5rem;
+  gap: 0.35rem;
+  padding: 0.35rem;
   background: rgba(255, 255, 255, 0.05);
   backdrop-filter: blur(20px);
   border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-sm);
   transition: all var(--t-fast);
 }
 
@@ -1968,16 +1968,16 @@ button {
 }
 
 .footer-team-icon {
-  font-size: 1rem;
+  font-size: 0.9rem;
 }
 
 .footer-team-role {
-  font-size: 0.7rem;
+  font-size: 0.65rem;
   color: var(--text-soft);
 }
 
 .footer-team-name {
-  font-size: 0.8rem;
+  font-size: 0.75rem;
   font-weight: 600;
   color: var(--primary);
 }
@@ -3080,33 +3080,33 @@ button {
 
 /* ---------- Footer HUR Section ---------- */
 .footer-hur-section {
-  margin-top: 0.75rem;
+  margin-top: 0.5rem;
 }
 
 .footer-hur-heading {
-  font-size: 0.7rem;
+  font-size: 0.65rem;
   text-transform: uppercase;
   letter-spacing: 0.05em;
   color: var(--text-soft);
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.35rem;
 }
 
 .footer-hur-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-  gap: 0.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+  gap: 0.35rem;
 }
 
 .footer-hur-card {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0.35rem;
-  padding: 0.65rem;
+  gap: 0.25rem;
+  padding: 0.5rem;
   background: rgba(255, 255, 255, 0.05);
   backdrop-filter: blur(20px);
   border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-sm);
   transition: all var(--t-fast);
 }
 
@@ -3116,16 +3116,16 @@ button {
 }
 
 .footer-hur-icon {
-  font-size: 1.25rem;
+  font-size: 1rem;
 }
 
 .footer-hur-label {
-  font-size: 0.7rem;
+  font-size: 0.65rem;
   color: var(--text-soft);
 }
 
 .footer-hur-name {
-  font-size: 0.8rem;
+  font-size: 0.75rem;
   font-weight: 600;
   color: var(--primary);
 }
