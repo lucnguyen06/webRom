@@ -272,8 +272,7 @@ button {
 }
 
 .mobile-lang-toggle {
-  margin-top: auto;
-  padding-top: 1.5rem;
+  padding: 1.25rem 1.25rem 0;
   display: flex;
   justify-content: center;
 }
